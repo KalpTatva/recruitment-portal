@@ -1,0 +1,34 @@
+{
+  "SIGN_IN_ACCOUNT": "Login to your account",
+  "EMAIL_LABEL": "Your email",
+  "EMAIL_PLACEHOLDER": "name@company.com",
+  "EMAIL_REQUIRED": "Email is required.",
+  "EMAIL_INVALID": "Invalid user email",
+  "PASSWORD_LABEL": "Password",
+  "PASSWORD_PLACEHOLDER": "••••••••",
+  "PASSWORD_REQUIRED": "Password is required.",
+  "PASSWORD_INVALID": "Must contain at least 1 uppercase, 1 lowercase, 1 special character, 1 number and have a length of 8.",
+  "REMEMBER_ME": "Remember me",
+  "FORGOT_PASSWORD": "Forgot password?",
+  "SIGN_IN": "Login",
+  "NO_ACCOUNT": "Don’t have an account yet?",
+  "SIGN_UP": "Register",
+  "TITLE": "CRUD",
+  "LOGOUT": "Logout",
+
+  "REGISER_ACCOUNT": "Register your account",
+  "USERNAME_LABEL": "User Name",
+  "USERNAME_PLACEHOLDER" : "Temp@123",
+  "USERNAME_REQUIRED" : "Username is required",
+  "REGISTER" : "Register",
+  "HAVE_ACCOUNT" : "Have an account?",
+  "CONFIRM_PASSWORD_LABEL" : "Confirm Password",
+  "CONFIRM_PASSWORD_REQUIRED" : "Confirm Password is required",
+  "PASSWORD_NOT_MATCH" : "Password and Confirm Password doesn't match",
+
+  "PHONE_LABEL" : "Phone",
+  "PHONE_PLACEHOLDER" : "9898989898",
+  "PHONE_REQUIRED" : "Phone is required",
+  "PHONE_INVALID" : "invalid phone number"
+
+}

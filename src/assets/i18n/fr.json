@@ -1,0 +1,33 @@
+{
+  "SIGN_IN_ACCOUNT": "Connectez-vous à votre compte",
+  "EMAIL_LABEL": "Votre e-mail",
+  "EMAIL_PLACEHOLDER": "nom@entreprise.com",
+  "EMAIL_REQUIRED": "L'e-mail est requis.",
+  "EMAIL_INVALID": "E-mail utilisateur invalide",
+  "PASSWORD_LABEL": "Mot de passe",
+  "PASSWORD_PLACEHOLDER": "••••••••",
+  "PASSWORD_REQUIRED": "Le mot de passe est requis.",
+  "PASSWORD_INVALID": "Doit contenir au moins 1 majuscule, 1 minuscule, 1 caractère spécial, 1 chiffre et avoir une longueur de 8.",
+  "REMEMBER_ME": "Se souvenir de moi",
+  "FORGOT_PASSWORD": "Mot de passe oublié ?",
+  "SIGN_IN": "Se connecter",
+  "NO_ACCOUNT": "Vous n’avez pas encore de compte ?",
+  "SIGN_UP": "S’inscrire",
+  "TITLE": "CRUD",
+  "LOGOUT": "Se déconnecter",
+
+  "REGISER_ACCOUNT": "Enregistrez votre compte",
+  "USERNAME_LABEL": "Nom d’utilisateur",
+  "USERNAME_PLACEHOLDER": "Temp@123",
+  "USERNAME_REQUIRED": "Le nom d’utilisateur est requis",
+  "REGISTER": "S’enregistrer",
+  "HAVE_ACCOUNT": "Vous avez déjà un compte ?",
+  "CONFIRM_PASSWORD_LABEL": "Confirmez le mot de passe",
+  "CONFIRM_PASSWORD_REQUIRED": "La confirmation du mot de passe est requise",
+  "PASSWORD_NOT_MATCH": "Le mot de passe et la confirmation ne correspondent pas",
+
+  "PHONE_LABEL": "Téléphone",
+  "PHONE_PLACEHOLDER": "9898989898",
+  "PHONE_REQUIRED": "Le numéro de téléphone est requis",
+  "PHONE_INVALID": "Numéro de téléphone invalide"
+}

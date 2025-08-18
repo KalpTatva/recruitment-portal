@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'footer',
-  styleUrl: './footer.Component.scss',
+  styleUrl: './footer.component.scss',
   imports: [CommonModule],
   template: `
     <div class="footer">

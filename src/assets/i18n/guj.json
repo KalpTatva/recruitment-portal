@@ -1,0 +1,33 @@
+{
+  "SIGN_IN_ACCOUNT": "તમારા ખાતામાં સાઇન ઇન કરો",
+  "EMAIL_LABEL": "તમારું ઇમેઇલ",
+  "EMAIL_PLACEHOLDER": "name@company.com",
+  "EMAIL_REQUIRED": "ઇમેઇલ જરૂરી છે.",
+  "EMAIL_INVALID": "અમાન્ય વપરાશકર્તા ઇમેઇલ",
+  "PASSWORD_LABEL": "પાસવર્ડ",
+  "PASSWORD_PLACEHOLDER": "••••••••",
+  "PASSWORD_REQUIRED": "પાસવર્ડ જરૂરી છે.",
+  "PASSWORD_INVALID": "ઓછામાં ઓછું 1 મોટા અક્ષર, 1 નાના અક્ષર, 1 ખાસ અક્ષર, 1 નંબર હોવો જોઈએ અને લંબાઈ 8 હોવી જોઈએ.",
+  "REMEMBER_ME": "મને યાદ રાખો",
+  "FORGOT_PASSWORD": "પાસવર્ડ ભૂલી ગયા છો?",
+  "SIGN_IN": "સાઇન ઇન",
+  "NO_ACCOUNT": "હજુ સુધી એકાઉન્ટ નથી?",
+  "SIGN_UP": "સાઇન અપ",
+  "TITLE": "CRUD",
+  "LOGOUT": "લોગ આઉટ",
+
+  "REGISER_ACCOUNT": "તમારું એકાઉન્ટ નોંધણી કરો",
+  "USERNAME_LABEL": "વપરાશકર્તા નામ",
+  "USERNAME_PLACEHOLDER": "Temp@123",
+  "USERNAME_REQUIRED": "વપરાશકર્તા નામ જરૂરી છે",
+  "REGISTER": "નોંધણી કરો",
+  "HAVE_ACCOUNT": "પહેલેથી એકાઉન્ટ છે?",
+  "CONFIRM_PASSWORD_LABEL": "પાસવર્ડની પુષ્ટિ કરો",
+  "CONFIRM_PASSWORD_REQUIRED": "પાસવર્ડની પુષ્ટિ જરૂરી છે",
+  "PASSWORD_NOT_MATCH": "પાસવર્ડ અને પુષ્ટિ પાસવર્ડ મેળ ખાતા નથી",
+
+  "PHONE_LABEL": "ફોન",
+  "PHONE_PLACEHOLDER": "9898989898",
+  "PHONE_REQUIRED": "ફોન નંબર જરૂરી છે",
+  "PHONE_INVALID": "અમાન્ય ફોન નંબર"
+}

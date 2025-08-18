@@ -1,0 +1,8 @@
+@use "variables" as var;
+
+.navbar-container {
+  display: flex;
+  justify-content: center;
+  background: var.$bg-dark;
+  color: var.$bg-font-white;
+}
