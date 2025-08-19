@@ -15,17 +15,17 @@ html {
       ),
       typography: Roboto,
       density: 0,
-      )
-      );
-    }
+    )
+  );
+}
 
-    body {
-      // Default the application to a light color theme. This can be changed to
-      // `dark` to enable the dark color theme, or to `light dark` to defer to the
-      // user's system settings.
-      color-scheme: light;
+body {
+  // Default the application to a light color theme. This can be changed to
+  // `dark` to enable the dark color theme, or to `light dark` to defer to the
+  // user's system settings.
+  color-scheme: light;
 
-      // Set a default background, font and text colors for the application using
+  // Set a default background, font and text colors for the application using
   // Angular Material's system-level CSS variables. Learn more about these
   // variables at https://material.angular.dev/guide/system-variables
   background-color: white;
@@ -35,6 +35,39 @@ html {
   // Reset the user agent margin.
   margin: 0;
 }
+
+// Global snackbar base styles
+:root {
+  @include mat.snack-bar-overrides(
+    (
+      container-color: var(--mat-sys-surface),
+      button-color: var(--mat-sys-primary),
+    )
+  );
+}
+
+// ✅ Success Snackbar
+.snackbar-success {
+  @include mat.snack-bar-overrides(
+    (
+      container-color: #4caf50,
+      button-color: white,
+    )
+  );
+  color: white;
+}
+
+// ✅ Error Snackbar
+.snackbar-error {
+  @include mat.snack-bar-overrides(
+    (
+      container-color: #f44336,
+      button-color: white,
+    )
+  );
+  color: white;
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 /* You can add global styles to this file, and also import other style files */
 
@@ -48,4 +81,3 @@ body {
   font-optical-sizing: auto;
   font-style: normal;
 }
-

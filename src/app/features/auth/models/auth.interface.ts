@@ -5,3 +5,9 @@ export interface RegisterRequest {
   userName: string;
   phone: number;
 }
+
+export interface LoginRequest {
+  email: string;
+  password: string;
+  rememberMe: boolean;
+}

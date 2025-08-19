@@ -2,17 +2,24 @@
 
 .flex-box {
   display: flex;
-  align-items: center;
-  justify-content: center;
   gap: 1rem;
+}
+.align-start {
+  justify-content: start;
+  align-items: center;
+}
+.align-end {
+  justify-content: end;
+  align-items: center;
+
 }
 
 .banner {
   cursor: pointer;
-  width: 180px;
+  width: 240px;
 }
 .buttons-links {
-  width: 180px;
+  width: 240px;
 }
 .Banner-text {
   text-wrap: nowrap;
@@ -45,16 +52,6 @@
   cursor: pointer;
 }
 
-.register-button {
-  text-decoration: none;
-  background-color: var.$button-color;
-  color: white;
-  border: none;
-  font-weight: 600;
-  padding: 10px 15px;
-  border-radius: 7px;
-  cursor: pointer;
-}
 
 .language-dropdown {
   background-color: transparent;

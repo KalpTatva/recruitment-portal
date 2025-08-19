@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslocoModule } from '@ngneat/transloco';
@@ -40,6 +40,7 @@ import { SnackBarSuccessComponent } from '../../../shared/components/snackbarSuc
                 <div class="error">{{ 'EMAIL_INVALID' | transloco }}</div>
                 }
               </div>
+
               <!-- username -->
               <div class="form-group">
                 <label for="userName" class="form-label">
@@ -116,6 +117,13 @@ import { SnackBarSuccessComponent } from '../../../shared/components/snackbarSuc
                 }
               </div>
 
+              <!-- error generated from backend -->
+              @if(errorBackEnd().length > 0) {
+              <div class="error">
+                {{ errorBackEnd() }}
+              </div>
+              }
+
               <!-- Submit -->
               <button
                 type="submit"
@@ -128,7 +136,7 @@ import { SnackBarSuccessComponent } from '../../../shared/components/snackbarSuc
               <!-- Sign up link -->
               <p class="signup-text">
                 {{ 'HAVE_ACCOUNT' | transloco }}
-                <a href="#" class="signup-link" (click)="navigateToLogin()">{{
+                <a  class="signup-link" (click)="navigateToLogin()">{{
                   'SIGN_IN' | transloco
                 }}</a>
               </p>
@@ -136,10 +144,6 @@ import { SnackBarSuccessComponent } from '../../../shared/components/snackbarSuc
           </div>
         </div>
       </div>
-      <pre>
-        {{ RegisterForm.value | json }}
-      </pre
-      >
     </section>
   `,
 })
@@ -149,9 +153,10 @@ export class RegisterComponent implements OnInit {
   private authService = inject(AuthServices);
   private snackBar = inject(MatSnackBar);
 
-  constructor () {
-    this.openSnackBarSuccess("hello");
-  }
+  constructor() {}
+
+  errorBackEnd = signal('');
+
   RegisterForm = this.fb.group(
     {
       email: [
@@ -184,6 +189,7 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     if (this.RegisterForm.valid) {
+      this.errorBackEnd.set('');
       this.authService
         .RegisterUser({
           email: this.RegisterForm.value.email,
@@ -197,11 +203,15 @@ export class RegisterComponent implements OnInit {
             if (res.success) {
               this.RegisterForm.reset();
               this.router.navigate(['/login']);
-              this.openSnackBarSuccess(res.Message);
+              this.openSnackBarSuccess(res.message);
+            } else {
+              this.errorBackEnd.set(res.message);
+              this.openSnackBarError(res.message);
             }
           },
           error: (error) => {
-            console.log('error : ', error);
+            this.errorBackEnd.set(error.error.message);
+            this.openSnackBarError(error.error.message);
           },
         });
     }
@@ -232,6 +242,7 @@ export class RegisterComponent implements OnInit {
   matchExp(value: string) {
     return this.RegisterForm.get(`${value}`)?.hasError('pattern');
   }
+
   matching() {
     if (
       this.RegisterForm.errors?.['passwordMismatch'] &&
@@ -243,10 +254,21 @@ export class RegisterComponent implements OnInit {
     }
   }
 
+  // snackbars
   openSnackBarSuccess(message: string) {
     this.snackBar.openFromComponent(SnackBarSuccessComponent, {
       data: message,
-      panelClass: ['snackbar-success'],
+      panelClass: 'snackbar-success',
+      duration: 3000,
+      horizontalPosition: 'right',
+      verticalPosition: 'bottom',
+    });
+  }
+
+  openSnackBarError(message: string) {
+    this.snackBar.openFromComponent(SnackBarSuccessComponent, {
+      data: message,
+      panelClass: 'snackbar-error',
       duration: 3000,
       horizontalPosition: 'right',
       verticalPosition: 'bottom',

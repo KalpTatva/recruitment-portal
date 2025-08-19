@@ -8,6 +8,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { TranslocoModule, TranslocoService } from '@ngneat/transloco';
 import { Router } from '@angular/router';
+import { AuthServices } from '../services/auth.services';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackBarSuccessComponent } from '../../../shared/components/snackbarSuccess/snackbar.success';
 @Component({
   imports: [
     ReactiveFormsModule,
@@ -17,7 +20,7 @@ import { Router } from '@angular/router';
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
-    TranslocoModule
+    TranslocoModule,
   ],
   selector: 'login',
   styleUrl: './login.component.scss',
@@ -99,7 +102,11 @@ import { Router } from '@angular/router';
               <!-- Sign up link -->
               <p class="signup-text">
                 {{ 'NO_ACCOUNT' | transloco }}
-                <a href="#" class="signup-link" (click)="navigateToRegister()">{{ 'SIGN_UP' | transloco }}</a>
+                <a
+                  class="signup-link"
+                  (click)="navigateToRegister()"
+                  >{{ 'SIGN_UP' | transloco }}</a
+                >
               </p>
             </form>
           </div>
@@ -111,6 +118,8 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   private fb = inject(FormBuilder);
   private router = inject(Router);
+  private authService = inject(AuthServices);
+  private snackBar = inject(MatSnackBar);
 
   loginInvalid = signal(false);
   ngOnInit() {}
@@ -136,7 +145,6 @@ export class LoginComponent implements OnInit {
     rememberMe: [false],
   });
 
-
   Required(value: string) {
     return (
       this.loginForm.get(`${value}`)?.hasError('required') &&
@@ -153,5 +161,48 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/register']);
   }
 
-  onSubmit() {}
+  onSubmit() {
+    if (this.loginForm.valid) {
+      this.authService
+        .LoginUser({
+          email: this.loginForm.value.email!,
+          password: this.loginForm.value.password!,
+          rememberMe: this.loginForm.value.rememberMe ?? false,
+        })
+        .subscribe({
+          next: (res) => {
+            this.loginForm.reset();
+
+            if (res.data.roleType === 'Admin') this.router.navigate(['/admin']);
+            else if (res.data.roleType === 'Candidate') this.router.navigate(['/']);
+            else if (res.data.roleType === 'Interviewer') this.router.navigate(['/interviewer']);
+          },
+          error: (error) => {
+            console.log('error login : ', error);
+            this.openSnackBarError(error.error.message);
+          },
+        });
+    }
+  }
+
+  // snackbars
+  openSnackBarSuccess(message: string) {
+    this.snackBar.openFromComponent(SnackBarSuccessComponent, {
+      data: message,
+      panelClass: 'snackbar-success',
+      duration: 3000,
+      horizontalPosition: 'right',
+      verticalPosition: 'bottom',
+    });
+  }
+
+  openSnackBarError(message: string) {
+    this.snackBar.openFromComponent(SnackBarSuccessComponent, {
+      data: message,
+      panelClass: 'snackbar-error',
+      duration: 3000,
+      horizontalPosition: 'right',
+      verticalPosition: 'bottom',
+    });
+  }
 }
