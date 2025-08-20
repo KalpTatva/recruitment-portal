@@ -29,5 +29,30 @@
   "PHONE_LABEL": "ફોન",
   "PHONE_PLACEHOLDER": "9898989898",
   "PHONE_REQUIRED": "ફોન નંબર જરૂરી છે",
-  "PHONE_INVALID": "અમાન્ય ફોન નંબર"
+  "PHONE_INVALID": "અમાન્ય ફોન નંબર",
+
+  "COMPANY_NAME_LABEL": "કંપની નામ",
+  "COMPANY_NAME_PLACEHOLDER": "કંપની નામ",
+  "COMPANY_NAME_REQUIRED": "કંપની નામ જરૂરી છે",
+  "COMPANY_NAME_INVALID": "કંપની નામ મોટા અક્ષરો, નાના અક્ષરો, આંકડા અથવા ખાસ અક્ષરો જેવા કે @%.,/' હોઈ શકે છે",
+
+  "COMPANY_TYPE_LABEL": "કંપની પ્રકાર",
+  "COMPANY_TYPE_PLACEHOLDER": "કંપની પ્રકાર",
+  "COMPANY_TYPE_REQUIRED": "કંપની પ્રકાર જરૂરી છે",
+
+  "COMPANY_DESCRIPTION_LABEL": "કંપની વર્ણન",
+  "COMPANY_DESCRIPTION_PLACEHOLDER": "કંપની વર્ણન",
+  "COMPANY_DESCRIPTION_REQUIRED": "કંપની વર્ણન જરૂરી છે",
+
+  "COMPANY_WEBSITE_LABEL": "કંપની વેબસાઇટ",
+  "COMPANY_WEBSITE_PLACEHOLDER": "https://www.company.com",
+  "COMPANY_WEBSITE_REQUIRED": "કંપની વેબસાઇટ જરૂરી છે",
+  "COMPANY_WEBSITE_INVALID": "અમાન્ય વેબસાઇટ URL",
+
+  "COMPANY_ADDRESS_LABEL": "કંપની સરનામું",
+  "COMPANY_ADDRESS_PLACEHOLDER": "કંપની સરનામું",
+  "COMPANY_ADDRESS_REQUIRED": "કંપની સરનામું જરૂરી છે",
+  "REGISTER_COMPANY": "કંપની ની નોંધણી",
+
+  "COMPANY_PROFILE": "કંપની પ્રોફાઇલ"
 }

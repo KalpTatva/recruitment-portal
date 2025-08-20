@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Inject, inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
-import { LoginRequest, RegisterRequest } from '../models/auth.interface';
+import { CompanyRegistrationRequest, LoginRequest, RegisterRequest } from '../models/auth.interface';
 import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({ providedIn: 'root' })
@@ -35,6 +35,14 @@ export class AuthServices {
           console.log(res);
           console.log('cookie generated successfully');
         }
+      })
+    );
+  }
+
+  CompanyRegistration(data: CompanyRegistrationRequest): Observable<any> {
+    return this.http.post<any>(`${this.API_URL}/Auth/register-company`, data).pipe(
+      tap((res) => {
+        console.log(res);
       })
     );
   }

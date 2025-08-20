@@ -29,5 +29,30 @@
   "PHONE_LABEL": "Téléphone",
   "PHONE_PLACEHOLDER": "9898989898",
   "PHONE_REQUIRED": "Le numéro de téléphone est requis",
-  "PHONE_INVALID": "Numéro de téléphone invalide"
+  "PHONE_INVALID": "Numéro de téléphone invalide",
+
+  "COMPANY_NAME_LABEL": "Nom de l'entreprise",
+  "COMPANY_NAME_PLACEHOLDER": "Nom de l'entreprise",
+  "COMPANY_NAME_REQUIRED": "Le nom de l'entreprise est requis",
+  "COMPANY_NAME_INVALID": "Le nom de l'entreprise doit être en majuscules, minuscules, numériques ou contenir des caractères spéciaux comme @%.,/'",
+
+  "COMPANY_TYPE_LABEL": "Type d'entreprise",
+  "COMPANY_TYPE_PLACEHOLDER": "Sélectionnez le type d'entreprise",
+  "COMPANY_TYPE_REQUIRED": "Le type d'entreprise est requis",
+
+  "COMPANY_DESCRIPTION_LABEL": "Description de l'entreprise",
+  "COMPANY_DESCRIPTION_PLACEHOLDER": "Description de l'entreprise",
+  "COMPANY_DESCRIPTION_REQUIRED": "La description de l'entreprise est requise",
+
+  "COMPANY_WEBSITE_LABEL": "Site Web de l'entreprise",
+  "COMPANY_WEBSITE_PLACEHOLDER": "https://www.company.com",
+  "COMPANY_WEBSITE_REQUIRED": "Le site Web de l'entreprise est requis",
+  "COMPANY_WEBSITE_INVALID": "URL du site Web invalide",
+
+  "COMPANY_ADDRESS_LABEL": "Adresse de l'entreprise",
+  "COMPANY_ADDRESS_PLACEHOLDER": "Adresse de l'entreprise",
+  "COMPANY_ADDRESS_REQUIRED": "L'adresse de l'entreprise est requise",
+
+  "REGISTER_COMPANY": "Enregistrer l'entreprise",
+  "COMPANY_PROFILE": "Profil de l'entreprise"
 }

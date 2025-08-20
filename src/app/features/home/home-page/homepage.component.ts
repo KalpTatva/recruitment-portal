@@ -13,6 +13,13 @@ import { JobListComponent } from '../../../shared/components/job-list/job-list-l
         <div class="content">
           <h1>Find Your Dream Job Today!</h1>
           <p>Connecting Talent with Opportunity: Your Gateway to Career Success</p>
+          <div class="flex-box">
+            <input class="search-input" type="text" placeholder="Search for jobs, companies, or locations" />
+            <button class="search-button">
+              <mat-icon>search</mat-icon>
+              Search Job
+            </button>
+          </div>
         </div>
       </div>
     </div>

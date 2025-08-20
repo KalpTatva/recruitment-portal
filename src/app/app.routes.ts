@@ -9,24 +9,115 @@ export const routes: Routes = [
     path: '',
     component: MainComponent,
     children: [
-      {path: '', loadComponent : () => import('./features/home/home-page/homepage.component').then(m => m.HomePageComponent)},
-      {path: 'admin', loadComponent : () => import('./features/home/admin/admin.component').then(m => m.AdminComponent), canActivate: [authGuard], data: {roles:['Admin']}},
-
+      {
+        path: '',
+        loadComponent: () =>
+          import('./features/home/home-page/homepage.component').then(
+            (m) => m.HomePageComponent
+          ),
+      },
+      {
+        path: 'admin',
+        loadComponent: () =>
+          import('./features/home/admin/admin-page/admin.component').then(
+            (m) => m.AdminComponent
+          ),
+        canActivate: [authGuard],
+        data: { roles: ['Admin'] },
+        children: [
+          {
+            path: '',
+            pathMatch: 'full',
+            loadComponent: () =>
+              import('./features/home/admin/profile/profile.component').then(
+                (m) => m.AdminProfileComponent
+              ),
+          },
+          {
+            path: 'add-job',
+            loadComponent: () =>
+              import('./features/home/admin/add-job/add-job.component').then(
+                (m) => m.AddJobComponent
+              ),
+          },
+        ],
+      },
     ],
   },
   {
     path: '',
     component: AuthLayoutComponent,
     children: [
-      {path: 'login', loadComponent : () => import('./features/auth/login/login.component').then(m => m.LoginComponent), canActivate: [loggedInGuard]},
-      {path: 'register', loadComponent : () => import('./features/auth/register/register.component').then(m => m.RegisterComponent), canActivate: [loggedInGuard]}
-    ]
+      {
+        path: 'login',
+        loadComponent: () =>
+          import('./features/auth/login/login.component').then(
+            (m) => m.LoginComponent
+          ),
+        canActivate: [loggedInGuard],
+      },
+      {
+        path: 'register',
+        loadComponent: () =>
+          import('./features/auth/register/register.component').then(
+            (m) => m.RegisterComponent
+          ),
+        canActivate: [loggedInGuard],
+      },
+      {
+        path: 'company-register',
+        loadComponent: () =>
+          import(
+            './features/auth/company-registration/company-registration.component'
+          ).then((m) => m.CompanyRegistrationComponent),
+        canActivate: [loggedInGuard],
+      },
+    ],
   },
-  { path: "unauthorized", loadComponent: () => import("./shared/components/unauthorized/unauthorized.component").then(m => m.UnauthorizedComponent) },
-  { path: "**", redirectTo: "login" }
-
-
+  {
+    path: 'unauthorized',
+    loadComponent: () =>
+      import('./shared/components/unauthorized/unauthorized.component').then(
+        (m) => m.UnauthorizedComponent
+      ),
+  },
+  { path: '**', redirectTo: 'login' },
 ];
+
+// {
+//   path: 'admin',
+//   component: AdminComponent, // <-- keep AdminComponent as parent container
+//   canActivate: [authGuard],
+//   data: { roles: ['Admin'] },
+//   children: [
+//     {
+//       path: '',
+//       redirectTo: 'dashboard', // default child
+//       pathMatch: 'full',
+//     },
+//     {
+//       path: 'dashboard',
+//       loadComponent: () =>
+//         import('./features/home/admin/dashboard/dashboard.component').then(
+//           (m) => m.DashboardComponent
+//         ),
+//     },
+//     {
+//       path: 'users',
+//       loadComponent: () =>
+//         import('./features/home/admin/users/users.component').then(
+//           (m) => m.UsersComponent
+//         ),
+//     },
+//     {
+//       path: 'settings',
+//       loadComponent: () =>
+//         import('./features/home/admin/settings/settings.component').then(
+//           (m) => m.SettingsComponent
+//         ),
+//     },
+//   ],
+// }
 
 // {
 //   path: 'admin',

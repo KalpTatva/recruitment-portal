@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { TranslocoModule } from '@ngneat/transloco';
 import { CommonModule } from '@angular/common';
 import { AuthServices } from '../services/auth.services';
@@ -8,7 +8,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackBarSuccessComponent } from '../../../shared/components/snackbarSuccess/snackbar.success';
 @Component({
   standalone: true,
-  imports: [TranslocoModule, ReactiveFormsModule, CommonModule],
+  imports: [TranslocoModule, ReactiveFormsModule, CommonModule, RouterModule],
   selector: 'register',
   styleUrl: './register.component.scss',
   template: `
@@ -136,10 +136,18 @@ import { SnackBarSuccessComponent } from '../../../shared/components/snackbarSuc
               <!-- Sign up link -->
               <p class="signup-text">
                 {{ 'HAVE_ACCOUNT' | transloco }}
-                <a  class="signup-link" (click)="navigateToLogin()">{{
+                <a class="signup-link" (click)="navigateToLogin()">{{
                   'SIGN_IN' | transloco
                 }}</a>
               </p>
+              <!-- company registration link -->
+              <p class="signup-text">
+                <!-- {{ 'COMPANY_REGISTER' | transloco }} -->
+                  Want to become partner?
+                <a class="signup-link" [routerLink]="['/company-register']">
+                  <!-- {{ 'COMPANY_SIGN_UP' | transloco}} -->
+                    Company Registration
+                </a>
             </form>
           </div>
         </div>
@@ -174,7 +182,7 @@ export class RegisterComponent implements OnInit {
         [
           Validators.required,
           Validators.pattern(
-            /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[#$^+=!*()@%&]).{8,}$/
+            /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[#$^+=!*()@%&<>.?-_]).{8,}$/
           ),
         ],
       ],

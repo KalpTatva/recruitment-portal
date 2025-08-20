@@ -29,5 +29,30 @@
   "PHONE_LABEL": "Telefon",
   "PHONE_PLACEHOLDER": "9898989898",
   "PHONE_REQUIRED": "Telefonnummer ist erforderlich",
-  "PHONE_INVALID": "Ungültige Telefonnummer"
+  "PHONE_INVALID": "Ungültige Telefonnummer",
+
+  "COMPANY_NAME_LABEL": "Firmenname",
+  "COMPANY_NAME_PLACEHOLDER": "Firmenname",
+  "COMPANY_NAME_REQUIRED": "Firmenname ist erforderlich",
+  "COMPANY_NAME_INVALID": "Firmenname muss Groß- oder Kleinbuchstaben, Ziffern oder Sonderzeichen wie @%.,/' enthalten",
+
+  "COMPANY_TYPE_LABEL": "Firmentyp",
+  "COMPANY_TYPE_PLACEHOLDER": "Firmentyp auswählen",
+  "COMPANY_TYPE_REQUIRED": "Firmentyp ist erforderlich",
+
+  "COMPANY_DESCRIPTION_LABEL": "Firmenbeschreibung",
+  "COMPANY_DESCRIPTION_PLACEHOLDER": "Firmenbeschreibung",
+  "COMPANY_DESCRIPTION_REQUIRED": "Firmenbeschreibung ist erforderlich",
+
+  "COMPANY_WEBSITE_LABEL": "Firmenwebsite",
+  "COMPANY_WEBSITE_PLACEHOLDER": "https://www.company.com",
+  "COMPANY_WEBSITE_REQUIRED": "Firmenwebsite erforderlich",
+  "COMPANY_WEBSITE_INVALID": "Ungültige Website-URL",
+
+  "COMPANY_ADDRESS_LABEL": "Firmenadresse",
+  "COMPANY_ADDRESS_PLACEHOLDER": "Firmenadresse",
+  "COMPANY_ADDRESS_REQUIRED": "Firmenadresse erforderlich",
+  "REGISTER_COMPANY": "Firma registrieren",
+
+  "COMPANY_PROFILE": "Firmenprofil"
 }

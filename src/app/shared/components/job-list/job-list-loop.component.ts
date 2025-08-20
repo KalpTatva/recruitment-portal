@@ -30,7 +30,7 @@ import { NameComponent } from '../../ui/buttons/green-button/green.button';
               height="100"
               width="100"
             />
-            <div>
+            <div class="job-title">
               <h1>Forward Security Director</h1>
               <span>Bauch, Schuppe and Schulist Co</span>
             </div>

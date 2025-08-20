@@ -11,3 +11,16 @@ export interface LoginRequest {
   password: string;
   rememberMe: boolean;
 }
+
+export interface CompanyRegistrationRequest {
+  email: string;
+  userName: string;
+  phone: number;
+  companyName: string;
+  CompanyType: string;
+  companyDescription: string;
+  companyWebsite: string;
+  companyLocation: string;
+  password: string;
+  confirmPassword: string;
+}
