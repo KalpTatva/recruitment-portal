@@ -27,11 +27,26 @@ export const routes: Routes = [
         children: [
           {
             path: '',
-            pathMatch: 'full',
             loadComponent: () =>
-              import('./features/home/admin/profile/profile.component').then(
-                (m) => m.AdminProfileComponent
-              ),
+              import(
+                './features/home/admin/profile/profile/profile.component'
+              ).then((m) => m.AdminProfileComponent),
+            children: [
+              {
+                path: '',
+                loadComponent: () =>
+                  import(
+                    './features/home/admin/profile/profile-view/profile-view.component'
+                  ).then((m) => m.CompanyProfileViewComponent),
+              },
+              {
+                path: 'edit-company-profile',
+                loadComponent: () =>
+                  import(
+                    './features/home/admin/profile/edit-profile/edit-profile.component'
+                  ).then((m) => m.EditProfileComponent),
+              },
+            ],
           },
           {
             path: 'add-job',

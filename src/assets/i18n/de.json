@@ -54,5 +54,71 @@
   "COMPANY_ADDRESS_REQUIRED": "Firmenadresse erforderlich",
   "REGISTER_COMPANY": "Firma registrieren",
 
-  "COMPANY_PROFILE": "Firmenprofil"
+  "COMPANY_PROFILE": "Firmenprofil",
+
+  "COUNTRY_CODE_LABEL": "Ländervorwahl",
+  "COUNTRY_CODE_REQUIRED": "Ländervorwahl ist erforderlich",
+
+  "EDIT_COMPANY_DETAILS": "Firmeninformationen bearbeiten",
+
+  "COMPANY_FOUNDED_YEAR_LABEL": "Gründungsjahr",
+  "COMPANY_FOUNDED_YEAR_PLACEHOLDER": "Gründungsjahr eingeben",
+  "COMPANY_FOUNDED_YEAR_REQUIRED": "Gründungsjahr ist erforderlich",
+  "COMPANY_FOUNDED_YEAR_INVALID": "Ungültiges Gründungsjahr",
+
+  "INDUSTRY_TYPE_LABEL": "Branchenart",
+  "INDUSTRY_TYPE_PLACEHOLDER": "Branchenart auswählen",
+  "INDUSTRY_TYPE_REQUIRED": "Branchenart ist erforderlich",
+
+  "NUMBER_OF_FOUNDERS_LABEL": "Anzahl der Gründer",
+  "NUMBER_OF_FOUNDERS_PLACEHOLDER": "Anzahl der Gründer eingeben",
+  "NUMBER_OF_FOUNDERS_REQUIRED": "Anzahl der Gründer ist erforderlich",
+
+  "TOTAL_EMPLOYEES_LABEL": "Gesamtzahl der Mitarbeiter",
+  "TOTAL_EMPLOYEES_PLACEHOLDER": "Gesamtzahl der Mitarbeiter eingeben",
+  "TOTAL_EMPLOYEES_REQUIRED": "Gesamtzahl der Mitarbeiter ist erforderlich",
+
+  "TOTAL_MALE_EMPLOYEES_LABEL": "Männliche Mitarbeiter",
+  "TOTAL_MALE_EMPLOYEES_PLACEHOLDER": "Anzahl der männlichen Mitarbeiter eingeben",
+  "TOTAL_MALE_EMPLOYEES_REQUIRED": "Anzahl der männlichen Mitarbeiter ist erforderlich",
+
+  "TOTAL_FEMALE_EMPLOYEES_LABEL": "Weibliche Mitarbeiter",
+  "TOTAL_FEMALE_EMPLOYEES_PLACEHOLDER": "Anzahl der weiblichen Mitarbeiter eingeben",
+  "TOTAL_FEMALE_EMPLOYEES_REQUIRED": "Anzahl der weiblichen Mitarbeiter ist erforderlich",
+
+  "TOTAL_OTHERS_EMPLOYEES_LABEL": "Andere Mitarbeiter",
+  "TOTAL_OTHERS_EMPLOYEES_PLACEHOLDER": "Anzahl der anderen Mitarbeiter eingeben",
+  "TOTAL_OTHERS_EMPLOYEES_REQUIRED": "Anzahl der anderen Mitarbeiter ist erforderlich",
+
+  "TOTAL_REVENUE_LABEL": "Gesamtumsatz",
+  "TOTAL_REVENUE_PLACEHOLDER": "Gesamtumsatz eingeben",
+  "TOTAL_REVENUE_REQUIRED": "Gesamtumsatz ist erforderlich",
+
+  "LINKEDIN_LABEL": "LinkedIn",
+  "LINKEDIN_PLACEHOLDER": "LinkedIn-Profil eingeben",
+
+  "TWITTER_LABEL": "Twitter",
+  "TWITTER_PLACEHOLDER": "Twitter-Handle eingeben",
+
+  "FACEBOOK_LABEL": "Facebook",
+  "FACEBOOK_PLACEHOLDER": "Facebook-Seite eingeben",
+
+  "MEDIUM_LABEL": "Medium",
+  "MEDIUM_PLACEHOLDER": "Medium-Profil eingeben",
+
+  "COMPANY_LOCATIONS": "Firmenstandorte",
+  "COUNTRY_LABEL": "Land",
+  "SELECT_COUNTRY": "Land auswählen",
+  "STATE_LABEL": "Bundesland",
+  "SELECT_STATE": "Bundesland auswählen",
+  "ADDRESS_LABEL": "Adresse",
+  "ADDRESS_PLACEHOLDER": "Adresse eingeben",
+  "AdDRESS_REQUIRED": "Adresse ist erforderlich",
+
+  "COUNTRY_REQUIRED": "Land ist erforderlich",
+  "STATE_REQUIRED": "Bundesland ist erforderlich",
+
+  "ORGANIZATION_STATUS" : "Organisationsstatus",
+  "EMPLOYEES_STATUS" :  "Status der Mitarbeiter",
+  "SOCIAL_MEDIA_HANDLER" : "Social-Media-Handles (nicht erforderlich)"
 }

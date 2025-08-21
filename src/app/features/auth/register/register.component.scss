@@ -39,6 +39,20 @@
 .form-group {
   display: flex;
   flex-direction: column;
+  width: 100%;
+}
+
+.form-group .form-input {
+  width: 100%;
+  padding: 0.6rem 0.9rem;
+  color: #333;
+
+  &:focus {
+    border-color: #007bff;
+  }
+}
+.option-colors {
+  color: #333;
 }
 
 .form-label {
@@ -71,6 +85,7 @@
   justify-content: space-between;
   align-items: center;
   font-size: 0.85rem;
+
 }
 
 .remember-me {
@@ -129,4 +144,11 @@
       cursor: pointer;
     }
   }
+}
+
+
+.phone-group {
+  display: flex;
+  width: 100%;
+  gap: 0.5rem;
 }

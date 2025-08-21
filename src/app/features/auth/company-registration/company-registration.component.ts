@@ -59,23 +59,47 @@ import { SnackBarSuccessComponent } from '../../../shared/components/snackbarSuc
                   }
                 </div>
 
-                <!-- phone  -->
-                <div class="form-group">
-                  <label for="phone" class="form-label">
-                    {{ 'PHONE_LABEL' | transloco }}
-                  </label>
-                  <input
-                    type="text"
-                    formControlName="phone"
-                    id="phone"
-                    [placeholder]="'PHONE_PLACEHOLDER' | transloco"
-                    class="form-input"
-                  />
-                  @if(required("phone")) {
-                  <div class="error">{{ 'PHONE_REQUIRED' | transloco }}</div>
-                  } @else if(matchExp("phone")) {
-                  <div class="error">{{ 'PHONE_INVALID' | transloco }}</div>
-                  }
+                <div class="form-group-flex">
+                  <!-- country code  -->
+                  <span class="form-group">
+                    <label for="countryCode" class="form-label">
+                      {{ 'COUNTRY_CODE_LABEL' | transloco }}
+                    </label>
+                    <select
+                      class="form-input"
+                      formControlName="countryCode"
+                      id="countryCode"
+                    >
+                      <option value="+1" class="option-colors">+1 (USA)</option>
+                      <option value="+33">+33 (France)</option>
+                      <option value="+48">+49 (Germany)</option>
+                      <option value="+61">+61 (Australia)</option>
+                      <option selected value="+91">+91 (India)</option>
+                    </select>
+                    @if(required("countryCode")) {
+                    <div class="error">
+                      {{ 'COUNTRY_CODE_REQUIRED' | transloco }}
+                    </div>
+                    }
+                  </span>
+                  <!-- phone  -->
+                  <span class="form-group">
+                    <label for="phone" class="form-label">
+                      {{ 'PHONE_LABEL' | transloco }}
+                    </label>
+                    <input
+                      type="text"
+                      formControlName="phone"
+                      id="phone"
+                      [placeholder]="'PHONE_PLACEHOLDER' | transloco"
+                      class="form-input"
+                    />
+                    @if(required("phone")) {
+                    <div class="error">{{ 'PHONE_REQUIRED' | transloco }}</div>
+                    } @else if(matchExp("phone")) {
+                    <div class="error">{{ 'PHONE_INVALID' | transloco }}</div>
+                    }
+                  </span>
                 </div>
 
                 <div class="form-group-flex">
@@ -283,6 +307,7 @@ export class CompanyRegistrationComponent {
       ],
       userName: ['', Validators.required],
       phone: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
+      countryCode: ['+91', Validators.required],
       companyName: [
         '',
         [Validators.required, Validators.pattern(/^[a-zA-Z0-9@%.,"'\s]+$/)],
@@ -361,6 +386,7 @@ export class CompanyRegistrationComponent {
           companyLocation: this.RegisterCompanyForm.value.companyLocation!,
           password: this.RegisterCompanyForm.value.password!,
           confirmPassword: this.RegisterCompanyForm.value.confirmPassword!,
+          countryCode: this.RegisterCompanyForm.value.countryCode!,
         })
         .subscribe({
           next: (res) => {

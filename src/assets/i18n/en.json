@@ -18,42 +18,108 @@
 
   "REGISER_ACCOUNT": "Register your account",
   "USERNAME_LABEL": "User Name",
-  "USERNAME_PLACEHOLDER" : "Temp@123",
-  "USERNAME_REQUIRED" : "Username is required",
-  "REGISTER" : "Register",
-  "HAVE_ACCOUNT" : "Have an account?",
-  "CONFIRM_PASSWORD_LABEL" : "Confirm Password",
-  "CONFIRM_PASSWORD_REQUIRED" : "Confirm Password is required",
-  "PASSWORD_NOT_MATCH" : "Password and Confirm Password doesn't match",
+  "USERNAME_PLACEHOLDER": "Temp@123",
+  "USERNAME_REQUIRED": "Username is required",
+  "REGISTER": "Register",
+  "HAVE_ACCOUNT": "Have an account?",
+  "CONFIRM_PASSWORD_LABEL": "Confirm Password",
+  "CONFIRM_PASSWORD_REQUIRED": "Confirm Password is required",
+  "PASSWORD_NOT_MATCH": "Password and Confirm Password doesn't match",
 
-  "PHONE_LABEL" : "Phone",
-  "PHONE_PLACEHOLDER" : "9898989898",
-  "PHONE_REQUIRED" : "Phone is required",
-  "PHONE_INVALID" : "invalid phone number",
+  "PHONE_LABEL": "Phone",
+  "PHONE_PLACEHOLDER": "9898989898",
+  "PHONE_REQUIRED": "Phone is required",
+  "PHONE_INVALID": "invalid phone number",
 
+  "COMPANY_NAME_LABEL": "Company Name",
+  "COMPANY_NAME_PLACEHOLDER": "Company Name",
+  "COMPANY_NAME_REQUIRED": "Company Name is required",
+  "COMPANY_NAME_INVALID": "Company Name must be uppercase or lowercase or numeric or special charracter like @%.,/'",
 
-  "COMPANY_NAME_LABEL" : "Company Name",
-  "COMPANY_NAME_PLACEHOLDER" : "Company Name",
-  "COMPANY_NAME_REQUIRED" : "Company Name is required",
-  "COMPANY_NAME_INVALID" : "Company Name must be uppercase or lowercase or numeric or special charracter like @%.,/'",
+  "COMPANY_TYPE_LABEL": "Company Type",
+  "COMPANY_TYPE_PLACEHOLDER": "Select Company Type",
+  "COMPANY_TYPE_REQUIRED": "Company Type is required",
 
-  "COMPANY_TYPE_LABEL" : "Company Type",
-  "COMPANY_TYPE_PLACEHOLDER" : "Select Company Type",
-  "COMPANY_TYPE_REQUIRED" : "Company Type is required",
+  "COMPANY_DESCRIPTION_LABEL": "Company Description",
+  "COMPANY_DESCRIPTION_PLACEHOLDER": "Company Description",
+  "COMPANY_DESCRIPTION_REQUIRED": "Company Description is required",
 
-  "COMPANY_DESCRIPTION_LABEL" : "Company Description",
-  "COMPANY_DESCRIPTION_PLACEHOLDER" : "Company Description",
-  "COMPANY_DESCRIPTION_REQUIRED" : "Company Description is required",
+  "COMPANY_WEBSITE_LABEL": "Company Website",
+  "COMPANY_WEBSITE_PLACEHOLDER": "https://www.company.com",
+  "COMPANY_WEBSITE_REQUIRED": "Company Website is required",
+  "COMPANY_WEBSITE_INVALID": "Invalid website URL",
 
-  "COMPANY_WEBSITE_LABEL" : "Company Website",
-  "COMPANY_WEBSITE_PLACEHOLDER" : "https://www.company.com",
-  "COMPANY_WEBSITE_REQUIRED" : "Company Website is required",
-  "COMPANY_WEBSITE_INVALID" : "Invalid website URL",
-
-  "COMPANY_ADDRESS_LABEL" : "Company Address",
-  "COMPANY_ADDRESS_PLACEHOLDER" : "Company Address",
-  "COMPANY_ADDRESS_REQUIRED" : "Company Address is required",
+  "COMPANY_ADDRESS_LABEL": "Company Address",
+  "COMPANY_ADDRESS_PLACEHOLDER": "Company Address",
+  "COMPANY_ADDRESS_REQUIRED": "Company Address is required",
   "REGISTER_COMPANY": "Register Company",
 
-  "COMPANY_PROFILE" : "Company Profile"
+  "COMPANY_PROFILE": "Company Profile",
+
+  "COUNTRY_CODE_LABEL": "Country Code",
+  "COUNTRY_CODE_REQUIRED": "Country Code is required",
+
+  "EDIT_COMPANY_DETAILS": "Edit Company Details",
+
+  "COMPANY_FOUNDED_YEAR_LABEL": "Founded Year",
+  "COMPANY_FOUNDED_YEAR_PLACEHOLDER": "Enter founded year",
+  "COMPANY_FOUNDED_YEAR_REQUIRED": "Founded year is required",
+  "COMPANY_FOUNDED_YEAR_INVALID": "Invalid founded year",
+
+  "INDUSTRY_TYPE_LABEL": "Industry Type",
+  "INDUSTRY_TYPE_PLACEHOLDER": "Select Industry Type",
+  "INDUSTRY_TYPE_REQUIRED": "Industry type is required",
+
+  "NUMBER_OF_FOUNDERS_LABEL": "Number of Founders",
+  "NUMBER_OF_FOUNDERS_PLACEHOLDER": "Enter number of founders",
+  "NUMBER_OF_FOUNDERS_REQUIRED": "Number of founders is required",
+
+  "TOTAL_EMPLOYEES_LABEL": "Total Employees",
+  "TOTAL_EMPLOYEES_PLACEHOLDER": "Enter total employees",
+  "TOTAL_EMPLOYEES_REQUIRED": "Total employees are required",
+
+  "TOTAL_MALE_EMPLOYEES_LABEL": "Male Employees",
+  "TOTAL_MALE_EMPLOYEES_PLACEHOLDER": "Enter total male employees",
+  "TOTAL_MALE_EMPLOYEES_REQUIRED": "Male employees are required",
+
+  "TOTAL_FEMALE_EMPLOYEES_LABEL": "Female Employees",
+  "TOTAL_FEMALE_EMPLOYEES_PLACEHOLDER": "Enter total female employees",
+  "TOTAL_FEMALE_EMPLOYEES_REQUIRED": "Female employees are required",
+
+  "TOTAL_OTHERS_EMPLOYEES_LABEL": "Other Employees",
+  "TOTAL_OTHERS_EMPLOYEES_PLACEHOLDER": "Enter total other employees",
+  "TOTAL_OTHERS_EMPLOYEES_REQUIRED": "Other employees are required",
+
+  "TOTAL_REVENUE_LABEL": "Total Revenue",
+  "TOTAL_REVENUE_PLACEHOLDER": "Enter total revenue",
+  "TOTAL_REVENUE_REQUIRED": "Total revenue is required",
+
+  "LINKEDIN_LABEL": "LinkedIn",
+  "LINKEDIN_PLACEHOLDER": "Enter LinkedIn profile",
+
+  "TWITTER_LABEL": "Twitter",
+  "TWITTER_PLACEHOLDER": "Enter Twitter handle",
+
+  "FACEBOOK_LABEL": "Facebook",
+  "FACEBOOK_PLACEHOLDER": "Enter Facebook page",
+
+  "MEDIUM_LABEL": "Medium",
+  "MEDIUM_PLACEHOLDER": "Enter Medium profile",
+
+  "COMPANY_LOCATIONS": "Company Locations",
+  "COUNTRY_LABEL": "Country",
+  "SELECT_COUNTRY": "Select Country",
+  "STATE_LABEL": "State",
+  "SELECT_STATE": "Select State",
+  "ADDRESS_LABEL": "Address",
+  "ADDRESS_PLACEHOLDER": "Enter Address",
+  "AdDRESS_REQUIRED": "Address is required",
+
+  "COUNTRY_REQUIRED": "Country is required",
+  "STATE_REQUIRED": "State is required",
+
+  "ORGANIZATION_STATUS" : "Organization Status",
+  "EMPLOYEES_STATUS" : "Employees Status",
+  "SOCIAL_MEDIA_HANDLER" : "Social media handles (Not require)"
+
 }

@@ -3,12 +3,11 @@ import { Component, Input, OnInit, signal } from '@angular/core';
 @Component({
   standalone: true,
   imports: [],
-  selector: 'red-button',
+  selector: 'blue-button',
   styles: `
-  .red-button {
-    height: 100%;
+  .blue-button {
+    background-color: #007bff;
     width: 100%;
-    background-color: red;
     text-decoration: none;
     color: white;
     border: none;
@@ -18,11 +17,11 @@ import { Component, Input, OnInit, signal } from '@angular/core';
     cursor: pointer;
   }`,
   template: `
-    <button class="red-button">
+    <button class="blue-button">
       {{ data() }}
     </button>
   `,
 })
-export class RedButtonComponent {
+export class BlueButtonComponent {
   @Input() data = signal('');
 }

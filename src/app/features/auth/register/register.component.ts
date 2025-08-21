@@ -58,23 +58,48 @@ import { SnackBarSuccessComponent } from '../../../shared/components/snackbarSuc
                 }
               </div>
 
-              <!-- phone  -->
-              <div class="form-group">
-                <label for="phone" class="form-label">
-                  {{ 'PHONE_LABEL' | transloco }}
-                </label>
-                <input
-                  type="text"
-                  formControlName="phone"
-                  id="phone"
-                  [placeholder]="'PHONE_PLACEHOLDER' | transloco"
-                  class="form-input"
-                />
-                @if(required("phone")) {
-                <div class="error">{{ 'PHONE_REQUIRED' | transloco }}</div>
-                } @else if(matchExp("phone")) {
-                <div class="error">{{ 'PHONE_INVALID' | transloco }}</div>
-                }
+              <div class="phone-group">
+                <!-- country code  -->
+                <div class="form-group">
+                  <label for="countryCode" class="form-label">
+                    {{ 'COUNTRY_CODE_LABEL' | transloco }}
+                  </label>
+                  <select
+                    class="form-input"
+                    formControlName="countryCode"
+                    id="countryCode"
+                  >
+                    <option value="+1" class="option-colors">+1 (USA)</option>
+                    <option value="+33">+33 (France)</option>
+                    <option value="+48">+49 (Germany)</option>
+                    <option value="+61">+61 (Australia)</option>
+                    <option selected value="+91">+91 (India)</option>
+                  </select>
+                  @if(required("countryCode")) {
+                  <div class="error">
+                    {{ 'COUNTRY_CODE_REQUIRED' | transloco }}
+                  </div>
+                  }
+                </div>
+
+                <!-- phone  -->
+                <div class="form-group">
+                  <label for="phone" class="form-label">
+                    {{ 'PHONE_LABEL' | transloco }}
+                  </label>
+                  <input
+                    type="text"
+                    formControlName="phone"
+                    id="phone"
+                    [placeholder]="'PHONE_PLACEHOLDER' | transloco"
+                    class="form-input"
+                  />
+                  @if(required("phone")) {
+                  <div class="error">{{ 'PHONE_REQUIRED' | transloco }}</div>
+                  } @else if(matchExp("phone")) {
+                  <div class="error">{{ 'PHONE_INVALID' | transloco }}</div>
+                  }
+                </div>
               </div>
 
               <!-- Password -->
@@ -143,11 +168,12 @@ import { SnackBarSuccessComponent } from '../../../shared/components/snackbarSuc
               <!-- company registration link -->
               <p class="signup-text">
                 <!-- {{ 'COMPANY_REGISTER' | transloco }} -->
-                  Want to become partner?
+                Want to become partner?
                 <a class="signup-link" [routerLink]="['/company-register']">
                   <!-- {{ 'COMPANY_SIGN_UP' | transloco}} -->
-                    Company Registration
+                  Company Registration
                 </a>
+              </p>
             </form>
           </div>
         </div>
@@ -186,6 +212,7 @@ export class RegisterComponent implements OnInit {
           ),
         ],
       ],
+      countryCode: ['+91', [Validators.required]],
       confirmPassword: ['', [Validators.required]],
       userName: ['', [Validators.required]],
       phone: ['', [Validators.required, Validators.pattern(/^[0-9]{10}$/)]],
@@ -205,6 +232,7 @@ export class RegisterComponent implements OnInit {
           confirmPassword: this.RegisterForm.value.confirmPassword,
           userName: this.RegisterForm.value.userName,
           phone: this.RegisterForm.value.phone,
+          countryCode: this.RegisterForm.value.countryCode,
         })
         .subscribe({
           next: (res) => {

@@ -54,5 +54,71 @@
   "COMPANY_ADDRESS_REQUIRED": "L'adresse de l'entreprise est requise",
 
   "REGISTER_COMPANY": "Enregistrer l'entreprise",
-  "COMPANY_PROFILE": "Profil de l'entreprise"
+  "COMPANY_PROFILE": "Profil de l'entreprise",
+
+  "COUNTRY_CODE_LABEL": "Indicatif du pays",
+  "COUNTRY_CODE_REQUIRED": "L'indicatif du pays est requis",
+
+  "EDIT_COMPANY_DETAILS": "Modifier les détails de l'entreprise",
+
+  "COMPANY_FOUNDED_YEAR_LABEL": "Année de fondation",
+  "COMPANY_FOUNDED_YEAR_PLACEHOLDER": "Entrez l'année de fondation",
+  "COMPANY_FOUNDED_YEAR_REQUIRED": "L'année de fondation est requise",
+  "COMPANY_FOUNDED_YEAR_INVALID": "Année de fondation invalide",
+
+  "INDUSTRY_TYPE_LABEL": "Type d'industrie",
+  "INDUSTRY_TYPE_PLACEHOLDER": "Sélectionnez le type d'industrie",
+  "INDUSTRY_TYPE_REQUIRED": "Le type d'industrie est requis",
+
+  "NUMBER_OF_FOUNDERS_LABEL": "Nombre de fondateurs",
+  "NUMBER_OF_FOUNDERS_PLACEHOLDER": "Entrez le nombre de fondateurs",
+  "NUMBER_OF_FOUNDERS_REQUIRED": "Le nombre de fondateurs est requis",
+
+  "TOTAL_EMPLOYEES_LABEL": "Nombre total d'employés",
+  "TOTAL_EMPLOYEES_PLACEHOLDER": "Entrez le nombre total d'employés",
+  "TOTAL_EMPLOYEES_REQUIRED": "Le nombre total d'employés est requis",
+
+  "TOTAL_MALE_EMPLOYEES_LABEL": "Employés masculins",
+  "TOTAL_MALE_EMPLOYEES_PLACEHOLDER": "Entrez le nombre d'hommes employés",
+  "TOTAL_MALE_EMPLOYEES_REQUIRED": "Le nombre d'hommes employés est requis",
+
+  "TOTAL_FEMALE_EMPLOYEES_LABEL": "Employées féminines",
+  "TOTAL_FEMALE_EMPLOYEES_PLACEHOLDER": "Entrez le nombre de femmes employées",
+  "TOTAL_FEMALE_EMPLOYEES_REQUIRED": "Le nombre de femmes employées est requis",
+
+  "TOTAL_OTHERS_EMPLOYEES_LABEL": "Autres employés",
+  "TOTAL_OTHERS_EMPLOYEES_PLACEHOLDER": "Entrez le nombre d'autres employés",
+  "TOTAL_OTHERS_EMPLOYEES_REQUIRED": "Le nombre d'autres employés est requis",
+
+  "TOTAL_REVENUE_LABEL": "Revenu total",
+  "TOTAL_REVENUE_PLACEHOLDER": "Entrez le revenu total",
+  "TOTAL_REVENUE_REQUIRED": "Le revenu total est requis",
+
+  "LINKEDIN_LABEL": "LinkedIn",
+  "LINKEDIN_PLACEHOLDER": "Entrez le profil LinkedIn",
+
+  "TWITTER_LABEL": "Twitter",
+  "TWITTER_PLACEHOLDER": "Entrez le compte Twitter",
+
+  "FACEBOOK_LABEL": "Facebook",
+  "FACEBOOK_PLACEHOLDER": "Entrez la page Facebook",
+
+  "MEDIUM_LABEL": "Medium",
+  "MEDIUM_PLACEHOLDER": "Entrez le profil Medium",
+
+  "COMPANY_LOCATIONS": "Lieux de l'entreprise",
+  "COUNTRY_LABEL": "Pays",
+  "SELECT_COUNTRY": "Sélectionnez un pays",
+  "STATE_LABEL": "État",
+  "SELECT_STATE": "Sélectionnez un état",
+  "ADDRESS_LABEL": "Adresse",
+  "ADDRESS_PLACEHOLDER": "Entrez l'adresse",
+  "AdDRESS_REQUIRED": "L'adresse est requise",
+
+  "COUNTRY_REQUIRED": "Le pays est requis",
+  "STATE_REQUIRED": "L'état est requis",
+
+  "ORGANIZATION_STATUS" : "Statut de l'organisation",
+  "EMPLOYEES_STATUS" : "Statut des employés",
+  "SOCIAL_MEDIA_HANDLER" : "Gestionnaires de médias sociaux (non requis)"
 }

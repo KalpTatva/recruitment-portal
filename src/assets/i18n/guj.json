@@ -54,5 +54,71 @@
   "COMPANY_ADDRESS_REQUIRED": "કંપની સરનામું જરૂરી છે",
   "REGISTER_COMPANY": "કંપની ની નોંધણી",
 
-  "COMPANY_PROFILE": "કંપની પ્રોફાઇલ"
+  "COMPANY_PROFILE": "કંપની પ્રોફાઇલ",
+
+  "COUNTRY_CODE_LABEL": "દેશ કોડ",
+  "COUNTRY_CODE_REQUIRED": "દેશ કોડ જરૂરી છે",
+
+  "EDIT_COMPANY_DETAILS": "કંપની વિગતો સંપાદિત કરો",
+
+  "COMPANY_FOUNDED_YEAR_LABEL": "સ્થાપના વર્ષ",
+  "COMPANY_FOUNDED_YEAR_PLACEHOLDER": "સ્થાપના વર્ષ દાખલ કરો",
+  "COMPANY_FOUNDED_YEAR_REQUIRED": "સ્થાપના વર્ષ જરૂરી છે",
+  "COMPANY_FOUNDED_YEAR_INVALID": "અમાન્ય સ્થાપના વર્ષ",
+
+  "INDUSTRY_TYPE_LABEL": "ઉદ્યોગ પ્રકાર",
+  "INDUSTRY_TYPE_PLACEHOLDER": "ઉદ્યોગ પ્રકાર પસંદ કરો",
+  "INDUSTRY_TYPE_REQUIRED": "ઉદ્યોગ પ્રકાર જરૂરી છે",
+
+  "NUMBER_OF_FOUNDERS_LABEL": "સ્થાપકોની સંખ્યા",
+  "NUMBER_OF_FOUNDERS_PLACEHOLDER": "સ્થાપકોની સંખ્યા દાખલ કરો",
+  "NUMBER_OF_FOUNDERS_REQUIRED": "સ્થાપકોની સંખ્યા જરૂરી છે",
+
+  "TOTAL_EMPLOYEES_LABEL": "કુલ કર્મચારીઓ",
+  "TOTAL_EMPLOYEES_PLACEHOLDER": "કુલ કર્મચારીઓ દાખલ કરો",
+  "TOTAL_EMPLOYEES_REQUIRED": "કુલ કર્મચારીઓ જરૂરી છે",
+
+  "TOTAL_MALE_EMPLOYEES_LABEL": "પુરુષ કર્મચારીઓ",
+  "TOTAL_MALE_EMPLOYEES_PLACEHOLDER": "પુરુષ કર્મચારીઓ દાખલ કરો",
+  "TOTAL_MALE_EMPLOYEES_REQUIRED": "પુરુષ કર્મચારીઓ જરૂરી છે",
+
+  "TOTAL_FEMALE_EMPLOYEES_LABEL": "સ્ત્રી કર્મચારીઓ",
+  "TOTAL_FEMALE_EMPLOYEES_PLACEHOLDER": "સ્ત્રી કર્મચારીઓ દાખલ કરો",
+  "TOTAL_FEMALE_EMPLOYEES_REQUIRED": "સ્ત્રી કર્મચારીઓ જરૂરી છે",
+
+  "TOTAL_OTHERS_EMPLOYEES_LABEL": "અન્ય કર્મચારીઓ",
+  "TOTAL_OTHERS_EMPLOYEES_PLACEHOLDER": "અન્ય કર્મચારીઓ દાખલ કરો",
+  "TOTAL_OTHERS_EMPLOYEES_REQUIRED": "અન્ય કર્મચારીઓ જરૂરી છે",
+
+  "TOTAL_REVENUE_LABEL": "કુલ આવક",
+  "TOTAL_REVENUE_PLACEHOLDER": "કુલ આવક દાખલ કરો",
+  "TOTAL_REVENUE_REQUIRED": "કુલ આવક જરૂરી છે",
+
+  "LINKEDIN_LABEL": "લિન્કડઇન",
+  "LINKEDIN_PLACEHOLDER": "લિન્કડઇન પ્રોફાઇલ દાખલ કરો",
+
+  "TWITTER_LABEL": "ટ્વિટર",
+  "TWITTER_PLACEHOLDER": "ટ્વિટર હેન્ડલ દાખલ કરો",
+
+  "FACEBOOK_LABEL": "ફેસબુક",
+  "FACEBOOK_PLACEHOLDER": "ફેસબુક પેજ દાખલ કરો",
+
+  "MEDIUM_LABEL": "મિડિયમ",
+  "MEDIUM_PLACEHOLDER": "મિડિયમ પ્રોફાઇલ દાખલ કરો",
+
+  "COMPANY_LOCATIONS": "કંપનીના સ્થળો",
+  "COUNTRY_LABEL": "દેશ",
+  "SELECT_COUNTRY": "દેશ પસંદ કરો",
+  "STATE_LABEL": "રાજ્ય",
+  "SELECT_STATE": "રાજ્ય પસંદ કરો",
+  "ADDRESS_LABEL": "સરનામું",
+  "ADDRESS_PLACEHOLDER": "સરનામું દાખલ કરો",
+  "ADDRESS_REQUIRED": "સરનામું જરૂરી છે",
+
+  "COUNTRY_REQUIRED": "દેશ જરૂરી છે",
+  "STATE_REQUIRED": "રાજ્ય જરૂરી છે",
+
+  "ORGANIZATION_STATUS" : "સંસ્થાની સ્થિતિ",
+  "EMPLOYEES_STATUS" : "કર્મચારીઓની સ્થિતિ",
+  "SOCIAL_MEDIA_HANDLER" : "સોશિયલ મીડિયા હેન્ડલર્સ (જરૂર નથી)"
 }

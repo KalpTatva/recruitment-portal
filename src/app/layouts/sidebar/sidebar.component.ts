@@ -6,7 +6,8 @@ import { RouterModule } from '@angular/router';
   imports: [RouterModule],
   selector: 'side-bar',
   styleUrls: ['./sidebar.component.scss'],
-  template: ` <aside>
+  template: `
+  <aside>
     <div class="sidebar-content">
       <ul class="sidebar-list">
         <li

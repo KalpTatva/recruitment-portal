@@ -4,6 +4,7 @@ export interface RegisterRequest {
   confirmPassword: string;
   userName: string;
   phone: number;
+  countryCode: string;
 }
 
 export interface LoginRequest {
@@ -16,6 +17,7 @@ export interface CompanyRegistrationRequest {
   email: string;
   userName: string;
   phone: number;
+  countryCode: string;
   companyName: string;
   CompanyType: string;
   companyDescription: string;

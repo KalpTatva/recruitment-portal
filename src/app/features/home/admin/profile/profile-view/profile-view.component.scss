@@ -1,0 +1,25 @@
+.login-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+}
+
+.image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 1px solid black;
+}
+.profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.header-links {
+  display: flex;
+  gap: 0.5rem;
+}

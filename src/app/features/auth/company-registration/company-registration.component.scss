@@ -13,10 +13,9 @@
 }
 
 .login-card {
-  background: #fff;
+  background: #ffffff;
   border-radius: 8px;
-
-  // box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .login-card-body {
@@ -138,4 +137,18 @@
       cursor: pointer;
     }
   }
+}
+
+
+.form-group .form-input {
+  width: 100%;
+  padding: 0.6rem 0.9rem;
+  color: #333;
+
+  &:focus {
+    border-color: #007bff;
+  }
+}
+.option-colors {
+  color: #333;
 }
