@@ -90,7 +90,7 @@
   "TOTAL_OTHERS_EMPLOYEES_PLACEHOLDER": "Anzahl der anderen Mitarbeiter eingeben",
   "TOTAL_OTHERS_EMPLOYEES_REQUIRED": "Anzahl der anderen Mitarbeiter ist erforderlich",
 
-  "TOTAL_REVENUE_LABEL": "Gesamtumsatz",
+  "TOTAL_REVENUE_LABEL": "Gesamtumsatz (in USD)",
   "TOTAL_REVENUE_PLACEHOLDER": "Gesamtumsatz eingeben",
   "TOTAL_REVENUE_REQUIRED": "Gesamtumsatz ist erforderlich",
 
@@ -120,5 +120,12 @@
 
   "ORGANIZATION_STATUS" : "Organisationsstatus",
   "EMPLOYEES_STATUS" :  "Status der Mitarbeiter",
-  "SOCIAL_MEDIA_HANDLER" : "Social-Media-Handles (nicht erforderlich)"
+  "SOCIAL_MEDIA_HANDLER" : "Social-Media-Handles (nicht erforderlich)",
+
+  "TOTAL_REVENUE_INVALID" : "Umsatz muss eine gültige Zahl sein",
+  "TOTAL_MALE_EMPLOYEES_INVALID" : "Mitarbeiter müssen eine gültige Zahl sein",
+  "TOTAL_FEMALE_EMPLOYEES_INVALID" : "Mitarbeiter müssen eine gültige Zahl sein",
+  "TOTAL_OTHERS_EMPLOYEES_INVALID" : "Mitarbeiter müssen eine gültige Zahl sein",
+
+  "COUNTRY_CODE_PLACEHOLDER": "Ländervorwahl auswählen"
 }

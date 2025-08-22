@@ -21,6 +21,8 @@ import { CommonModule } from '@angular/common';
 import { SharedServices } from '../../../../../shared/services/shared.services';
 import { SnackBarSuccessComponent } from '../../../../../shared/components/snackbarSuccess/snackbar.success';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AdminServices } from '../../services/admin.services';
+import { EditAdminProfile } from '../../models/admin.interface';
 
 @Component({
   standalone: true,
@@ -95,6 +97,22 @@ import { MatSnackBar } from '@angular/material/snack-bar';
           <div class="error">{{ 'PHONE_INVALID' | transloco }}</div>
           }
         </div>
+
+        <div class="form-group">
+          <label for="countryCode" class="form-label">
+            {{ 'COUNTRY_CODE_LABEL' | transloco }}
+          </label>
+          <input
+            type="text"
+            formControlName="countryCode"
+            id="countryCode"
+            [placeholder]="'COUNTRY_CODE_PLACEHOLDER' | transloco"
+            class="form-input"
+          />
+          @if(required("countryCode")) {
+          <div class="error">{{ 'COUNTRY_CODE_REQUIRED' | transloco }}</div>
+          }
+        </div>
       </div>
 
       <div class="form-group-flex">
@@ -123,17 +141,17 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
         <!-- Company type  -->
         <div class="form-group">
-          <label for="CompanyType" class="form-label">
+          <label for="companyType" class="form-label">
             {{ 'COMPANY_TYPE_LABEL' | transloco }}
           </label>
           <input
             type="text"
-            formControlName="CompanyType"
-            id="CompanyType"
+            formControlName="companyType"
+            id="companyType"
             [placeholder]="'COMPANY_TYPE_PLACEHOLDER' | transloco"
             class="form-input"
           />
-          @if(required("CompanyType")) {
+          @if(required("companyType")) {
           <div class="error">
             {{ 'COMPANY_TYPE_REQUIRED' | transloco }}
           </div>
@@ -304,6 +322,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
           <div class="error">
             {{ 'TOTAL_REVENUE_REQUIRED' | transloco }}
           </div>
+          } @else if(matchExp("totalRevenue")) {
+          <div class="error">
+            {{ 'TOTAL_REVENUE_INVALID' | transloco }}
+          </div>
           }
         </div>
       </div>
@@ -326,6 +348,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
           <div class="error">
             {{ 'TOTAL_MALE_EMPLOYEES_REQUIRED' | transloco }}
           </div>
+          }@else if(matchExp("totalMaleEmployees")) {
+          <div class="error">
+            {{ 'TOTAL_MALE_EMPLOYEES_INVALID' | transloco }}
+          </div>
           }
         </div>
 
@@ -346,6 +372,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
           <div class="error">
             {{ 'TOTAL_FEMALE_EMPLOYEES_REQUIRED' | transloco }}
           </div>
+          }@else if(matchExp("totalFemaleEmployees")) {
+          <div class="error">
+            {{ 'TOTAL_FEMALE_EMPLOYEES_INVALID' | transloco }}
+          </div>
           }
         </div>
 
@@ -365,6 +395,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
           @if(required("totalOthersEmployees")) {
           <div class="error">
             {{ 'TOTAL_OTHERS_EMPLOYEES_REQUIRED' | transloco }}
+          </div>
+          }@else if(matchExp("totalOthersEmployees")) {
+          <div class="error">
+            {{ 'TOTAL_OTHERS_EMPLOYEES_INVALID' | transloco }}
           </div>
           }
         </div>
@@ -429,11 +463,18 @@ import { MatSnackBar } from '@angular/material/snack-bar';
         </div>
       </div>
 
+
+      <!--  -->
+          <input type="text" formControlName="userId" />
+          <input type="text" formControlName="companyId" />
+      <!--  -->
+
       <h3>
         {{ 'COMPANY_LOCATIONS' | transloco }}
       </h3>
       <div formArrayName="companyLocations">
-        @for (location of companyLocations.controls; track $index; let i =$index) {
+        @for (location of companyLocations.controls; track $index; let i
+        =$index) {
         <div [formGroupName]="i" class="form-group-flex gaps">
           <!-- country  -->
           <div class="form-group">
@@ -441,9 +482,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
               {{ 'COUNTRY_LABEL' | transloco }}
             </label>
             <select
-              formControlName="country"
+              formControlName="countryId"
               class="form-input"
-              (change)="getStateList($event, i)"
+              (change)="getStateList($any($event.target).value, i)"
             >
               <option value="">
                 {{ 'SELECT_COUNTRY' | transloco }}
@@ -454,7 +495,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
               </option>
               }
             </select>
-            @if(requiredArray(i,"country")) {
+            @if(requiredArray(i,"countryId")) {
             <div class="error">
               {{ 'COUNTRY_REQUIRED' | transloco }}
             </div>
@@ -465,7 +506,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
             <label class="form-label">
               {{ 'STATE_LABEL' | transloco }}
             </label>
-            <select formControlName="state" class="form-input">
+            <select formControlName="stateId" class="form-input">
               <option value="">
                 {{ 'SELECT_STATE' | transloco }}
               </option>
@@ -475,7 +516,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
               </option>
               }
             </select>
-            @if(requiredArray(i,"state")) {
+            @if(requiredArray(i,"stateId")) {
             <div class="error">
               {{ 'STATE_REQUIRED' | transloco }}
             </div>
@@ -537,14 +578,17 @@ export class EditProfileComponent implements OnInit {
   private fb = inject(FormBuilder);
   private sharedService = inject(SharedServices);
   private snackBar = inject(MatSnackBar);
+  private adminService = inject(AdminServices);
 
   errorBackEnd = signal('');
   removeBtn: WritableSignal<string> = signal('Remove');
   addBtn: WritableSignal<string> = signal('+ Add Location');
   countries = signal<any[]>([]);
-  stateLists = signal<{ [key: number]: any[] }>({});
+  stateLists = signal<any[]>([]);
 
   EditCompanyForm = this.fb.group({
+    userId: ['', Validators.required],
+    companyId: ['', Validators.required],
     email: [
       '',
       [
@@ -555,11 +599,12 @@ export class EditProfileComponent implements OnInit {
     ],
     userName: ['', Validators.required],
     phone: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
+    countryCode: ['', Validators.required],
     companyName: [
       '',
       [Validators.required, Validators.pattern(/^[a-zA-Z0-9@%.,"'\s]+$/)],
     ],
-    CompanyType: ['', Validators.required],
+    companyType: ['', Validators.required],
     companyDescription: ['', Validators.required],
     companyWebsite: [
       '',
@@ -571,8 +616,7 @@ export class EditProfileComponent implements OnInit {
     companyLocation: ['', Validators.required],
     companyFoundedYear: [
       '',
-      Validators.required,
-      Validators.pattern(/^(19|20)\d{2}$/),
+      [Validators.required, Validators.pattern(/^(19|20)\d{2}$/)],
     ],
     industryType: ['', Validators.required],
     numberOfFounders: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
@@ -593,19 +637,19 @@ export class EditProfileComponent implements OnInit {
       '',
       [Validators.required, Validators.pattern(/^\d+(\.\d{1,2})?$/)],
     ],
-    linkedIn: [''],
-    twitter: [''],
-    facebook: [''],
-    medium: [''],
-    companyLocations: this.fb.array([this.createLocation()]),
+    linkedIn: '',
+    twitter: '',
+    facebook: '',
+    medium: '',
+    companyLocations: this.fb.array([]),
   });
 
   // factory for one location
-  createLocation(): FormGroup {
+  createLocation(location?: any): FormGroup {
     return this.fb.group({
-      country: ['', Validators.required],
-      state: ['', Validators.required],
-      address: ['', Validators.required],
+      countryId: [location?.countryId || ''],
+      stateId: [location?.stateId || ''],
+      address: [location?.address || ''],
     });
   }
 
@@ -654,6 +698,65 @@ export class EditProfileComponent implements OnInit {
 
   ngOnInit() {
     this.getCountryList();
+    this.getCompanyDetails();
+  }
+
+  getCompanyDetails() {
+    this.adminService.getCompanyDetailsByEmail().subscribe({
+      next: (res) => {
+        const companyData = res.data;
+
+        // Patch simple fields
+        this.EditCompanyForm.patchValue({
+          email: companyData.email,
+          userName: companyData.userName,
+          phone: companyData.phone,
+          countryCode: companyData.countryCode || '',
+          companyName: companyData.companyName,
+          companyType: companyData.companyType,
+          companyDescription: companyData.companyDescription,
+          companyWebsite: companyData.companyWebsite,
+          companyLocation: companyData.companyLocation,
+          companyFoundedYear: companyData.companyFoundedYear == 0 ? '' : companyData.companyFoundedYear,
+          industryType: companyData.industryType,
+          numberOfFounders: companyData.numberOfFounders == 0 ? '' : companyData.numberOfFounders,
+          totalEmployees: companyData.totalEmployees == 0 ? '' : companyData.totalEmployees,
+          totalMaleEmployees: companyData.totalMaleEmployees == 0 ? '' : companyData.totalMaleEmployees,
+          totalFemaleEmployees: companyData.totalFemaleEmployees == 0 ? '' : companyData.totalFemaleEmployees,
+          totalOthersEmployees: companyData.totalOthersEmployees == 0 ? '' : companyData.totalOthersEmployees,
+          totalRevenue: companyData.totalRevenue == 0 ? '' : companyData.totalRevenue,
+          linkedIn: companyData.linkedIn,
+          twitter: companyData.twitter,
+          facebook: companyData.facebook,
+          medium: companyData.medium,
+          companyId: companyData.companyId,
+          userId: companyData.userId,
+        });
+
+        // Populate the locations
+        const locations = this.EditCompanyForm.get('companyLocations') as FormArray;
+        locations.clear();
+
+        if (companyData.companyLocations?.length > 0) {
+          companyData.companyLocations.forEach((loc: any, index: number) => {
+            locations.push(this.createLocation(loc));
+
+            if (loc.countryId) {
+              this.getStateList(loc.countryId, index);  // load states immediately
+            }
+          });
+        } else {
+          // if no location, push at least 1 blank row
+          locations.push(this.createLocation());
+        }
+      },
+      error: (err) => {
+        this.openSnackBarError(err.error.message);
+        this.errorBackEnd.set(
+          'Failed to load company details. Please try again later.'
+        );
+      },
+    });
   }
 
   getCountryList() {
@@ -671,26 +774,59 @@ export class EditProfileComponent implements OnInit {
     });
   }
 
-  getStateList(event: Event, rowIndex: number) {
-    const target = event.target as HTMLSelectElement;
-    const countryId = target.value;
+  getStateList(countryId: number, rowIndex: number) {
     this.sharedService.getStateList(Number(countryId)).subscribe({
       next: (res) => {
-        const updated = { ...this.stateLists() };
-        updated[rowIndex] = res.data;
-        this.stateLists.set(updated);
+        const current = [...this.stateLists()];
+        current[rowIndex] = res.data;
+        this.stateLists.set(current);
       },
       error: (err) => {
         this.openSnackBarError(err.error.message);
-        this.errorBackEnd.set(
-          'Failed to load state list. Please try again later.'
-        );
       },
     });
   }
 
   onSubmit() {
-    console.log(this.EditCompanyForm.value);
+    this.adminService
+      .editCompanyDetails({
+        companyName: this.EditCompanyForm.value.companyName!,
+        companyType: this.EditCompanyForm.value.companyType!,
+        companyDescription: this.EditCompanyForm.value.companyDescription!,
+        companyWebsite: this.EditCompanyForm.value.companyWebsite!,
+        companyLocation: this.EditCompanyForm.value.companyLocation!,
+        companyFoundedYear: Number(this.EditCompanyForm.value.companyFoundedYear),
+        industryType: this.EditCompanyForm.value.industryType!,
+        numberOfFounders: Number(this.EditCompanyForm.value.numberOfFounders),
+        totalEmployees: Number(this.EditCompanyForm.value.totalEmployees),
+        totalMaleEmployees: Number(this.EditCompanyForm.value.totalMaleEmployees),
+        totalFemaleEmployees: Number(this.EditCompanyForm.value.totalFemaleEmployees),
+        totalOthersEmployees: Number(this.EditCompanyForm.value.totalOthersEmployees),
+        totalRevenue: Number(this.EditCompanyForm.value.totalRevenue),
+        linkedIn: this.EditCompanyForm.value.linkedIn!,
+        twitter: this.EditCompanyForm.value.twitter!,
+        facebook: this.EditCompanyForm.value.facebook!,
+        medium: this.EditCompanyForm.value.medium!,
+        userId: Number(this.EditCompanyForm.value.userId),
+        companyId: Number(this.EditCompanyForm.value.companyId),
+        email: this.EditCompanyForm.value.email! || '',
+        userName: this.EditCompanyForm.value.userName! || '',
+        phone: Number(this.EditCompanyForm.value.phone),
+        countryCode: this.EditCompanyForm.value.countryCode || '',
+        companyLocations: (this.EditCompanyForm.value.companyLocations ??
+          []) as { countryId: number; stateId: number; address: string }[],
+      })
+      .subscribe({
+        next: (res) => {
+          this.openSnackBarSuccess('Company details updated successfully!');
+        },
+        error: (res) => {
+          this.openSnackBarError(res.error.message);
+          this.errorBackEnd.set(
+            'Failed to update company details. Please try again later.'
+          );
+        },
+      });
   }
 
   // snackbars

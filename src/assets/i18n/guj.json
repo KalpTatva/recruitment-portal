@@ -90,7 +90,7 @@
   "TOTAL_OTHERS_EMPLOYEES_PLACEHOLDER": "અન્ય કર્મચારીઓ દાખલ કરો",
   "TOTAL_OTHERS_EMPLOYEES_REQUIRED": "અન્ય કર્મચારીઓ જરૂરી છે",
 
-  "TOTAL_REVENUE_LABEL": "કુલ આવક",
+  "TOTAL_REVENUE_LABEL": "કુલ આવક (USD માં)",
   "TOTAL_REVENUE_PLACEHOLDER": "કુલ આવક દાખલ કરો",
   "TOTAL_REVENUE_REQUIRED": "કુલ આવક જરૂરી છે",
 
@@ -120,5 +120,12 @@
 
   "ORGANIZATION_STATUS" : "સંસ્થાની સ્થિતિ",
   "EMPLOYEES_STATUS" : "કર્મચારીઓની સ્થિતિ",
-  "SOCIAL_MEDIA_HANDLER" : "સોશિયલ મીડિયા હેન્ડલર્સ (જરૂર નથી)"
+  "SOCIAL_MEDIA_HANDLER" : "સોશિયલ મીડિયા હેન્ડલર્સ (જરૂર નથી)",
+
+  "TOTAL_REVENUE_INVALID" : "કુલ આવક માન્ય સંખ્યા હોવી જોઈએ",
+  "TOTAL_MALE_EMPLOYEES_INVALID" : "કર્મચારીઓ માન્ય સંખ્યા હોવી જોઈએ",
+  "TOTAL_FEMALE_EMPLOYEES_INVALID" : "કર્મચારીઓ માન્ય સંખ્યા હોવી જોઈએ",
+  "TOTAL_OTHERS_EMPLOYEES_INVALID" : "કર્મચારીઓ માન્ય સંખ્યા હોવી જોઈએ",
+
+  "COUNTRY_CODE_PLACEHOLDER": "દેશ કોડ પસંદ કરો"
 }

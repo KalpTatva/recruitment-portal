@@ -90,8 +90,8 @@
   "TOTAL_OTHERS_EMPLOYEES_PLACEHOLDER": "Enter total other employees",
   "TOTAL_OTHERS_EMPLOYEES_REQUIRED": "Other employees are required",
 
-  "TOTAL_REVENUE_LABEL": "Total Revenue",
-  "TOTAL_REVENUE_PLACEHOLDER": "Enter total revenue",
+  "TOTAL_REVENUE_LABEL": "Total Revenue (in USD)",
+  "TOTAL_REVENUE_PLACEHOLDER": "Enter total revenue ",
   "TOTAL_REVENUE_REQUIRED": "Total revenue is required",
 
   "LINKEDIN_LABEL": "LinkedIn",
@@ -120,6 +120,14 @@
 
   "ORGANIZATION_STATUS" : "Organization Status",
   "EMPLOYEES_STATUS" : "Employees Status",
-  "SOCIAL_MEDIA_HANDLER" : "Social media handles (Not require)"
+  "SOCIAL_MEDIA_HANDLER" : "Social media handles (Not require)",
+
+
+  "TOTAL_REVENUE_INVALID" : "Total revenue must be a valid number",
+  "TOTAL_MALE_EMPLOYEES_INVALID" : "Employees must be a valid number",
+  "TOTAL_FEMALE_EMPLOYEES_INVALID" : "Employees must be a valid number",
+  "TOTAL_OTHERS_EMPLOYEES_INVALID" : "Employees must be a valid number",
+
+  "COUNTRY_CODE_PLACEHOLDER": "Select Country Code"
 
 }

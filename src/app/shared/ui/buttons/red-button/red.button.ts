@@ -18,7 +18,7 @@ import { Component, Input, OnInit, signal } from '@angular/core';
     cursor: pointer;
   }`,
   template: `
-    <button class="red-button">
+    <button type="button" class="red-button">
       {{ data() }}
     </button>
   `,
