@@ -6,25 +6,7 @@ import { RouterModule } from '@angular/router';
   imports: [RouterModule],
   selector: 'side-bar',
   styleUrls: ['./sidebar.component.scss'],
-  template: `
-  <aside>
-    <div class="sidebar-content">
-      <ul class="sidebar-list">
-        <li
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
-          [routerLink]="['/admin/']"
-        >
-          profile
-        </li>
-        <li routerLinkActive="active">Jobs</li>
-        <li routerLinkActive="active" [routerLink]="['/admin/add-job/']">
-          Add Jobs
-        </li>
-        <li routerLinkActive="active">Settings</li>
-      </ul>
-    </div>
-  </aside>`,
+  templateUrl: './sidebar.component.html'
 })
 export class SideBarComponent implements OnInit {
   constructor() {}

@@ -5,11 +5,7 @@ import { CommonModule } from '@angular/common';
   selector: 'footer',
   styleUrl: './footer.component.scss',
   imports: [CommonModule],
-  template: `
-    <div class="footer">
-      <h4>@Copy-rights {{ today() | date : 'yyyy-MM-dd' }}</h4>
-    </div>
-  `,
+  templateUrl: './footer.component.html'
 })
 export class FooterComponent {
   today = signal(new Date());

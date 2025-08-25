@@ -8,18 +8,6 @@ import { RouterOutlet } from '@angular/router';
   selector: 'main-page',
   styleUrl: './main.component.scss',
   imports: [MatIconModule, NavbarComponent, FooterComponent, RouterOutlet],
-  template: `
-    <div>
-      <div class="container">
-        <navbar class="navbar-container" />
-      </div>
-      <div>
-        <router-outlet />
-      </div>
-      <div>
-        <footer></footer>
-      </div>
-    </div>
-  `,
+  templateUrl: './main.component.html'
 })
 export class MainComponent {}

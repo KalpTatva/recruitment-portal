@@ -17,21 +17,7 @@ import { BackArrowButtonComponent } from '../../../../../shared/ui/buttons/back-
   ],
   selector: 'admin-profile',
   styleUrls: ['./profile.component.scss'],
-  template: `
-    <section class="login-section">
-      <img
-        class="company-profile"
-        src="/assets/images/company-profile.jpg"
-        alt=""
-      />
-
-      <back-arrow-button (click)="HandleBack()" />
-
-      <div class="login-card-body">
-        <router-outlet></router-outlet>
-      </div>
-    </section>
-  `,
+  templateUrl: './profile.component.html'
 })
 export class AdminProfileComponent {
   private fb = inject(FormBuilder);

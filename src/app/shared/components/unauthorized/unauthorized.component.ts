@@ -4,10 +4,8 @@ import { Component, OnInit } from '@angular/core';
   standalone: true,
   imports: [],
   selector: 'unauthorized',
-  template: `
-  <div>
-    <h1>ERROR 401 : Unauthorized</h1>
-  </div>`,
+  styleUrl: './unauthorized.component.scss',
+  templateUrl: './unauthorized.component.html'
 })
 
 export class UnauthorizedComponent implements OnInit {

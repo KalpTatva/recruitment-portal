@@ -6,6 +6,7 @@ import { Component, Input, input, OnInit, Signal } from '@angular/core';
   selector: 'green-button',
   styles: `
   .register-button {
+  width: 100%;
   text-decoration: none;
   background-color: #309689;
   color: white;

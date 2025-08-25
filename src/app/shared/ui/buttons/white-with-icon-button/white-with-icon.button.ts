@@ -23,7 +23,7 @@ import { Component, Input, Signal } from '@angular/core';
     }
   `,
   template: `
-    <button class="edit-button">
+    <button class="edit-button" type="button">
       <span class="material-icons-outlined">{{icon()}}</span>
       <span> {{ data() }} </span>
     </button>

@@ -12,43 +12,7 @@ import { SnackBarSuccessComponent } from '../../shared/components/snackbarSucces
   selector: 'navbar',
   styleUrl: './navbar.component.scss',
   imports: [MatIconModule, NameComponent, RedButtonComponent],
-  template: `
-    <div class="navbar">
-      <div class="flex-box align-start banner" (click)="navigateToMain()">
-        <mat-icon class="material-icons-outlined"> class </mat-icon>
-        <h1 class="Banner-text">Job Portal</h1>
-      </div>
-      <div class="flex-box">
-        <ul class="navbar-list">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Job</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Contact Us</a></li>
-        </ul>
-      </div>
-      <div class="flex-box buttons-links align-end">
-        <select class="language-dropdown" (change)="changeLang($event)">
-          <option class="" value="en">English</option>
-          <option class="" value="guj">ગુજરાતી</option>
-          <option class="" value="de">German</option>
-          <option class="" value="fr">French</option>
-        </select>
-        @if(authBtnView()) {
-        <a class="login-button" (click)="navigateToLogin()">Login</a>
-        <green-button
-          class="register-button"
-          (click)="navigateToRegister()"
-          [data]="register"
-        />
-        } @else if(userName().length > 0) {
-        <span (click)="handleUserProfileNavigation()">
-          {{ userName() }}
-        </span>
-        <red-button [data]="logOut" (click)="handleLogout()" />
-        }
-      </div>
-    </div>
-  `,
+  templateUrl: './navbar.component.html'
 })
 export class NavbarComponent {
   private router = inject(Router);

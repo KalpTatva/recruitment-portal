@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   imports: [],
   selector: 'add-jobs',
   styleUrls: ['./add-job.component.scss'],
-  template: ` <h1>add jobs</h1>`,
+  templateUrl: './add-job.component.html',
 })
 export class AddJobComponent implements OnInit {
   constructor() {}

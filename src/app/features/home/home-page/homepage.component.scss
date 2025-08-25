@@ -1,3 +1,5 @@
+@import "mixins";
+
 .background-color {
   width: 100%;
   height: 60vh;
@@ -36,16 +38,24 @@
   margin-top: 30px;
   width: 85%;
   gap: 10px;
+
+
+  @include respond-to(tablet) {
+
+  }
 }
 
 .Jobs-banner h1 {
   font-size: 2.5rem;
   margin-bottom: 20px;
+  line-height: 40px;
+
 }
 
 .align-start {
   justify-content: start;
   align-items: center;
+  margin-left: 20px;
 }
 .align-end {
   justify-content: end;
@@ -54,6 +64,7 @@
 .large-font {
   font-size: 1.1rem;
   color: #309689;
+  word-wrap: nowrap;
   &:hover {
     text-decoration: underline;
   }
@@ -78,7 +89,7 @@
 }
 .content h1 {
   margin-bottom: 30px;
-  text-wrap: nowrap;
+  line-height: 60px;
 }
 .content p {
   margin-bottom: 30px;
@@ -92,6 +103,14 @@
   width: 100%;
 }
 
+.search-icon-term {
+  display: flex;
+
+  @include respond-to(tablet) {
+    display: none;
+  }
+}
+
 // globle search inputs
 
 .search-input {
@@ -103,6 +122,11 @@
   font-size: 1.6rem;
   border: none;
   outline: none;
+
+  @include respond-to(tablet) {
+    height: 40px;
+    font-size: 1rem;
+  }
 }
 
 .search-button {
@@ -119,4 +143,10 @@
   border: none;
   cursor: pointer;
   text-wrap: nowrap;
+
+  @include respond-to(tablet) {
+    height: 40px;
+    padding: 10px;
+  }
+
 }

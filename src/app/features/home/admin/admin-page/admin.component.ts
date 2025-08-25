@@ -7,15 +7,7 @@ import { RouterOutlet } from '@angular/router';
   imports: [SideBarComponent, RouterOutlet],
   selector: 'admin',
   styleUrls: ['./admin.component.scss'],
-  template: ` <div class="admin-layout">
-    <aside class="sidebar">
-      <side-bar></side-bar>
-    </aside>
-
-    <main class="content">
-      <router-outlet></router-outlet>
-    </main>
-  </div>`,
+  templateUrl: './admin.component.html',
 })
 export class AdminComponent implements OnInit {
   constructor() {}

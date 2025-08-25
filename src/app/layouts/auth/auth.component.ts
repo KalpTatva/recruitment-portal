@@ -8,17 +8,7 @@ import { FooterComponent } from '../footer/footer.component';
   imports: [RouterOutlet, NavbarComponent, FooterComponent],
   selector: 'auth-layout',
   styleUrl: './auth.component.scss',
-  template: `<div>
-    <div class="container">
-      <navbar class="navbar-container" />
-    </div>
-    <div>
-      <router-outlet />
-    </div>
-    <div>
-      <footer></footer>
-    </div>
-  </div>`,
+  templateUrl: './auth.component.html',
 })
 export class AuthLayoutComponent implements OnInit {
   constructor() {}

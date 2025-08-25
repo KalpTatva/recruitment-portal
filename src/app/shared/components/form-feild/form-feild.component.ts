@@ -6,37 +6,8 @@ import { TranslocoModule } from '@ngneat/transloco';
   selector: 'form-field',
   standalone: true,
   imports: [ReactiveFormsModule, TranslocoModule],
-  template: `
-    <div class="form-group" [formGroup]="parentForm">
-      <label [for]="formControlName" class="form-label">
-        {{ label | transloco }}
-      </label>
-
-      @if(type !== 'textarea') {
-      <input
-        [type]="type"
-        [formControlName]="formControlName"
-        [id]="formControlName"
-        [placeholder]="placeholder | transloco"
-        class="form-input"
-      />
-      } @if(type === 'textarea') {
-      <textarea
-        [formControlName]="formControlName"
-        [id]="formControlName"
-        [placeholder]="placeholder | transloco"
-        class="form-input"
-        rows="4"
-      ></textarea>
-      }
-      <!-- Error handling -->
-      @if(required()) {
-      <div class="error">{{ requiredMessage | transloco }}</div>
-      } @else if(pattern()) {
-      <div class="error">{{ invalidMessage | transloco }}</div>
-      }
-    </div>
-  `,
+  styleUrl: './form-feild.component.scss',
+  templateUrl: './form-feild.component.html'
 })
 export class FormFieldComponent {
   @Input() parentForm!: FormGroup;
