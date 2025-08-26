@@ -50,6 +50,7 @@ export class EditProfileComponent implements OnInit, OnChanges{
   addBtn: WritableSignal<string> = signal('+ Add Location');
   countries = signal<any[]>([]);
   stateLists = signal<any[]>([]);
+  cityLists = signal<any[]>([]);
 
   EditCompanyForm = this.fb.group({
     userId: ['', Validators.required],
@@ -110,11 +111,13 @@ export class EditProfileComponent implements OnInit, OnChanges{
   });
 
   // factory for one location
-  createLocation(location?: any): FormGroup {
+  createLocation(loc?: any): FormGroup {
     return this.fb.group({
-      countryId: [location?.countryId || ''],
-      stateId: [location?.stateId || ''],
-      address: [location?.address || ''],
+      companyLocationId: [0],
+      countryId: [loc?.countryId || '', Validators.required],
+      stateId: [loc?.stateId || '', Validators.required],
+      cityId: [loc?.cityId || '', Validators.required],
+      address: [loc?.address || '', Validators.required],
     });
   }
 
@@ -165,6 +168,7 @@ export class EditProfileComponent implements OnInit, OnChanges{
     this.getCountryList();
     this.getCompanyDetails();
   }
+
   ngOnChanges(changes: SimpleChanges): void {
 
   }
@@ -172,6 +176,7 @@ export class EditProfileComponent implements OnInit, OnChanges{
   getCompanyDetails() {
     this.adminService.getCompanyDetailsByEmail().subscribe({
       next: (res) => {
+        // this.EditCompanyForm.reset();
         const companyData = res.data;
 
         // Patch simple fields
@@ -182,32 +187,22 @@ export class EditProfileComponent implements OnInit, OnChanges{
           countryCode: companyData.countryCode || '',
           companyName: companyData.companyName,
           companyType: companyData.companyType,
+          companyLocation: companyData.companyLocation,
           companyDescription: companyData.companyDescription,
           companyWebsite: companyData.companyWebsite,
-          companyLocation: companyData.companyLocation,
           companyFoundedYear:
-            companyData.companyFoundedYear == 0
-              ? ''
-              : companyData.companyFoundedYear,
+            companyData.companyFoundedYear == 0 ? '' : companyData.companyFoundedYear,
           industryType: companyData.industryType,
           numberOfFounders:
-            companyData.numberOfFounders == 0
-              ? ''
-              : companyData.numberOfFounders,
+            companyData.numberOfFounders == 0 ? '' : companyData.numberOfFounders,
           totalEmployees:
             companyData.totalEmployees == 0 ? '' : companyData.totalEmployees,
           totalMaleEmployees:
-            companyData.totalMaleEmployees == 0
-              ? ''
-              : companyData.totalMaleEmployees,
+            companyData.totalMaleEmployees == 0 ? '' : companyData.totalMaleEmployees,
           totalFemaleEmployees:
-            companyData.totalFemaleEmployees == 0
-              ? ''
-              : companyData.totalFemaleEmployees,
+            companyData.totalFemaleEmployees == 0 ? '' : companyData.totalFemaleEmployees,
           totalOthersEmployees:
-            companyData.totalOthersEmployees == 0
-              ? ''
-              : companyData.totalOthersEmployees,
+            companyData.totalOthersEmployees == 0 ? '' : companyData.totalOthersEmployees,
           totalRevenue:
             companyData.totalRevenue == 0 ? '' : companyData.totalRevenue,
           linkedIn: companyData.linkedIn,
@@ -217,19 +212,24 @@ export class EditProfileComponent implements OnInit, OnChanges{
           companyId: companyData.companyId,
           userId: companyData.userId,
         });
-
-        // different compnay locations
-        const locations = this.EditCompanyForm.get(
-          'companyLocations'
-        ) as FormArray;
+        // Clear and update company locations
+        const locations = this.EditCompanyForm.get('companyLocations') as FormArray;
         locations.clear();
 
         if (companyData.companyLocations?.length > 0) {
           companyData.companyLocations.forEach((loc: any, index: number) => {
-            locations.push(this.createLocation(loc));
+            const locationFormGroup = this.createLocation(loc);
+            locationFormGroup.patchValue({ companyLocationId: loc.companyLocationId });
+            locations.push(locationFormGroup);
 
+            // If countryId is present, fetch states
             if (loc.countryId) {
               this.getStateList(loc.countryId, index);
+            }
+
+            // If stateId is present, fetch cities
+            if (loc.stateId) {
+              this.getCityList(loc.stateId, index);
             }
           });
         } else {
@@ -238,17 +238,16 @@ export class EditProfileComponent implements OnInit, OnChanges{
       },
       error: (err) => {
         this.openSnackBarError(err.error.message);
-        this.errorBackEnd.set(
-          'Failed to load company details. Please try again later.'
-        );
+        this.errorBackEnd.set('Failed to load company details. Please try again later.');
       },
     });
   }
 
+
   getCountryList() {
     this.sharedService.getCountryList().subscribe({
       next: (res) => {
-        console.log(res.data);
+        // console.log(res.data);
         this.countries.set(res.data);
       },
       error: (err) => {
@@ -266,6 +265,19 @@ export class EditProfileComponent implements OnInit, OnChanges{
         const current = [...this.stateLists()];
         current[rowIndex] = res.data;
         this.stateLists.set(current);
+      },
+      error: (err) => {
+        this.openSnackBarError(err.error.message);
+      },
+    });
+  }
+
+  getCityList(stateId: number, rowIndex: number) {
+    this.sharedService.getCityList(Number(stateId)).subscribe({
+      next: (res) => {
+        const current = [...this.cityLists()];
+        current[rowIndex] = res.data;
+        this.cityLists.set(current);
       },
       error: (err) => {
         this.openSnackBarError(err.error.message);
@@ -308,11 +320,12 @@ export class EditProfileComponent implements OnInit, OnChanges{
         phone: Number(this.EditCompanyForm.value.phone),
         countryCode: this.EditCompanyForm.value.countryCode || '',
         companyLocations: (this.EditCompanyForm.value.companyLocations ??
-          []) as { countryId: number; stateId: number; address: string }[],
+          []) as { countryId: number; stateId: number; companyLocationId: number; cityId: number; address: string }[],
       })
       .subscribe({
         next: (res) => {
-          this.openSnackBarSuccess('Company details updated successfully!');
+          this.getCompanyDetails();
+          this.openSnackBarSuccess(res.message);
         },
         error: (res) => {
           this.openSnackBarError(res.error.message);
@@ -344,3 +357,36 @@ export class EditProfileComponent implements OnInit, OnChanges{
     });
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

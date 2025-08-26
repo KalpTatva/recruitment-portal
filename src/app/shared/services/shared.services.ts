@@ -24,4 +24,14 @@ export class SharedServices {
         })
       );
   }
+
+  getCityList(stateId: number) {
+    return this.http
+      .get<any>(`${this.API_URL}/Shared/get-city-by-state/${stateId}`)
+      .pipe(
+        tap((res) => {
+          console.log(res);
+        })
+      );
+  }
 }

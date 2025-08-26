@@ -128,6 +128,10 @@
   "TOTAL_FEMALE_EMPLOYEES_INVALID" : "Employees must be a valid number",
   "TOTAL_OTHERS_EMPLOYEES_INVALID" : "Employees must be a valid number",
 
-  "COUNTRY_CODE_PLACEHOLDER": "Select Country Code"
+  "COUNTRY_CODE_PLACEHOLDER": "Select Country Code",
+
+  "CITY_LABEL": "City",
+  "SELECT_CITY": "Select City",
+  "CITY_REQUIRED": "City is required"
 
 }

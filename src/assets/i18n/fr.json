@@ -118,14 +118,18 @@
   "COUNTRY_REQUIRED": "Le pays est requis",
   "STATE_REQUIRED": "L'état est requis",
 
-  "ORGANIZATION_STATUS" : "Statut de l'organisation",
-  "EMPLOYEES_STATUS" : "Statut des employés",
-  "SOCIAL_MEDIA_HANDLER" : "Gestionnaires de médias sociaux (non requis)",
+  "ORGANIZATION_STATUS": "Statut de l'organisation",
+  "EMPLOYEES_STATUS": "Statut des employés",
+  "SOCIAL_MEDIA_HANDLER": "Gestionnaires de médias sociaux (non requis)",
 
-  "TOTAL_REVENUE_INVALID" : "Le revenu doit être un nombre valide",
-  "TOTAL_MALE_EMPLOYEES_INVALID" : "Les employés doivent être un nombre valide",
-  "TOTAL_FEMALE_EMPLOYEES_INVALID" : "Les employés doivent être un nombre valide",
-  "TOTAL_OTHERS_EMPLOYEES_INVALID" : "Les employés doivent être un nombre valide",
+  "TOTAL_REVENUE_INVALID": "Le revenu doit être un nombre valide",
+  "TOTAL_MALE_EMPLOYEES_INVALID": "Les employés doivent être un nombre valide",
+  "TOTAL_FEMALE_EMPLOYEES_INVALID": "Les employés doivent être un nombre valide",
+  "TOTAL_OTHERS_EMPLOYEES_INVALID": "Les employés doivent être un nombre valide",
 
-  "COUNTRY_CODE_PLACEHOLDER": "Sélectionnez l'indicatif du pays"
+  "COUNTRY_CODE_PLACEHOLDER": "Sélectionnez l'indicatif du pays",
+
+  "CITY_LABEL": "Ville",
+  "SELECT_CITY": "Sélectionner une ville",
+  "CITY_REQUIRED": "Ville obligatoire"
 }

@@ -1,6 +1,7 @@
 export interface EditAdminProfile {
   userId: number;
   companyId: number;
+
   email: string;
   userName: string;
   phone: number;
@@ -25,8 +26,10 @@ export interface EditAdminProfile {
   medium: string;
 
   companyLocations: Array<{
+    companyLocationId: number | 0;
     countryId: number;
     stateId: number;
+    cityId: number;
     address: string;
   }>;
 }

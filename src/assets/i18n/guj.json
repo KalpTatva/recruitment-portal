@@ -118,14 +118,18 @@
   "COUNTRY_REQUIRED": "દેશ જરૂરી છે",
   "STATE_REQUIRED": "રાજ્ય જરૂરી છે",
 
-  "ORGANIZATION_STATUS" : "સંસ્થાની સ્થિતિ",
-  "EMPLOYEES_STATUS" : "કર્મચારીઓની સ્થિતિ",
-  "SOCIAL_MEDIA_HANDLER" : "સોશિયલ મીડિયા હેન્ડલર્સ (જરૂર નથી)",
+  "ORGANIZATION_STATUS": "સંસ્થાની સ્થિતિ",
+  "EMPLOYEES_STATUS": "કર્મચારીઓની સ્થિતિ",
+  "SOCIAL_MEDIA_HANDLER": "સોશિયલ મીડિયા હેન્ડલર્સ (જરૂર નથી)",
 
-  "TOTAL_REVENUE_INVALID" : "કુલ આવક માન્ય સંખ્યા હોવી જોઈએ",
-  "TOTAL_MALE_EMPLOYEES_INVALID" : "કર્મચારીઓ માન્ય સંખ્યા હોવી જોઈએ",
-  "TOTAL_FEMALE_EMPLOYEES_INVALID" : "કર્મચારીઓ માન્ય સંખ્યા હોવી જોઈએ",
-  "TOTAL_OTHERS_EMPLOYEES_INVALID" : "કર્મચારીઓ માન્ય સંખ્યા હોવી જોઈએ",
+  "TOTAL_REVENUE_INVALID": "કુલ આવક માન્ય સંખ્યા હોવી જોઈએ",
+  "TOTAL_MALE_EMPLOYEES_INVALID": "કર્મચારીઓ માન્ય સંખ્યા હોવી જોઈએ",
+  "TOTAL_FEMALE_EMPLOYEES_INVALID": "કર્મચારીઓ માન્ય સંખ્યા હોવી જોઈએ",
+  "TOTAL_OTHERS_EMPLOYEES_INVALID": "કર્મચારીઓ માન્ય સંખ્યા હોવી જોઈએ",
 
-  "COUNTRY_CODE_PLACEHOLDER": "દેશ કોડ પસંદ કરો"
+  "COUNTRY_CODE_PLACEHOLDER": "દેશ કોડ પસંદ કરો",
+
+  "CITY_LABEL": "શહેર",
+  "SELECT_CITY": "શહેર પસંદ કરો",
+  "CITY_REQUIRED": "શહેર જરૂરી છે"
 }
