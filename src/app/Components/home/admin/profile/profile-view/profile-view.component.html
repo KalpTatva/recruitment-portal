@@ -1,0 +1,96 @@
+<div class="profile-header">
+  <h1 class="login-title">{{ "COMPANY_PROFILE" | transloco }}</h1>
+  <span class="header-links">
+    <!-- white button for editing company details -->
+    <white-with-icon-button
+      [data]="editProfile"
+      [icon]="editIcon"
+      [routerLink]="['/admin/edit-company-profile']"
+    />
+    <!-- white button for company web site -->
+    <white-with-icon-button
+      [icon]="linkIcon"
+      [data]="linkWebsite"
+      (click)="onWebsiteLinkClick()"
+    />
+  </span>
+</div>
+
+<!-- profile view -->
+<div class="profile-card">
+  <div class="card-image">
+    <img class="image" src="/assets/images/logo.webp" alt="" />
+  </div>
+  <div class="card-data">
+    <div class="card-title">
+      <h1>{{ companyDetails()?.companyName }}</h1>
+      <span> {{ companyDetails()?.companyLocation }} </span>
+    </div>
+    <div class="card-sub-title">
+      <span> {{ companyDetails()?.companyDescription }} </span>
+    </div>
+
+    <!-- company profile links to another platoforms -->
+    <div class="">
+      <img class="links-logo" src="/assets/images/facebook.svg" (click)="HandleFacbookLink()" alt="facebook" height="30" width="30" />
+      <img class="links-logo" src="/assets/images/linkedin.svg" (click)="HandleLinkedIn()" alt="linkedin" height="30" width="30"/>
+      <img class="links-logo" src="/assets/images/medium.svg" (click)="HandleMedium()" alt="medium" height="30" width="30"/>
+      <img class="links-logo" src="/assets/images/twitter.jpg" (click)="HandleTwitter()" alt="twitter" height="30" width="30" />
+    </div>
+
+    <!-- tab groups (overview, about)-->
+    <mat-tab-group>
+
+      <mat-tab label="Overview" >
+        <span class="flex-boxes">
+          <profile-card
+            [iconClass] = "revenueIcon"
+            [receivedColor] = "greenColor"
+            [dataLabels]= "revenueLabel"
+            [data] = "revenue"
+            style="width: 100%;"
+          />
+
+          <profile-card
+            [iconClass] = "peopleIcon"
+            [receivedColor] = "blueColor"
+            [dataLabels]= "totalempLabel"
+            [data] = "totalEmp"
+            style="width: 100%;"
+          />
+        </span>
+      </mat-tab>
+      <mat-tab label="About" >
+        <span class="flex-boxes">
+          <profile-card
+            [iconClass] = "emailIcon"
+            [receivedColor] = "blueColor"
+            [dataLabels]= "emailLabel"
+            [data] = "email"
+            style="width: 100%;"
+          />
+          <profile-card
+            [iconClass] = "countryCodeIcon"
+            [receivedColor] = "orangeColor"
+            [dataLabels]= "countryCodeLabel"
+            [data] = "countryCode"
+            style="width: 100%;"
+          />
+          <profile-card
+            [iconClass] = "phoneIcon"
+            [receivedColor] = "violetColor"
+            [dataLabels]= "PhoneLabel"
+            [data] = "phone"
+            style="width: 100%;"
+          />
+        </span>
+      </mat-tab>
+      <!-- <mat-tab label="Third"> Content 3 </mat-tab> -->
+    </mat-tab-group>
+
+
+</div>
+
+<pre>
+      {{ companyDetails() | json }}
+</pre>

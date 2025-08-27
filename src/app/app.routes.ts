@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { MainComponent } from './layouts/main/main.component';
-import { AuthLayoutComponent } from './layouts/auth/auth.component';
-import { authGuard } from './core/guard/auth/auth-guard';
-import { loggedInGuard } from './core/guard/logged-in/logged-in-guard';
+import { MainComponent } from './_Layouts/main/main.component';
+import { AuthLayoutComponent } from './_Layouts/auth/auth.component';
+import { authGuard } from './Core/guard/auth/auth-guard';
+import { loggedInGuard } from './Core/guard/logged-in/logged-in-guard';
 
 export const routes: Routes = [
   {
@@ -12,14 +12,14 @@ export const routes: Routes = [
       {
         path: '',
         loadComponent: () =>
-          import('./features/home/home-page/homepage.component').then(
+          import('./Components/home/home-page/homepage.component').then(
             (m) => m.HomePageComponent
           ),
       },
       {
         path: 'admin',
         loadComponent: () =>
-          import('./features/home/admin/admin-page/admin.component').then(
+          import('./Components/home/admin/admin-page/admin.component').then(
             (m) => m.AdminComponent
           ),
         canActivate: [authGuard],
@@ -29,21 +29,21 @@ export const routes: Routes = [
             path: '',
             loadComponent: () =>
               import(
-                './features/home/admin/profile/profile/profile.component'
+                './Components/home/admin/profile/profile/profile.component'
               ).then((m) => m.AdminProfileComponent),
             children: [
               {
                 path: '',
                 loadComponent: () =>
                   import(
-                    './features/home/admin/profile/profile-view/profile-view.component'
+                    './Components/home/admin/profile/profile-view/profile-view.component'
                   ).then((m) => m.CompanyProfileViewComponent),
               },
               {
                 path: 'edit-company-profile',
                 loadComponent: () =>
                   import(
-                    './features/home/admin/profile/edit-profile/edit-profile.component'
+                    './Components/home/admin/profile/edit-profile/edit-profile.component'
                   ).then((m) => m.EditProfileComponent),
               },
             ],
@@ -51,7 +51,7 @@ export const routes: Routes = [
           {
             path: 'add-job',
             loadComponent: () =>
-              import('./features/home/admin/add-job/add-job.component').then(
+              import('./Components/home/admin/add-job/add-job.component').then(
                 (m) => m.AddJobComponent
               ),
           },
@@ -66,7 +66,7 @@ export const routes: Routes = [
       {
         path: 'login',
         loadComponent: () =>
-          import('./features/auth/login/login.component').then(
+          import('./Components/auth/login/login.component').then(
             (m) => m.LoginComponent
           ),
         canActivate: [loggedInGuard],
@@ -74,7 +74,7 @@ export const routes: Routes = [
       {
         path: 'register',
         loadComponent: () =>
-          import('./features/auth/register/register.component').then(
+          import('./Components/auth/register/register.component').then(
             (m) => m.RegisterComponent
           ),
         canActivate: [loggedInGuard],
@@ -83,7 +83,7 @@ export const routes: Routes = [
         path: 'company-register',
         loadComponent: () =>
           import(
-            './features/auth/company-registration/company-registration.component'
+            './Components/auth/company-registration/company-registration.component'
           ).then((m) => m.CompanyRegistrationComponent),
         canActivate: [loggedInGuard],
       },
@@ -92,7 +92,7 @@ export const routes: Routes = [
   {
     path: 'unauthorized',
     loadComponent: () =>
-      import('./shared/components/unauthorized/unauthorized.component').then(
+      import('./_Shared/components/unauthorized/unauthorized.component').then(
         (m) => m.UnauthorizedComponent
       ),
   },

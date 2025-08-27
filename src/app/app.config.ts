@@ -8,7 +8,7 @@ import { TranslocoHttpLoader } from './transloco-loader';
 import { provideTransloco } from '@ngneat/transloco';
 import { environment } from './environments/environment';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
-import { AuthInterceptor } from './core/interceptor/addingToken.interceptor';
+import { AuthInterceptor } from './Core/interceptor/addingToken.interceptor';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),

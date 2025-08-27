@@ -1,0 +1,149 @@
+@use "variables" as var;
+@import "mixins";
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+.form-group-minor {
+  width: 100%;
+  display: flex;
+  gap: 0.5rem;
+  @include respond-to(bigscreen) {
+    display: flex;
+    flex-direction: column !important;
+  }
+}
+.form-group-flex {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+
+  @include respond-to(desktop) {
+    display: flex;
+    flex-direction: column !important;
+  }
+}
+
+.form-group-flex .form-group {
+  width: 100%;
+}
+
+.form-input {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border 0.2s;
+
+  &:focus {
+    border-color: #007bff;
+  }
+}
+
+.error {
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+  color: #d93025;
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  .checkbox {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.forgot-password {
+  color: #007bff;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 0.75rem;
+  background: var.$button-color;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+
+  &:hover:not(:disabled) {
+    background: var.$button-color;
+  }
+
+  &:disabled {
+    background: var.$button-color-disabled;
+    cursor: not-allowed;
+  }
+}
+
+.signup-text {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #555;
+
+  .signup-link {
+    color: #007bff;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
+
+.gaps {
+  margin-top: 1rem;
+}
+
+
+.no-focus {
+  -moz-user-focus: none;
+  -webkit-user-focus: none;
+  -ms-user-focus: none;
+  -moz-user-modify: read-only;
+  -webkit-user-modify: read-only;
+  -ms-user-modify: read-only;
+  -moz-user-modify: read-only;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.bg-gray {
+  background-color: #e9ecef !important;
+}
