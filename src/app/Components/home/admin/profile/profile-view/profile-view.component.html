@@ -18,79 +18,203 @@
 
 <!-- profile view -->
 <div class="profile-card">
-  <div class="card-image">
-    <img class="image" src="/assets/images/logo.webp" alt="" />
+  <!-- <div class="card-image">
+    <img class="image" [src]="uploadedImageUrl()" alt="Uploaded" width="200" />
   </div>
+  <input type="file" (change)="onFileSelected($event)" />
+  <button (click)="upload()">Upload</button> -->
+
+  <div class="image-container">
+    <div class="card-image">
+      <img
+        class="image"
+        [src]="uploadedImageUrl()"
+        alt="Uploaded"
+      />
+
+      <!-- Hidden file input -->
+      <input type="file" #fileInput (change)="onFileSelected($event)" hidden />
+
+      <!-- Button to trigger file input -->
+      <button class="rounded-icon" (click)="fileInput.click()">
+        <span class="material-icons-outlined"> camera_alt </span>
+      </button>
+    </div>
+  </div>
+
   <div class="card-data">
     <div class="card-title">
       <h1>{{ companyDetails()?.companyName }}</h1>
       <span> {{ companyDetails()?.companyLocation }} </span>
-    </div>
-    <div class="card-sub-title">
       <span> {{ companyDetails()?.companyDescription }} </span>
     </div>
 
     <!-- company profile links to another platoforms -->
-    <div class="">
-      <img class="links-logo" src="/assets/images/facebook.svg" (click)="HandleFacbookLink()" alt="facebook" height="30" width="30" />
-      <img class="links-logo" src="/assets/images/linkedin.svg" (click)="HandleLinkedIn()" alt="linkedin" height="30" width="30"/>
-      <img class="links-logo" src="/assets/images/medium.svg" (click)="HandleMedium()" alt="medium" height="30" width="30"/>
-      <img class="links-logo" src="/assets/images/twitter.jpg" (click)="HandleTwitter()" alt="twitter" height="30" width="30" />
+    <div class="links">
+      <img
+        class="links-logo"
+        src="/assets/images/facebook.svg"
+        (click)="HandleFacbookLink()"
+        alt="facebook"
+        height="30"
+        width="30"
+      />
+      <img
+        class="links-logo"
+        src="/assets/images/linkedin.svg"
+        (click)="HandleLinkedIn()"
+        alt="linkedin"
+        height="30"
+        width="30"
+      />
+      <img
+        class="links-logo"
+        src="/assets/images/medium.svg"
+        (click)="HandleMedium()"
+        alt="medium"
+        height="30"
+        width="30"
+      />
+      <img
+        class="links-logo"
+        src="/assets/images/twitter.jpg"
+        (click)="HandleTwitter()"
+        alt="twitter"
+        height="30"
+        width="30"
+      />
     </div>
 
-    <!-- tab groups (overview, about)-->
-    <mat-tab-group>
+    <div class="profile-view">
+      <div class="side-A white-cards">
+        <!-- tab groups (overview, about)-->
+        <mat-tab-group>
+          <mat-tab label="Overview">
+            <span class="flex-boxes">
+              <profile-card
+                [iconClass]="revenueIcon"
+                [receivedColor]="greenColor"
+                [dataLabels]="revenueLabel"
+                [data]="revenue"
+                style="width: 100%"
+              />
 
-      <mat-tab label="Overview" >
-        <span class="flex-boxes">
-          <profile-card
-            [iconClass] = "revenueIcon"
-            [receivedColor] = "greenColor"
-            [dataLabels]= "revenueLabel"
-            [data] = "revenue"
-            style="width: 100%;"
-          />
+              <profile-card
+                [iconClass]="peopleIcon"
+                [receivedColor]="blueColor"
+                [dataLabels]="totalempLabel"
+                [data]="totalEmp"
+                style="width: 100%"
+              />
+            </span>
+          </mat-tab>
+          <mat-tab label="About">
+            <span class="flex-boxes">
+              <profile-card
+                [iconClass]="emailIcon"
+                [receivedColor]="blueColor"
+                [dataLabels]="emailLabel"
+                [data]="email"
+                style="width: 100%"
+              />
+              <profile-card
+                [iconClass]="countryCodeIcon"
+                [receivedColor]="orangeColor"
+                [dataLabels]="countryCodeLabel"
+                [data]="countryCode"
+                style="width: 100%"
+              />
+              <profile-card
+                [iconClass]="phoneIcon"
+                [receivedColor]="violetColor"
+                [dataLabels]="PhoneLabel"
+                [data]="phone"
+                style="width: 100%"
+              />
+            </span>
+          </mat-tab>
+          <!-- <mat-tab label="Third"> Content 3 </mat-tab> -->
+        </mat-tab-group>
+      </div>
+      <div class="side-B">
+        <!-- info cards -->
 
-          <profile-card
-            [iconClass] = "peopleIcon"
-            [receivedColor] = "blueColor"
-            [dataLabels]= "totalempLabel"
-            [data] = "totalEmp"
-            style="width: 100%;"
-          />
-        </span>
-      </mat-tab>
-      <mat-tab label="About" >
-        <span class="flex-boxes">
-          <profile-card
-            [iconClass] = "emailIcon"
-            [receivedColor] = "blueColor"
-            [dataLabels]= "emailLabel"
-            [data] = "email"
-            style="width: 100%;"
-          />
-          <profile-card
-            [iconClass] = "countryCodeIcon"
-            [receivedColor] = "orangeColor"
-            [dataLabels]= "countryCodeLabel"
-            [data] = "countryCode"
-            style="width: 100%;"
-          />
-          <profile-card
-            [iconClass] = "phoneIcon"
-            [receivedColor] = "violetColor"
-            [dataLabels]= "PhoneLabel"
-            [data] = "phone"
-            style="width: 100%;"
-          />
-        </span>
-      </mat-tab>
-      <!-- <mat-tab label="Third"> Content 3 </mat-tab> -->
-    </mat-tab-group>
+        <!-- organization details card -->
+        <div class="gray-cards">
+          <h3>Organization Status</h3>
+          <div class="organization">
+            <span class="organization-label">Founded</span>
+            <span class="organization-data">{{
+              companyDetails()?.companyFoundedYear
+            }}</span>
+          </div>
+          <div class="organization">
+            <span class="organization-label">Industry</span>
+            <span class="organization-data">
+              {{ companyDetails()?.industryType }}
+            </span>
+          </div>
+          <div class="organization">
+            <span class="organization-label">Founder</span>
+            <span class="organization-data">
+              {{ companyDetails()?.numberOfFounders }}
+            </span>
+          </div>
+        </div>
 
+        <!-- employee by gender details card -->
+        <div class="gray-cards">
+          <h3>Employee By Gender</h3>
+          <div class="gender-bar-container">
+            <!-- Male percentage segment -->
+            <span
+              class="male gender-div-percent"
+              [style.width.%]="malePercent()"
+              [style.background-color]="greenColor()"
+            ></span>
 
+            <!-- Other percentage segment -->
+            <span
+              class="other gender-div-percent"
+              [style.width.%]="otherPercent()"
+              [style.background-color]="blueColor()"
+            ></span>
+
+            <!-- Female percentage segment -->
+            <span
+              class="female gender-div-percent"
+              [style.width.%]="femalePercent()"
+              [style.background-color]="orangeColor()"
+            ></span>
+          </div>
+          <div class="genders">
+            <span [style.color]="greenColor()">
+              Male : {{ malePercent() }}%
+            </span>
+            <span [style.color]="blueColor()"
+              >Other : {{ otherPercent() }}%
+            </span>
+            <span [style.color]="orangeColor()"
+              >Female : {{ femalePercent() }}%
+            </span>
+          </div>
+        </div>
+
+        <!-- locations detail card -->
+        <div class="gray-cards">
+          <h3>Locations</h3>
+          @for(location of companyDetails()?.companyLocations; track $index; let
+          i=$index) {
+          <div class="margin-bottom">
+            <h4>{{ location.country }} Office</h4>
+            <p>{{ location.address }}</p>
+            <p>
+              {{ location.city }}, {{ location.state }}, {{ location.country }}
+            </p>
+          </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-<pre>
-      {{ companyDetails() | json }}
-</pre>

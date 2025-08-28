@@ -11,8 +11,6 @@ import { Component, OnInit } from '@angular/core';
     </button>
   `,
 })
-export class BackArrowButtonComponent implements OnInit {
-  constructor() {}
+export class BackArrowButtonComponent{
 
-  ngOnInit() {}
 }

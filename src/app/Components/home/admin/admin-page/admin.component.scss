@@ -1,4 +1,4 @@
-@import 'mixins';
+@import "mixins";
 
 .admin-layout {
   display: flex;
@@ -15,8 +15,17 @@
   flex: 0 0 200px;
 
   @include respond-to(desktop) {
-    display: none;
-    opacity: 0;
+    position: fixed;
+    left: -200px;
+    width: 200px;
+    height: 100%;
+    background: white;
+    color: white;
+    transition: left 0.3s ease-in-out;
+    z-index: 2000;
+    &.open {
+      left: 0;
+    }
   }
   @include respond-to(tablet) {
   }
@@ -30,4 +39,15 @@
   display: flex;
   flex-direction: column;
   overflow: auto;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3); // semi-transparent dark layer
+  backdrop-filter: blur(6px);   // this makes background blurry
+  z-index: 1000; // higher than content, lower than sidebar
 }

@@ -5,11 +5,15 @@
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
         [routerLink]="['/admin/']"
+        (click)="sharedService.close()"
       >
         profile
       </li>
       <li routerLinkActive="active">Jobs</li>
-      <li routerLinkActive="active" [routerLink]="['/admin/add-job/']">
+      <li routerLinkActive="active"
+        [routerLink]="['/admin/add-job/']"
+        (click)="sharedService.close()"
+      >
         Add Jobs
       </li>
       <li routerLinkActive="active">Settings</li>

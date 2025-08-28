@@ -18,6 +18,16 @@ export class AdminServices {
       );
   }
 
+  getCompanyProfileDetailsByEmail() {
+    return this.http
+      .get<any>(`${this.API_URL}/Company/get-company-profile-details-by-email`)
+      .pipe(
+        tap((res) => {
+          console.log(res);
+        })
+      );
+  }
+
   editCompanyDetails(data: EditAdminProfile) {
     return this.http
       .put<any>(`${this.API_URL}/Company/edit-company-details`, data)
@@ -27,4 +37,11 @@ export class AdminServices {
         })
       );
   }
+
+  uploadImage(file: File) {
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.http.post<any>(`${this.API_URL}/Company/upload-company-logo`,formData);
+  }
+
 }

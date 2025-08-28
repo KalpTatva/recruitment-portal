@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { tap } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
@@ -33,5 +33,21 @@ export class SharedServices {
           console.log(res);
         })
       );
+  }
+
+  private _isOpen = signal(false);
+
+  isOpen = this._isOpen.asReadonly();
+
+  toggle() {
+    this._isOpen.update((state) => !state);
+  }
+
+  open() {
+    this._isOpen.set(true);
+  }
+
+  close() {
+    this._isOpen.set(false);
   }
 }

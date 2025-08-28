@@ -5,7 +5,10 @@
     alt=""
   />
 
-  <back-arrow-button (click)="HandleBack()" />
+  <div class="back-arrow-button" >
+    <back-arrow-button (click)="HandleBack()" />
+    <gray-button class="menu-button" [icon]="tabIcon"  (click)="sharedService.toggle()" />
+  </div>
 
   <div class="login-card-body">
     <router-outlet></router-outlet>

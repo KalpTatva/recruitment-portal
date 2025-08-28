@@ -1,5 +1,16 @@
 <div class="admin-layout">
-  <aside class="sidebar">
+
+  <div
+    class="overlay"
+    *ngIf="sharedService.isOpen()"
+
+  ></div>
+
+  @if(sharedService.isOpen()) {
+    <div class="overlay" (click)="sharedService.close()"></div>
+  }
+
+  <aside class="sidebar" [class.open]="sharedService.isOpen()">
     <side-bar></side-bar>
   </aside>
 

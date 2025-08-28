@@ -37,13 +37,9 @@
   justify-content: space-between;
   gap: 10px;
   width: 95%;
+  z-index: 2000;
 
-  @include respond-to(desktop) {
-  }
-  @include respond-to(tablet) {
-  }
-  @include respond-to(mobile) {
-  }
+
 }
 .navbar-list {
   list-style: none;
@@ -82,6 +78,10 @@
   background-color: transparent;
   border: none;
   color: white;
+  display: none;
+  @include respond-to(desktop) {
+    display: flex;
+  }
 }
 
 .language-dropdown option {

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { SharedServices } from '../../Service/shared.services';
 
 @Component({
   standalone: true,
@@ -8,8 +9,6 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./sidebar.component.scss'],
   templateUrl: './sidebar.component.html'
 })
-export class SideBarComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit() {}
+export class SideBarComponent {
+  public sharedService = inject(SharedServices);
 }
