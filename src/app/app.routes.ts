@@ -46,15 +46,12 @@ export const routes: Routes = [
                     './Components/home/admin/profile/edit-profile/edit-profile.component'
                   ).then((m) => m.EditProfileComponent),
               },
+              {
+                path: 'add-job',
+                loadComponent: () => import('./Components/home/admin/profile/add-jobs/add-jobs.component').then((m) => m.AddJobsComponent),
+              }
             ],
-          },
-          {
-            path: 'add-job',
-            loadComponent: () =>
-              import('./Components/home/admin/add-job/add-job.component').then(
-                (m) => m.AddJobComponent
-              ),
-          },
+          }
         ],
       },
     ],

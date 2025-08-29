@@ -131,5 +131,53 @@
 
   "CITY_LABEL": "Ville",
   "SELECT_CITY": "Sélectionner une ville",
-  "CITY_REQUIRED": "Ville obligatoire"
+  "CITY_REQUIRED": "Ville obligatoire",
+
+  "JOB_TITLE_LABEL": "Intitulé du poste",
+  "JOB_TITLE_PLACEHOLDER": "Entrez l’intitulé du poste",
+  "JOB_TITLE_REQUIRED": "L’intitulé du poste est requis",
+
+  "JOB_TYPE_LABEL": "Type d’emploi",
+  "JOB_TYPE_PLACEHOLDER": "Sélectionnez le type d’emploi",
+  "JOB_TYPE_REQUIRED": "Le type d’emploi est requis",
+
+  "COMPANY_LOCATION_ID_LABEL": "Lieu de l’entreprise",
+  "COMPANY_LOCATION_ID_PLACEHOLDER": "Sélectionnez le lieu de l’entreprise",
+  "COMPANY_LOCATION_ID_REQUIRED": "Le lieu de l’entreprise est requis",
+
+  "JOB_DESCRIPTION_LABEL": "Description du poste",
+  "JOB_DESCRIPTION_REQUIRED": "La description du poste est requise",
+
+  "JOB_ROLE_LABEL": "Rôle du poste",
+  "JOB_ROLE_PLACEHOLDER": "Entrez le rôle du poste",
+  "JOB_ROLE_REQUIRED": "Le rôle du poste est requis",
+
+  "EXPERIENCE_LABEL": "Expérience",
+  "EXPERIENCE_PLACEHOLDER": "Entrez l’expérience requise",
+  "EXPERIENCE_REQUIRED": "L’expérience est requise",
+
+  "DEGREE_LABEL": "Diplôme",
+  "DEGREE_PLACEHOLDER": "Entrez le diplôme requis",
+  "DEGREE_REQUIRED": "Le diplôme est requis",
+
+  "MIN_SALARY_LABEL": "Salaire minimum",
+  "MIN_SALARY_PLACEHOLDER": "Entrez le salaire minimum",
+  "MIN_SALARY_REQUIRED": "Le salaire minimum est requis",
+
+  "MAX_SALARY_LABEL": "Salaire maximum",
+  "MAX_SALARY_PLACEHOLDER": "Entrez le salaire maximum",
+  "MAX_SALARY_REQUIRED": "Le salaire maximum est requis",
+
+  "START_DATE_LABEL": "Date de début",
+  "START_DATE_PLACEHOLDER": "Sélectionnez la date de début",
+  "START_DATE_REQUIRED": "La date de début est requise",
+
+  "END_DATE_LABEL": "Date de fin",
+  "END_DATE_PLACEHOLDER": "Sélectionnez la date de fin",
+  "END_DATE_REQUIRED": "La date de fin est requise",
+
+  "TAGS_LABEL": "Étiquettes",
+  "JOB_CATEGORY_ID_LABEL": "Catégorie d'emploi",
+  "JOB_CATEGORY_ID_PLACEHOLDER": "Sélectionnez la catégorie d'emploi",
+  "JOB_CATEGORY_ID_REQUIRED": "La catégorie d'emploi est requise"
 }

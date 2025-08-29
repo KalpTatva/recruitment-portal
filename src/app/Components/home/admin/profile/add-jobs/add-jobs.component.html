@@ -1,0 +1,262 @@
+<h1 class="heading">Add New Job</h1>
+
+<form [formGroup]="AddJobForm" (ngSubmit)="onSubmit()" class="login-form">
+  <!-- total others employees -->
+  <div class="form-group">
+    <label for="jobTitle" class="form-label">
+      {{ "JOB_TITLE_LABEL" | transloco }}
+    </label>
+    <input
+      type="text"
+      formControlName="jobTitle"
+      id="jobTitle"
+      [placeholder]="'JOB_TITLE_PLACEHOLDER' | transloco"
+      class="form-input"
+    />
+
+    @if(required("jobTitle")) {
+    <div class="error">
+      {{ "JOB_TITLE_REQUIRED" | transloco }}
+    </div>
+    }
+  </div>
+
+  <div class="form-group">
+    <label for="JobType" class="form-label">
+      {{ "JOB_TYPE_LABEL" | transloco }}
+    </label>
+    <select
+      type="text"
+      formControlName="JobType"
+      id="JobType"
+      class="form-input"
+    >
+      <option value="">
+        {{ "JOB_TYPE_PLACEHOLDER" | transloco }}
+      </option>
+    </select>
+
+    @if(required("JobType")) {
+    <div class="error">
+      {{ "JOB_TYPE_REQUIRED" | transloco }}
+    </div>
+    }
+  </div>
+
+  <div class="form-group">
+    <label for="companyLocationId" class="form-label">
+      {{ "COMPANY_LOCATION_ID_LABEL" | transloco }}
+    </label>
+    <select
+      type="text"
+      formControlName="companyLocationId"
+      class="form-input"
+    >
+      <option value="">
+        {{ "COMPANY_LOCATION_ID_PLACEHOLDER" | transloco }}
+      </option>
+    </select>
+
+    @if(required("companyLocationId")) {
+    <div class="error">
+      {{ "COMPANY_LOCATION_ID_REQUIRED" | transloco }}
+    </div>
+    }
+  </div>
+
+  <div class="form-group">
+    <label for="jobCategory" class="form-label">
+      {{ "JOB_CATEGORY_ID_LABEL" | transloco }}
+    </label>
+    <select
+      type="text"
+      formControlName="jobCategory"
+      class="form-input"
+    >
+      <option value="">
+        {{ "JOB_CATEGORY_ID_PLACEHOLDER" | transloco }}
+      </option>
+    </select>
+
+    @if(required("jobCategory")) {
+    <div class="error">
+      {{ "JOB_CATEGORY_ID_REQUIRED" | transloco }}
+    </div>
+    }
+  </div>
+
+  <div class="form-group">
+    <label for="jobDescription" class="form-label">
+      {{ "JOB_DESCRIPTION_LABEL" | transloco }}
+    </label>
+    <quill-editor formControlName="jobDescription"></quill-editor>
+
+    @if(required("jobDescription")) {
+    <div class="error">
+      {{ "JOB_DESCRIPTION_REQUIRED" | transloco }}
+    </div>
+    }
+  </div>
+
+  <div class="form-group">
+    <label for="JobRole" class="form-label">
+      {{ "JOB_ROLE_LABEL" | transloco }}
+    </label>
+    <input
+      type="text"
+      formControlName="JobRole"
+      id="JobRole"
+      [placeholder]="'JOB_ROLE_PLACEHOLDER' | transloco"
+      class="form-input"
+    />
+
+    @if(required("JobRole")) {
+    <div class="error">
+      {{ "JOB_ROLE_REQUIRED" | transloco }}
+    </div>
+    }
+  </div>
+
+  <div class="form-group">
+    <label for="experience" class="form-label">
+      {{ "EXPERIENCE_LABEL" | transloco }}
+    </label>
+    <input
+      type="text"
+      formControlName="experience"
+      id="experience"
+      [placeholder]="'EXPERIENCE_PLACEHOLDER' | transloco"
+      class="form-input"
+    />
+
+    @if(required("experience")) {
+    <div class="error">
+      {{ "EXPERIENCE_REQUIRED" | transloco }}
+    </div>
+    }
+  </div>
+
+  <div class="form-group">
+    <label for="degree" class="form-label">
+      {{ "DEGREE_LABEL" | transloco }}
+    </label>
+    <input
+      type="text"
+      formControlName="degree"
+      id="degree"
+      [placeholder]="'DEGREE_PLACEHOLDER' | transloco"
+      class="form-input"
+    />
+
+    @if(required("degree")) {
+    <div class="error">
+      {{ "DEGREE_REQUIRED" | transloco }}
+    </div>
+    }
+  </div>
+
+  <div class="form-group">
+    <label for="minSalary" class="form-label">
+      {{ "MIN_SALARY_LABEL" | transloco }}
+    </label>
+    <input
+      type="text"
+      formControlName="minSalary"
+      id="minSalary"
+      [placeholder]="'MIN_SALARY_PLACEHOLDER' | transloco"
+      class="form-input"
+    />
+
+    @if(required("minSalary")) {
+    <div class="error">
+      {{ "MIN_SALARY_REQUIRED" | transloco }}
+    </div>
+    }
+  </div>
+
+  <div class="form-group">
+    <label for="maxSalary" class="form-label">
+      {{ "MAX_SALARY_LABEL" | transloco }}
+    </label>
+    <input
+      type="text"
+      formControlName="maxSalary"
+      id="maxSalary"
+      [placeholder]="'MAX_SALARY_PLACEHOLDER' | transloco"
+      class="form-input"
+    />
+
+    @if(required("minSalary")) {
+    <div class="error">
+      {{ "MAX_SALARY_REQUIRED" | transloco }}
+    </div>
+    }
+  </div>
+
+  <div class="form-group">
+    <label for="applicationStartDate" class="form-label">
+      {{ "START_DATE_LABEL" | transloco }}
+    </label>
+    <input
+      type="date"
+      formControlName="applicationStartDate"
+      id="applicationStartDate"
+      [placeholder]="'START_DATE_PLACEHOLDER' | transloco"
+      class="form-input"
+    />
+
+    @if(required("applicationStartDate")) {
+    <div class="error">
+      {{ "START_DATE_REQUIRED" | transloco }}
+    </div>
+    }
+  </div>
+
+
+  <div class="form-group">
+    <label for="applicationEndDate" class="form-label">
+      {{ "END_DATE_LABEL" | transloco }}
+    </label>
+    <input
+      type="date"
+      formControlName="applicationEndDate"
+      id="applicationEndDate"
+      [placeholder]="'END_DATE_PLACEHOLDER' | transloco"
+      class="form-input"
+    />
+
+    @if(required("applicationEndDate")) {
+    <div class="error">
+      {{ "END_DATE_REQUIRED" | transloco }}
+    </div>
+    }
+  </div>
+
+  <!-- Input for adding new tags -->
+  <div class="form-group">
+    <label class="form-label"> {{ "TAGS_LABEL" | transloco }} </label>
+    <input class="form-input" type="text" #tagInput placeholder="ADD_TAG" />
+  </div>
+
+  <blue-button
+    type="button"
+    (click)="addTag(tagInput.value); tagInput.value = ''"
+    [data]="addBtn"
+  />
+
+  <!-- added tags review  -->
+  <div formArrayName="tags" class="form-group-flex">
+    @for(tag of tags.controls; track $index; let i=$index) {
+    <div>
+      <div class="form-group-flex gaps">
+        <input [formControlName]="i" class="form-input" />
+        <red-button type="button" (click)="removeTag(i)" [data]="removeBtn" />
+      </div>
+    </div>
+    }
+  </div>
+
+  <button type="submit" class="btn-submit">Submit</button>
+</form>
+
+<pre>{{ AddJobForm.value | json }}</pre>

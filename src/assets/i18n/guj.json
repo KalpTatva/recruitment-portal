@@ -131,5 +131,54 @@
 
   "CITY_LABEL": "શહેર",
   "SELECT_CITY": "શહેર પસંદ કરો",
-  "CITY_REQUIRED": "શહેર જરૂરી છે"
+  "CITY_REQUIRED": "શહેર જરૂરી છે",
+
+  "JOB_TITLE_LABEL": "નોકરીનું શીર્ષક",
+  "JOB_TITLE_PLACEHOLDER": "નોકરીનું શીર્ષક દાખલ કરો",
+  "JOB_TITLE_REQUIRED": "નોકરીનું શીર્ષક જરૂરી છે",
+
+  "JOB_TYPE_LABEL": "નોકરીનો પ્રકાર",
+  "JOB_TYPE_PLACEHOLDER": "નોકરીનો પ્રકાર પસંદ કરો",
+  "JOB_TYPE_REQUIRED": "નોકરીનો પ્રકાર જરૂરી છે",
+
+  "COMPANY_LOCATION_ID_LABEL": "કંપનીનું સ્થાન",
+  "COMPANY_LOCATION_ID_PLACEHOLDER": "કંપનીનું સ્થાન પસંદ કરો",
+  "COMPANY_LOCATION_ID_REQUIRED": "કંપનીનું સ્થાન જરૂરી છે",
+
+  "JOB_DESCRIPTION_LABEL": "નોકરીનું વર્ણન",
+  "JOB_DESCRIPTION_REQUIRED": "નોકરીનું વર્ણન જરૂરી છે",
+
+  "JOB_ROLE_LABEL": "નોકરીની ભૂમિકા",
+  "JOB_ROLE_PLACEHOLDER": "નોકરીની ભૂમિકા દાખલ કરો",
+  "JOB_ROLE_REQUIRED": "નોકરીની ભૂમિકા જરૂરી છે",
+
+  "EXPERIENCE_LABEL": "અનુભવ",
+  "EXPERIENCE_PLACEHOLDER": "જરૂરી અનુભવ દાખલ કરો",
+  "EXPERIENCE_REQUIRED": "અનુભવ જરૂરી છે",
+
+  "DEGREE_LABEL": "ડિગ્રી",
+  "DEGREE_PLACEHOLDER": "જરૂરી ડિગ્રી દાખલ કરો",
+  "DEGREE_REQUIRED": "ડિગ્રી જરૂરી છે",
+
+  "MIN_SALARY_LABEL": "ન્યૂનત્તમ પગાર",
+  "MIN_SALARY_PLACEHOLDER": "ન્યૂનત્તમ પગાર દાખલ કરો",
+  "MIN_SALARY_REQUIRED": "ન્યૂનત્તમ પગાર જરૂરી છે",
+
+  "MAX_SALARY_LABEL": "મહત્તમ પગાર",
+  "MAX_SALARY_PLACEHOLDER": "મહત્તમ પગાર દાખલ કરો",
+  "MAX_SALARY_REQUIRED": "મહત્તમ પગાર જરૂરી છે",
+
+  "START_DATE_LABEL": "શરૂઆતની તારીખ",
+  "START_DATE_PLACEHOLDER": "શરૂઆતની તારીખ પસંદ કરો",
+  "START_DATE_REQUIRED": "શરૂઆતની તારીખ જરૂરી છે",
+
+  "END_DATE_LABEL": "અંતિમ તારીખ",
+  "END_DATE_PLACEHOLDER": "અંતિમ તારીખ પસંદ કરો",
+  "END_DATE_REQUIRED": "અંતિમ તારીખ જરૂરી છે",
+
+  "TAGS_LABEL": "ટેગ્સ",
+
+  "JOB_CATEGORY_ID_LABEL": "નોકરી શ્રેણી",
+  "JOB_CATEGORY_ID_PLACEHOLDER": "નોકરી શ્રેણી પસંદ કરો",
+  "JOB_CATEGORY_ID_REQUIRED": "નોકરી શ્રેણી જરૂરી છે"
 }

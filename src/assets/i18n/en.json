@@ -118,20 +118,67 @@
   "COUNTRY_REQUIRED": "Country is required",
   "STATE_REQUIRED": "State is required",
 
-  "ORGANIZATION_STATUS" : "Organization Status",
-  "EMPLOYEES_STATUS" : "Employees Status",
-  "SOCIAL_MEDIA_HANDLER" : "Social media handles (Not require)",
+  "ORGANIZATION_STATUS": "Organization Status",
+  "EMPLOYEES_STATUS": "Employees Status",
+  "SOCIAL_MEDIA_HANDLER": "Social media handles (Not require)",
 
-
-  "TOTAL_REVENUE_INVALID" : "Total revenue must be a valid number",
-  "TOTAL_MALE_EMPLOYEES_INVALID" : "Employees must be a valid number",
-  "TOTAL_FEMALE_EMPLOYEES_INVALID" : "Employees must be a valid number",
-  "TOTAL_OTHERS_EMPLOYEES_INVALID" : "Employees must be a valid number",
+  "TOTAL_REVENUE_INVALID": "Total revenue must be a valid number",
+  "TOTAL_MALE_EMPLOYEES_INVALID": "Employees must be a valid number",
+  "TOTAL_FEMALE_EMPLOYEES_INVALID": "Employees must be a valid number",
+  "TOTAL_OTHERS_EMPLOYEES_INVALID": "Employees must be a valid number",
 
   "COUNTRY_CODE_PLACEHOLDER": "Select Country Code",
 
   "CITY_LABEL": "City",
   "SELECT_CITY": "Select City",
-  "CITY_REQUIRED": "City is required"
+  "CITY_REQUIRED": "City is required",
 
+  "JOB_TITLE_LABEL": "Job Title",
+  "JOB_TITLE_PLACEHOLDER": "Enter job title",
+  "JOB_TITLE_REQUIRED": "Job title is required",
+
+  "JOB_TYPE_LABEL": "Job Type",
+  "JOB_TYPE_PLACEHOLDER": "Select job type",
+  "JOB_TYPE_REQUIRED": "Job type is required",
+
+  "COMPANY_LOCATION_ID_LABEL": "Company Location",
+  "COMPANY_LOCATION_ID_PLACEHOLDER": "Select company location",
+  "COMPANY_LOCATION_ID_REQUIRED": "Company location is required",
+
+  "JOB_DESCRIPTION_LABEL": "Job Description",
+  "JOB_DESCRIPTION_REQUIRED": "Job description is required",
+
+  "JOB_ROLE_LABEL": "Job Role",
+  "JOB_ROLE_PLACEHOLDER": "Enter job role",
+  "JOB_ROLE_REQUIRED": "Job role is required",
+
+  "EXPERIENCE_LABEL": "Experience",
+  "EXPERIENCE_PLACEHOLDER": "Enter required experience",
+  "EXPERIENCE_REQUIRED": "Experience is required",
+
+  "DEGREE_LABEL": "Degree",
+  "DEGREE_PLACEHOLDER": "Enter required degree",
+  "DEGREE_REQUIRED": "Degree is required",
+
+  "MIN_SALARY_LABEL": "Minimum Salary",
+  "MIN_SALARY_PLACEHOLDER": "Enter minimum salary",
+  "MIN_SALARY_REQUIRED": "Minimum salary is required",
+
+  "MAX_SALARY_LABEL": "Maximum Salary",
+  "MAX_SALARY_PLACEHOLDER": "Enter maximum salary",
+  "MAX_SALARY_REQUIRED": "Maximum salary is required",
+
+  "START_DATE_LABEL": "Start Date",
+  "START_DATE_PLACEHOLDER": "Select start date",
+  "START_DATE_REQUIRED": "Start date is required",
+
+  "END_DATE_LABEL": "End Date",
+  "END_DATE_PLACEHOLDER": "Select end date",
+  "END_DATE_REQUIRED": "End date is required",
+
+  "TAGS_LABEL": "Tags",
+
+  "JOB_CATEGORY_ID_LABEL": "Job Category",
+  "JOB_CATEGORY_ID_PLACEHOLDER": "Select Job Category",
+  "JOB_CATEGORY_ID_REQUIRED": "Job Category is required"
 }

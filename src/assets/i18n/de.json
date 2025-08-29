@@ -131,5 +131,53 @@
 
   "CITY_LABEL": "Ort",
   "SELECT_CITY": "Ort auswählen",
-  "CITY_REQUIRED": "Ort ist erforderlich"
+  "CITY_REQUIRED": "Ort ist erforderlich",
+
+  "JOB_TITLE_LABEL": "Berufsbezeichnung",
+  "JOB_TITLE_PLACEHOLDER": "Berufsbezeichnung eingeben",
+  "JOB_TITLE_REQUIRED": "Berufsbezeichnung ist erforderlich",
+
+  "JOB_TYPE_LABEL": "Beschäftigungsart",
+  "JOB_TYPE_PLACEHOLDER": "Beschäftigungsart auswählen",
+  "JOB_TYPE_REQUIRED": "Beschäftigungsart ist erforderlich",
+
+  "COMPANY_LOCATION_ID_LABEL": "Firmenstandort",
+  "COMPANY_LOCATION_ID_PLACEHOLDER": "Firmenstandort auswählen",
+  "COMPANY_LOCATION_ID_REQUIRED": "Firmenstandort ist erforderlich",
+
+  "JOB_DESCRIPTION_LABEL": "Stellenbeschreibung",
+  "JOB_DESCRIPTION_REQUIRED": "Stellenbeschreibung ist erforderlich",
+
+  "JOB_ROLE_LABEL": "Berufsrolle",
+  "JOB_ROLE_PLACEHOLDER": "Berufsrolle eingeben",
+  "JOB_ROLE_REQUIRED": "Berufsrolle ist erforderlich",
+
+  "EXPERIENCE_LABEL": "Erfahrung",
+  "EXPERIENCE_PLACEHOLDER": "Benötigte Erfahrung eingeben",
+  "EXPERIENCE_REQUIRED": "Erfahrung ist erforderlich",
+
+  "DEGREE_LABEL": "Abschluss",
+  "DEGREE_PLACEHOLDER": "Benötigten Abschluss eingeben",
+  "DEGREE_REQUIRED": "Abschluss ist erforderlich",
+
+  "MIN_SALARY_LABEL": "Mindestgehalt",
+  "MIN_SALARY_PLACEHOLDER": "Mindestgehalt eingeben",
+  "MIN_SALARY_REQUIRED": "Mindestgehalt ist erforderlich",
+
+  "MAX_SALARY_LABEL": "Höchstgehalt",
+  "MAX_SALARY_PLACEHOLDER": "Höchstgehalt eingeben",
+  "MAX_SALARY_REQUIRED": "Höchstgehalt ist erforderlich",
+
+  "START_DATE_LABEL": "Startdatum",
+  "START_DATE_PLACEHOLDER": "Startdatum auswählen",
+  "START_DATE_REQUIRED": "Startdatum ist erforderlich",
+
+  "END_DATE_LABEL": "Enddatum",
+  "END_DATE_PLACEHOLDER": "Enddatum auswählen",
+  "END_DATE_REQUIRED": "Enddatum ist erforderlich",
+
+  "TAGS_LABEL": "Stichworte",
+  "JOB_CATEGORY_ID_LABEL": "Jobkategorie",
+  "JOB_CATEGORY_ID_PLACEHOLDER": "Wählen Sie die Jobkategorie",
+  "JOB_CATEGORY_ID_REQUIRED": "Jobkategorie ist erforderlich"
 }

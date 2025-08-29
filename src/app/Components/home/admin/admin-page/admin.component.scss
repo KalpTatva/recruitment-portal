@@ -12,12 +12,12 @@
 }
 
 .sidebar {
-  flex: 0 0 200px;
+  flex: 0 0 250px;
 
   @include respond-to(desktop) {
     position: fixed;
-    left: -200px;
-    width: 200px;
+    left: -250px;
+    width: 250px;
     height: 100%;
     background: white;
     color: white;
