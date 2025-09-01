@@ -1,4 +1,4 @@
-@import "mixins";
+@use "mixins";
 
 .background-color {
   width: 100%;
@@ -38,11 +38,6 @@
   margin-top: 30px;
   width: 85%;
   gap: 10px;
-
-
-  @include respond-to(tablet) {
-
-  }
 }
 
 .Jobs-banner h1 {
@@ -106,7 +101,7 @@
 .search-icon-term {
   display: flex;
 
-  @include respond-to(tablet) {
+  @include mixins.respond-to(tablet) {
     display: none;
   }
 }
@@ -123,7 +118,7 @@
   border: none;
   outline: none;
 
-  @include respond-to(tablet) {
+  @include mixins.respond-to(tablet) {
     height: 40px;
     font-size: 1rem;
   }
@@ -144,7 +139,7 @@
   cursor: pointer;
   text-wrap: nowrap;
 
-  @include respond-to(tablet) {
+  @include mixins.respond-to(tablet) {
     height: 40px;
     padding: 10px;
   }

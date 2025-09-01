@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { tap } from 'rxjs';
 import { EditAdminProfile } from '../Interface/admin.interface';
+import { AddJobsInterface } from '../Interface/add-jobs.interface';
 
 @Injectable({ providedIn: 'root' })
 export class AdminServices {
@@ -41,7 +42,28 @@ export class AdminServices {
   uploadImage(file: File) {
     const formData = new FormData();
     formData.append('file', file);
-    return this.http.post<any>(`${this.API_URL}/Company/upload-company-logo`,formData);
+    return this.http.post<any>(
+      `${this.API_URL}/Company/upload-company-logo`,
+      formData
+    );
   }
 
+  getJobLocations() {
+    return this.http
+      .get<any>(`${this.API_URL}/Company/get-company-locations`)
+      .pipe(
+        tap((res) => {
+          console.log(res);
+        })
+      );
+  }
+
+  addJobDetails(data: AddJobsInterface) {
+    console.log(data);
+    return this.http.post<any>(`${this.API_URL}/Job/add-job`, data).pipe(
+      tap((res) => {
+        console.log(res);
+      })
+    );
+  }
 }

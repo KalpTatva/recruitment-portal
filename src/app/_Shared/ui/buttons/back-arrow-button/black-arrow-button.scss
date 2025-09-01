@@ -1,4 +1,4 @@
-@import 'mixins';
+@use 'mixins';
 
 
 .back-arrow-button {
@@ -10,15 +10,4 @@
   padding: 5px 10px;
   border-radius: 30px;
   cursor: pointer;
-
-
-  @include respond-to(desktop) {
-
-  }
-  @include respond-to(tablet) {
-
-  }
-  @include respond-to(mobile) {
-
-  }
 }

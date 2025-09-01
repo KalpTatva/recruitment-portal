@@ -1,7 +1,6 @@
 <h1 class="heading">Add New Job</h1>
 
 <form [formGroup]="AddJobForm" (ngSubmit)="onSubmit()" class="login-form">
-  <!-- total others employees -->
   <div class="form-group">
     <label for="jobTitle" class="form-label">
       {{ "JOB_TITLE_LABEL" | transloco }}
@@ -22,21 +21,27 @@
   </div>
 
   <div class="form-group">
-    <label for="JobType" class="form-label">
+    <label for="JobTypeId" class="form-label">
       {{ "JOB_TYPE_LABEL" | transloco }}
     </label>
     <select
       type="text"
-      formControlName="JobType"
-      id="JobType"
+      formControlName="JobTypeId"
+      id="JobTypeId"
       class="form-input"
     >
       <option value="">
         {{ "JOB_TYPE_PLACEHOLDER" | transloco }}
       </option>
+
+      @for(role of jobTypeList(); track role.jobTypeId) {
+      <option [value]="role.jobTypeId">
+        {{ role.jobType1 }}
+      </option>
+      }
     </select>
 
-    @if(required("JobType")) {
+    @if(required("JobTypeId")) {
     <div class="error">
       {{ "JOB_TYPE_REQUIRED" | transloco }}
     </div>
@@ -49,12 +54,20 @@
     </label>
     <select
       type="text"
+      id="companyLocationId"
       formControlName="companyLocationId"
       class="form-input"
     >
       <option value="">
         {{ "COMPANY_LOCATION_ID_PLACEHOLDER" | transloco }}
       </option>
+
+      @for(location of jobLocationList(); track location.companyLocationId) {
+      <option [value]="location.companyLocationId">
+        {{ location.address }}, {{ location.city }}, {{ location.state }},
+        {{ location.country }}
+      </option>
+      }
     </select>
 
     @if(required("companyLocationId")) {
@@ -65,20 +78,27 @@
   </div>
 
   <div class="form-group">
-    <label for="jobCategory" class="form-label">
+    <label for="jobCategoryId" class="form-label">
       {{ "JOB_CATEGORY_ID_LABEL" | transloco }}
     </label>
     <select
       type="text"
-      formControlName="jobCategory"
+      id="jobCategoryId"
+      formControlName="jobCategoryId"
       class="form-input"
     >
       <option value="">
         {{ "JOB_CATEGORY_ID_PLACEHOLDER" | transloco }}
       </option>
+
+      @for(category of jobCategoryList(); track category.jobCategoryId) {
+      <option [value]="category.jobCategoryId">
+        {{ category.categoryName }}
+      </option>
+      }
     </select>
 
-    @if(required("jobCategory")) {
+    @if(required("jobCategoryId")) {
     <div class="error">
       {{ "JOB_CATEGORY_ID_REQUIRED" | transloco }}
     </div>
@@ -86,10 +106,10 @@
   </div>
 
   <div class="form-group">
-    <label for="jobDescription" class="form-label">
+    <label class="form-label">
       {{ "JOB_DESCRIPTION_LABEL" | transloco }}
     </label>
-    <quill-editor formControlName="jobDescription"></quill-editor>
+    <quill-editor formControlName="jobDescription" [styles]="{ 'min-height': '120px' }"></quill-editor>
 
     @if(required("jobDescription")) {
     <div class="error">
@@ -99,18 +119,24 @@
   </div>
 
   <div class="form-group">
-    <label for="JobRole" class="form-label">
+    <label for="JobRoleId" class="form-label">
       {{ "JOB_ROLE_LABEL" | transloco }}
     </label>
-    <input
+    <select
       type="text"
-      formControlName="JobRole"
-      id="JobRole"
-      [placeholder]="'JOB_ROLE_PLACEHOLDER' | transloco"
+      formControlName="JobRoleId"
+      id="JobRoleId"
       class="form-input"
-    />
+    >
+      <option value="">{{ "JOB_ROLE_PLACEHOLDER" | transloco }}</option>
+      @for(role of jobRoleList(); track role.jobRoleId) {
+      <option [value]="role.jobRoleId">
+        {{ role.jobRole1 }}
+      </option>
+      }
+    </select>
 
-    @if(required("JobRole")) {
+    @if(required("JobRoleId")) {
     <div class="error">
       {{ "JOB_ROLE_REQUIRED" | transloco }}
     </div>
@@ -121,13 +147,20 @@
     <label for="experience" class="form-label">
       {{ "EXPERIENCE_LABEL" | transloco }}
     </label>
-    <input
+    <select
       type="text"
       formControlName="experience"
       id="experience"
-      [placeholder]="'EXPERIENCE_PLACEHOLDER' | transloco"
       class="form-input"
-    />
+    >
+      <option value="">{{ "EXPERIENCE_PLACEHOLDER" | transloco }}</option>
+      <option value="1">Fresher</option>
+      <option value="2">1+ year</option>
+      <option value="3">3+ year</option>
+      <option value="4">5+ year</option>
+      <option value="5">10+ year</option>
+      <option value="6">20+ year</option>
+    </select>
 
     @if(required("experience")) {
     <div class="error">
@@ -137,18 +170,24 @@
   </div>
 
   <div class="form-group">
-    <label for="degree" class="form-label">
+    <label for="degreeId" class="form-label">
       {{ "DEGREE_LABEL" | transloco }}
     </label>
-    <input
+    <select
       type="text"
-      formControlName="degree"
-      id="degree"
-      [placeholder]="'DEGREE_PLACEHOLDER' | transloco"
+      formControlName="degreeId"
+      id="degreeId"
       class="form-input"
-    />
+    >
+      <option value="">{{ "DEGREE_PLACEHOLDER" | transloco }}</option>
+      @for(degree of degreeList(); track degree.degreeId) {
+      <option [value]="degree.degreeId">
+        {{ degree.degree1 }}
+      </option>
+      }
+    </select>
 
-    @if(required("degree")) {
+    @if(required("degreeId")) {
     <div class="error">
       {{ "DEGREE_REQUIRED" | transloco }}
     </div>
@@ -186,7 +225,7 @@
       class="form-input"
     />
 
-    @if(required("minSalary")) {
+    @if(required("maxSalary")) {
     <div class="error">
       {{ "MAX_SALARY_REQUIRED" | transloco }}
     </div>
@@ -212,7 +251,6 @@
     }
   </div>
 
-
   <div class="form-group">
     <label for="applicationEndDate" class="form-label">
       {{ "END_DATE_LABEL" | transloco }}
@@ -235,7 +273,12 @@
   <!-- Input for adding new tags -->
   <div class="form-group">
     <label class="form-label"> {{ "TAGS_LABEL" | transloco }} </label>
-    <input class="form-input" type="text" #tagInput placeholder="ADD_TAG" />
+    <input
+      class="form-input"
+      type="text"
+      #tagInput
+      placeholder="{{ 'TAGS_LABEL' | transloco }}"
+    />
   </div>
 
   <blue-button
@@ -256,6 +299,12 @@
     }
   </div>
 
+  <!-- error generated from backend -->
+  @if(errorBackEnd().length > 0) {
+  <div class="error">
+    {{ errorBackEnd() }}
+  </div>
+  }
   <button type="submit" class="btn-submit">Submit</button>
 </form>
 

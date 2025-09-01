@@ -35,6 +35,35 @@ export class SharedServices {
       );
   }
 
+  getJobTypes() {
+    return this.http.get<any>(`${this.API_URL}/Shared/get-job-types`)
+    .pipe(
+      tap((res) => {console.log(res)})
+    );
+  }
+
+  getJobRoles() {
+    return this.http.get<any>(`${this.API_URL}/Shared/get-job-roles`)
+    .pipe(
+      tap((res) => {console.log(res)})
+    );
+  }
+
+  getDegree() {
+    return this.http.get<any>(`${this.API_URL}/Shared/get-degree`)
+    .pipe(
+      tap((res) => {console.log(res)})
+    )
+  }
+
+  getJobCategory() {
+    return this.http.get<any>(`${this.API_URL}/Shared/get-job-category`)
+    .pipe(
+      tap((res) => {console.log(res)})
+    )
+  }
+
+
   private _isOpen = signal(false);
 
   isOpen = this._isOpen.asReadonly();

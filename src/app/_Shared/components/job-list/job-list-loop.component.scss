@@ -1,4 +1,4 @@
-@import "mixins";
+@use "mixins";
 
 .material-icons-outlined {
   font-size: 30px;
@@ -34,7 +34,7 @@
   justify-content: space-between;
   padding: 10px 20px 10px 20px;
 
-  @include respond-to(tablet) {
+  @include mixins.respond-to(tablet) {
     flex-direction: column;
   }
 }
@@ -42,7 +42,7 @@
   display: flex;
   gap: 20px;
 
-  @include respond-to(tablet) {
+  @include mixins.respond-to(tablet) {
     flex-direction: column;
   }
 }
@@ -54,7 +54,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  @include respond-to(tablet) {
+  @include mixins.respond-to(tablet) {
     align-items: start;
     justify-content: start;
   }
@@ -63,14 +63,14 @@
 
 .job-title h1 {
   margin-bottom: 10px;
-  @include respond-to(tablet) {
+  @include mixins.respond-to(tablet) {
     line-height: 30px;
   }
 }
 
 .gree-button {
   width: 150px;
-  @include respond-to(tablet) {
+  @include mixins.respond-to(tablet) {
     margin-top: 20px;
     width: 100%;
   }
