@@ -5,12 +5,14 @@
       <h1>Find Your Dream Job Today!</h1>
       <p>Connecting Talent with Opportunity: Your Gateway to Career Success</p>
       <div class="flex-box">
-        <input class="search-input" type="text" placeholder="Search for jobs, companies, or locations" />
+        <input
+          class="search-input"
+          type="text"
+          placeholder="Search for jobs, companies, or locations"
+        />
         <button class="search-button">
           <mat-icon>search</mat-icon>
-          <span class="search-icon-term">
-            Search Job
-          </span>
+          <span class="search-icon-term"> Search Job </span>
         </button>
       </div>
     </div>
@@ -26,6 +28,6 @@
     <a>View All</a>
   </div>
 </div>
-@for (jobs of jobs; track $index) {
-<job-loop-list-component class="available-jobs" />
+@for (job of jobs(); track $index) {
+  <job-loop-list-component class="available-jobs" [data]="job" />
 }

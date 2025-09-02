@@ -17,6 +17,13 @@ export const routes: Routes = [
           ),
       },
       {
+        path: '',
+        loadComponent: () => import('./Components/navs/nav.component').then((m) => m.navsComponent),
+        children : [
+          {path:'jobs', loadComponent: () => import('./Components/navs/jobs/jobs.component').then((m) => m.JobsComponent)}
+        ]
+      },
+      {
         path: 'admin',
         loadComponent: () =>
           import('./Components/home/admin/admin-page/admin.component').then(
@@ -48,14 +55,20 @@ export const routes: Routes = [
               },
               {
                 path: 'add-job',
-                loadComponent: () => import('./Components/home/admin/profile/add-jobs/add-jobs.component').then((m) => m.AddJobsComponent),
-              }
+                loadComponent: () =>
+                  import(
+                    './Components/home/admin/profile/add-jobs/add-jobs.component'
+                  ).then((m) => m.AddJobsComponent),
+              },
             ],
-          }
+          },
         ],
       },
     ],
   },
+
+  // {path:'jobs', loadComponent: () => import('./').then((m) => m.JobsComponent)},
+
   {
     path: '',
     component: AuthLayoutComponent,

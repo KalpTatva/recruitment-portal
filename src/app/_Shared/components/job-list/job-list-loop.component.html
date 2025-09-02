@@ -6,29 +6,29 @@
   <div class="">
     <div>
       <div class="job">
-        <img src="/assets/images/logo.webp" alt="" height="100" width="100" />
+        <img [src]="data?.imageUrl" alt="" height="100" width="100" />
         <div class="job-title">
-          <h1>Forward Security Director</h1>
-          <span>Bauch, Schuppe and Schulist Co</span>
+          <h1>{{ data?.jobTitle }}</h1>
+          <span> {{ data?.companyName }} </span>
         </div>
       </div>
       <div class="job-description">
         <div class="job-description-content">
           <div class="flex-box">
             <span class="material-icons-outlined"> business_center </span>
-            <span> Hotel & Tourism</span>
+            <span> {{ data?.jobCategory }} </span>
           </div>
           <div class="flex-box">
             <span class="material-icons-outlined"> access_time </span>
-            <span> Full Time</span>
+            <span> {{ data?.jobType }} </span>
           </div>
           <div class="flex-box">
             <span class="material-icons-outlined"> account_balance_wallet</span>
-            <span>500000₹ to 700000₹</span>
+            <span> {{data?.minSalary}}₹ to {{data?.maxSalary}}₹</span>
           </div>
           <div class="flex-box">
             <span class="material-icons-outlined"> location_on </span>
-            <span>Gujarat, India</span>
+            <span> {{data?.address}} </span>
           </div>
         </div>
         <div class="gree-button">

@@ -106,7 +106,7 @@ export class CompanyProfileViewComponent implements OnInit {
         this.otherPercent.set(data.data.percentOther);
 
         this.uploadedImageUrl.set(data.data.imageUrl);
-        console.log('Company data : ,', data.data.imageUrl);
+        console.log('Company data url : ,', data.data.imageUrl);
       },
       error: (er) => {
         console.error('Error fetching company details:', er);

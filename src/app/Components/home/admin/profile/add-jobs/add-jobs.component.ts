@@ -111,7 +111,7 @@ export class AddJobsComponent implements OnInit {
         minSalary: Number(this.AddJobForm.value.minSalary),
         maxSalary: Number(this.AddJobForm.value.maxSalary),
         applicationStartDate: this.AddJobForm.value.applicationStartDate!,
-        apllicationEndDate: this.AddJobForm.value.applicationEndDate!,
+        applicationEndDate: this.AddJobForm.value.applicationEndDate!,
       })
       .subscribe({
         next: (res) => {
@@ -136,6 +136,29 @@ export class AddJobsComponent implements OnInit {
 
   matchExp(value: string) {
     return this.AddJobForm.get(`${value}`)?.hasError('pattern');
+  }
+
+  validDate(startDate: string, endDate: string) {
+    const start = new Date(this.AddJobForm.get(startDate)?.value);
+    const end = new Date(this.AddJobForm.get(endDate)?.value);
+
+    if (
+      start instanceof Date &&
+      !isNaN(start.getTime()) &&
+      end instanceof Date &&
+      !isNaN(end.getTime())
+    ) {
+      return start < end;
+    } else {
+      return false;
+    }
+  }
+
+  validSalary(minSalary: string, maxSalary: string) {
+    const min = Number(this.AddJobForm.get(minSalary)?.value);
+    const max = Number(this.AddJobForm.get(maxSalary)?.value);
+
+    return min < max;
   }
 
   getJobRoles() {

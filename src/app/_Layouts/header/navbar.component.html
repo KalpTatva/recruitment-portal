@@ -37,8 +37,16 @@
 
   <div class="flex-box navbar-list-content">
     <ul class="navbar-list">
-      <li><a href="">Home</a></li>
-      <li><a href="">Job</a></li>
+      <li
+        routerLinkActive="active"
+        [routerLink]="['/']"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <a>Home</a>
+      </li>
+      <li routerLinkActive="active" [routerLink]="['/jobs']">
+        <a>Job</a>
+      </li>
       <li><a href="">About Us</a></li>
       <li><a href="">Contact Us</a></li>
     </ul>

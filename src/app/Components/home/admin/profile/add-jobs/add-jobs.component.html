@@ -109,7 +109,10 @@
     <label class="form-label">
       {{ "JOB_DESCRIPTION_LABEL" | transloco }}
     </label>
-    <quill-editor formControlName="jobDescription" [styles]="{ 'min-height': '120px' }"></quill-editor>
+    <quill-editor
+      formControlName="jobDescription"
+      [styles]="{ 'min-height': '120px' }"
+    ></quill-editor>
 
     @if(required("jobDescription")) {
     <div class="error">
@@ -229,6 +232,13 @@
     <div class="error">
       {{ "MAX_SALARY_REQUIRED" | transloco }}
     </div>
+    }@if( !validSalary("minSalary","maxSalary") &&
+    (AddJobForm.get('maxSalary')?.touched || AddJobForm.get('maxSalary')?.dirty)
+    ) {
+    <div class="error">
+      <!-- {{ "END_DATE_REQUIRED" | transloco }} -->
+      Minimum salary can not be higher than maximum salary
+    </div>
     }
   </div>
 
@@ -266,6 +276,13 @@
     @if(required("applicationEndDate")) {
     <div class="error">
       {{ "END_DATE_REQUIRED" | transloco }}
+    </div>
+    }@if( !validDate("applicationStartDate","applicationEndDate") &&
+    (AddJobForm.get('applicationEndDate')?.touched ||
+    AddJobForm.get('applicationEndDate')?.dirty) ) {
+    <div class="error">
+      <!-- {{ "END_DATE_REQUIRED" | transloco }} -->
+      Application start date must be less than end date.
     </div>
     }
   </div>

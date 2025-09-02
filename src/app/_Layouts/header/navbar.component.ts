@@ -1,6 +1,6 @@
 import { Component, inject, signal, WritableSignal } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { TranslocoService } from '@ngneat/transloco';
 import { AuthServices } from '../../Service/auth.services';
 import { NameComponent } from '../../_Shared/ui/buttons/green-button/green.button';
@@ -11,7 +11,7 @@ import { SnackBarSuccessComponent } from '../../_Shared/components/snackbarSucce
 @Component({
   selector: 'navbar',
   styleUrl: './navbar.component.scss',
-  imports: [MatIconModule, NameComponent, RedButtonComponent],
+  imports: [MatIconModule, NameComponent, RedButtonComponent, RouterModule],
   templateUrl: './navbar.component.html'
 })
 export class NavbarComponent {

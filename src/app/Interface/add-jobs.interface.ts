@@ -10,6 +10,6 @@ export interface AddJobsInterface {
   degreeId: number;
   minSalary: number;
   maxSalary: number;
+  applicationEndDate: Date;
   applicationStartDate: Date;
-  apllicationEndDate: Date;
 }

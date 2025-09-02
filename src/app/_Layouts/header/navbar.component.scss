@@ -44,6 +44,7 @@
 .navbar-list {
   list-style: none;
   display: flex;
+  cursor: pointer;
 }
 .navbar-list li a {
   text-decoration: none;
@@ -180,4 +181,13 @@
     display: flex;
     justify-content: space-between;
   }
+}
+
+
+.navbar-list li.active {
+  & a {
+    color: #309689;
+  }
+  font-weight: 500;
+  border-bottom: 1px solid #309689;
 }

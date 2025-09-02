@@ -37,9 +37,9 @@ import { EditAdminProfile } from '../../../../../Interface/admin.interface';
   ],
   styleUrls: ['./edit-profile.component.scss'],
   selector: 'edit-company-profile',
-  templateUrl: './edit-profile.component.html'
+  templateUrl: './edit-profile.component.html',
 })
-export class EditProfileComponent implements OnInit, OnChanges{
+export class EditProfileComponent implements OnInit, OnChanges {
   private fb = inject(FormBuilder);
   private sharedService = inject(SharedServices);
   private snackBar = inject(MatSnackBar);
@@ -169,9 +169,7 @@ export class EditProfileComponent implements OnInit, OnChanges{
     this.getCompanyDetails();
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-
-  }
+  ngOnChanges(changes: SimpleChanges): void {}
 
   getCompanyDetails() {
     this.adminService.getCompanyDetailsByEmail().subscribe({
@@ -191,18 +189,28 @@ export class EditProfileComponent implements OnInit, OnChanges{
           companyDescription: companyData.companyDescription,
           companyWebsite: companyData.companyWebsite,
           companyFoundedYear:
-            companyData.companyFoundedYear == 0 ? '' : companyData.companyFoundedYear,
+            companyData.companyFoundedYear == 0
+              ? ''
+              : companyData.companyFoundedYear,
           industryType: companyData.industryType,
           numberOfFounders:
-            companyData.numberOfFounders == 0 ? '' : companyData.numberOfFounders,
+            companyData.numberOfFounders == 0
+              ? ''
+              : companyData.numberOfFounders,
           totalEmployees:
             companyData.totalEmployees == 0 ? '' : companyData.totalEmployees,
           totalMaleEmployees:
-            companyData.totalMaleEmployees == 0 ? '' : companyData.totalMaleEmployees,
+            companyData.totalMaleEmployees == 0
+              ? ''
+              : companyData.totalMaleEmployees,
           totalFemaleEmployees:
-            companyData.totalFemaleEmployees == 0 ? '' : companyData.totalFemaleEmployees,
+            companyData.totalFemaleEmployees == 0
+              ? ''
+              : companyData.totalFemaleEmployees,
           totalOthersEmployees:
-            companyData.totalOthersEmployees == 0 ? '' : companyData.totalOthersEmployees,
+            companyData.totalOthersEmployees == 0
+              ? ''
+              : companyData.totalOthersEmployees,
           totalRevenue:
             companyData.totalRevenue == 0 ? '' : companyData.totalRevenue,
           linkedIn: companyData.linkedIn,
@@ -213,13 +221,17 @@ export class EditProfileComponent implements OnInit, OnChanges{
           userId: companyData.userId,
         });
         // Clear and update company locations
-        const locations = this.EditCompanyForm.get('companyLocations') as FormArray;
+        const locations = this.EditCompanyForm.get(
+          'companyLocations'
+        ) as FormArray;
         locations.clear();
 
         if (companyData.companyLocations?.length > 0) {
           companyData.companyLocations.forEach((loc: any, index: number) => {
             const locationFormGroup = this.createLocation(loc);
-            locationFormGroup.patchValue({ companyLocationId: loc.companyLocationId });
+            locationFormGroup.patchValue({
+              companyLocationId: loc.companyLocationId,
+            });
             locations.push(locationFormGroup);
 
             // If countryId is present, fetch states
@@ -238,11 +250,12 @@ export class EditProfileComponent implements OnInit, OnChanges{
       },
       error: (err) => {
         this.openSnackBarError(err.error.message);
-        this.errorBackEnd.set('Failed to load company details. Please try again later.');
+        this.errorBackEnd.set(
+          'Failed to load company details. Please try again later.'
+        );
       },
     });
   }
-
 
   getCountryList() {
     this.sharedService.getCountryList().subscribe({
@@ -320,7 +333,13 @@ export class EditProfileComponent implements OnInit, OnChanges{
         phone: Number(this.EditCompanyForm.value.phone),
         countryCode: this.EditCompanyForm.value.countryCode || '',
         companyLocations: (this.EditCompanyForm.value.companyLocations ??
-          []) as { countryId: number; stateId: number; companyLocationId: number; cityId: number; address: string }[],
+          []) as {
+          countryId: number;
+          stateId: number;
+          companyLocationId: number;
+          cityId: number;
+          address: string;
+        }[],
       })
       .subscribe({
         next: (res) => {
@@ -357,36 +376,3 @@ export class EditProfileComponent implements OnInit, OnChanges{
     });
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
