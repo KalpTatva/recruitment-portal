@@ -3,7 +3,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterModule } from '@angular/router';
 import { TranslocoService } from '@ngneat/transloco';
 import { AuthServices } from '../../Service/auth.services';
-import { NameComponent } from '../../_Shared/ui/buttons/green-button/green.button';
+import { GreenButtonComponent } from '../../_Shared/ui/buttons/green-button/green.button';
 import { RedButtonComponent } from '../../_Shared/ui/buttons/red-button/red.button';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackBarSuccessComponent } from '../../_Shared/components/snackbarSuccess/snackbar.success';
@@ -11,7 +11,7 @@ import { SnackBarSuccessComponent } from '../../_Shared/components/snackbarSucce
 @Component({
   selector: 'navbar',
   styleUrl: './navbar.component.scss',
-  imports: [MatIconModule, NameComponent, RedButtonComponent, RouterModule],
+  imports: [MatIconModule, GreenButtonComponent, RedButtonComponent, RouterModule],
   templateUrl: './navbar.component.html'
 })
 export class NavbarComponent {

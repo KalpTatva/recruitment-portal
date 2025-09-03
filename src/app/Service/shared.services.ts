@@ -25,7 +25,7 @@ export class SharedServices {
       );
   }
 
-  getCityList(stateId: number) {
+  getCityListByStateId(stateId: number) {
     return this.http
       .get<any>(`${this.API_URL}/Shared/get-city-by-state/${stateId}`)
       .pipe(

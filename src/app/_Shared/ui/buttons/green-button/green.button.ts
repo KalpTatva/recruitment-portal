@@ -19,6 +19,6 @@ import { Component, Input, input, OnInit, Signal } from '@angular/core';
 `,
   template: ` <button class="register-button">{{ data() }}</button>`,
 })
-export class NameComponent {
+export class GreenButtonComponent {
   @Input() data!: Signal<string>;
 }

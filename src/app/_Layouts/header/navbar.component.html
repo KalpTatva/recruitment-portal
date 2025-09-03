@@ -8,10 +8,10 @@
       <div class="dropdown-content">
         <ul>
           <li><a (click)="handleUserProfileNavigation()">Profile</a></li>
-          <li><a href="">Home</a></li>
-          <li><a href="">Job</a></li>
-          <li><a href="">About Us</a></li>
-          <li><a href="">Contact Us</a></li>
+          <li><a [routerLink]="['/']">Home</a></li>
+          <li><a [routerLink]="['/jobs']">Job</a></li>
+          <li><a [routerLink]="">About Us</a></li>
+          <li><a [routerLink]="['/contact-us']">Contact Us</a></li>
           @if(authBtnView()) {
           <li><a (click)="navigateToLogin()">Login</a></li>
           <li><a (click)="navigateToRegister()">Register</a></li>
@@ -47,8 +47,10 @@
       <li routerLinkActive="active" [routerLink]="['/jobs']">
         <a>Job</a>
       </li>
-      <li><a href="">About Us</a></li>
-      <li><a href="">Contact Us</a></li>
+      <li><a>About Us</a></li>
+      <li routerLinkActive="active" [routerLink]="['/contact-us']">
+        <a>Contact Us</a>
+      </li>
     </ul>
   </div>
   <div class="flex-box buttons-links align-end">

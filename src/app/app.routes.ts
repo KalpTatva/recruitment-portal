@@ -18,9 +18,10 @@ export const routes: Routes = [
       },
       {
         path: '',
-        loadComponent: () => import('./Components/navs/nav.component').then((m) => m.navsComponent),
+        loadComponent: () => import('./Components/navs/nav.component').then((m) => m.NavsComponent),
         children : [
-          {path:'jobs', loadComponent: () => import('./Components/navs/jobs/jobs.component').then((m) => m.JobsComponent)}
+          {path:'jobs', loadComponent: () => import('./Components/navs/jobs/jobs.component').then((m) => m.JobsComponent)},
+          {path:'contact-us', loadComponent: () =>  import('./Components/navs/contactUs/contactUs.component').then((m) => m.ContactUsComponent)}
         ]
       },
       {

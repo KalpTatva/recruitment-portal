@@ -286,7 +286,7 @@ export class EditProfileComponent implements OnInit, OnChanges {
   }
 
   getCityList(stateId: number, rowIndex: number) {
-    this.sharedService.getCityList(Number(stateId)).subscribe({
+    this.sharedService.getCityListByStateId(Number(stateId)).subscribe({
       next: (res) => {
         const current = [...this.cityLists()];
         current[rowIndex] = res.data;

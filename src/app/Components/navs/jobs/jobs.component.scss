@@ -1,0 +1,44 @@
+@use "mixins";
+
+.container {
+  display: flex;
+
+
+}
+
+
+
+
+
+.filters {
+  background: #ebf5f4;
+  border-radius: 10px;
+  width: fit-content;
+  padding: 1.5rem;
+  h4 {
+    text-wrap:  nowrap;
+    margin-bottom: 10px;
+  }
+  .search {
+    width: 100%;
+    padding: 7px 5px ;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  .show-more {
+    margin-bottom: 10px;
+  }
+}
+.job-lists {
+  width: 100%;
+}
+
+
+.lists-with-checkbox {
+  text-decoration: none;
+  list-style: none;
+  li {
+    padding-bottom: 4px;
+  }
+}

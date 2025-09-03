@@ -1,7 +1,7 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { JobListComponent } from '../../../_Shared/components/job-list/job-list-loop.component';
-import { JobListsInterface } from '../../../Interface/job-lists.interface';
+import { JobListsInterface } from '../../../Interface/jobs.interface';
 import { JobsServices } from '../../../Service/jobs.services';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackBarSuccessComponent } from '../../../_Shared/components/snackbarSuccess/snackbar.success';
@@ -19,7 +19,7 @@ export class HomePageComponent implements OnInit {
   jobs = signal<JobListsInterface[]>([]);
 
   ngOnInit(): void {
-    this.jobService.getJobLists().subscribe({
+    this.jobService.getJobLists({categoryId : 0}).subscribe({
       next: (res) => {
         this.openSnackBarSuccess(res.message);
         this.jobs.set(res.data.jobList);
