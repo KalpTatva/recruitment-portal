@@ -1,104 +1,242 @@
 <div class="container">
   <div class="filters">
     <h4>Search by Job Title</h4>
-    <input type="search" class="search" placeholder=" Job title or Company" />
+    <input
+      type="search"
+      class="search"
+      placeholder=" Job title or Company"
+      (input)="onSearchInput($event)"
+    />
+
+    <div style="width: 100%;">
     <h4>Location</h4>
-    <select class="search">
+    <select class="search" (change)="onLocationChange($event)">
       <option value="" class="light-option">Choose City</option>
       @for (job of cities(); track $index) {
       <option [value]="job.cityId">{{ job.cityName }}</option>
       }
     </select>
-    <h4>Category</h4>
-    <ul class="lists-with-checkbox">
-      @for (category of categoryFilters(); track $index) { @if($index <= 4) {
-      <li>
-        <input
-          type="checkbox"
-          (change)="handleCategoryFilterValue(category.jobCategoryId)"
-        />
-        {{ category.categoryName }}
-      </li>
-      } @if($index > 4 && CategoryToggle) {
-      <li>
-        <input
-          type="checkbox"
-          (change)="handleCategoryFilterValue(category.jobCategoryId)"
-        />
-        {{ category.categoryName }}
-      </li>
-      } }
-    </ul>
-    <div class="show-more">
-      <green-button [data]="showMore" (click)="ToggleCategoryIndex()" />
     </div>
 
-    <h4>Job Type</h4>
-    <ul class="lists-with-checkbox">
-      @for(jobType of jobTypeFilters(); track $index) {
-      <li>
-        <input
-          type="checkbox"
-          (change)="handleJobTypeFilterValue(jobType.jobTypeId)"
-        />
-        {{ jobType.jobType1 }}
-      </li>
-      }
-    </ul>
-    <h4>Experience Level</h4>
-    <ul class="lists-with-checkbox">
-      <li>
-        <input type="checkbox" (change)="handleExperienceFilterValue(1)" />
-        Fresher
-      </li>
-      <li>
-        <input type="checkbox" (change)="handleExperienceFilterValue(2)" /> 1+
-        year
-      </li>
-      <li>
-        <input type="checkbox" (change)="handleExperienceFilterValue(3)" /> 3+
-        year
-      </li>
-      <li>
-        <input type="checkbox" (change)="handleExperienceFilterValue(4)" /> 5+
-        year
-      </li>
-      <li>
-        <input type="checkbox" (change)="handleExperienceFilterValue(5)" /> 10+
-        year
-      </li>
-      <li>
-        <input type="checkbox" (change)="handleExperienceFilterValue(6)" /> 20+
-        year
-      </li>
-    </ul>
-    <h4>Date Posted</h4>
-    <ul class="lists-with-checkbox">
-      <li>
-        <input type="checkbox" (change)="handleDateFilterValue(1)" /> All
-      </li>
-      <li>
-        <input type="checkbox" (change)="handleDateFilterValue(2)" /> Last
-        Hour
-      </li>
-      <li>
-        <input type="checkbox" (change)="handleDateFilterValue(3)" /> Last
-        24 Hours
-      </li>
-      <li>
-        <input type="checkbox" (change)="handleDateFilterValue(4)" /> Last
-        7 Days
-      </li>
-      <li>
-        <input type="checkbox" (change)="handleDateFilterValue(5)" /> Last
-        30 Days
-      </li>
-    </ul>
+    <div style="width: 100%;">
+      <h4>Category</h4>
+      <ul class="lists-with-checkbox">
+        @for (category of categoryFilters(); track $index) { @if($index <= 4) {
+        <li>
+          <input
+            type="checkbox"
+            [value]="category.jobCategoryId"
+            [checked]="selectedCategoryId === category.jobCategoryId"
+            (change)="handleCategoryFilterValue(category.jobCategoryId)"
+          />
+          {{ category.categoryName }}
+        </li>
+        } @if($index > 4 && CategoryToggle) {
+        <li>
+          <input
+            type="checkbox"
+            [value]="category.jobCategoryId"
+            [checked]="selectedCategoryId === category.jobCategoryId"
+            (change)="handleCategoryFilterValue(category.jobCategoryId)"
+          />
+          {{ category.categoryName }}
+        </li>
+        } }
+      </ul>
+      <div class="show-more">
+        <green-button [data]="showMore" (click)="ToggleCategoryIndex()" />
+      </div>
+    </div>
+
+    <div class="sub-group-filters">
+      <div>
+        <h4>Job Type</h4>
+        <ul class="lists-with-checkbox">
+          @for(jobType of jobTypeFilters(); track $index) {
+          <li>
+            <input
+              type="checkbox"
+              [value]="jobType.jobTypeId"
+              [checked]="selectedJobType === jobType.jobTypeId"
+              (change)="handleJobTypeFilterValue(jobType.jobTypeId)"
+            />
+            {{ jobType.jobType1 }}
+          </li>
+          }
+        </ul>
+      </div>
+      <div>
+        <h4>Experience Level</h4>
+        <ul class="lists-with-checkbox">
+          <li>
+            <input
+              type="checkbox"
+              [checked]="selectedExperience === 1"
+              [value]="1"
+              (change)="handleExperienceFilterValue(1)"
+            />
+            Fresher
+          </li>
+          <li>
+            <input
+              type="checkbox"
+              [checked]="selectedExperience === 2"
+              [value]="2"
+              (change)="handleExperienceFilterValue(2)"
+            />
+            1+ year
+          </li>
+          <li>
+            <input
+              type="checkbox"
+              [checked]="selectedExperience === 3"
+              [value]="3"
+              (change)="handleExperienceFilterValue(3)"
+            />
+            3+ year
+          </li>
+          <li>
+            <input
+              type="checkbox"
+              [checked]="selectedExperience === 4"
+              [value]="4"
+              (change)="handleExperienceFilterValue(4)"
+            />
+            5+ year
+          </li>
+          <li>
+            <input
+              type="checkbox"
+              [checked]="selectedExperience === 5"
+              [value]="5"
+              (change)="handleExperienceFilterValue(5)"
+            />
+            10+ year
+          </li>
+          <li>
+            <input
+              type="checkbox"
+              [checked]="selectedExperience === 6"
+              [value]="6"
+              (change)="handleExperienceFilterValue(6)"
+            />
+            20+ year
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h4>Date Posted</h4>
+        <ul class="lists-with-checkbox">
+          <li>
+            <input
+              type="checkbox"
+              (change)="handleDateFilterValue(1)"
+              [value]="1"
+              [checked]="selectedDatePost === 1"
+            />
+            All
+          </li>
+          <li>
+            <input
+              type="checkbox"
+              (change)="handleDateFilterValue(2)"
+              [value]="2"
+              [checked]="selectedDatePost === 2"
+            />
+            Last Hour
+          </li>
+          <li>
+            <input
+              type="checkbox"
+              (change)="handleDateFilterValue(3)"
+              [value]="3"
+              [checked]="selectedDatePost === 3"
+            />
+            Last 24 Hours
+          </li>
+          <li>
+            <input
+              type="checkbox"
+              (change)="handleDateFilterValue(4)"
+              [value]="4"
+              [checked]="selectedDatePost === 4"
+            />
+            Last 7 Days
+          </li>
+          <li>
+            <input
+              type="checkbox"
+              (change)="handleDateFilterValue(5)"
+              [value]="5"
+              [checked]="selectedDatePost === 5"
+            />
+            Last 30 Days
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div style="width: 100%;">
+      <h4>Salary</h4>
+      <div class="range">
+        <div class="range-slider">
+          <span
+            class="range-selected"
+            [style.left.%]="(minSalary / rangeMax) * 100"
+            [style.right.%]="100 - (maxSalary / rangeMax) * 100"
+          >
+          </span>
+        </div>
+        <div class="range-input">
+          <input
+            type="range"
+            class="min"
+            min="0"
+            [max]="rangeMax"
+            [value]="minSalary"
+            (change)="onMinInputChange($event)"
+            step="100000"
+          />
+          <input
+            type="range"
+            class="max"
+            min="0"
+            [max]="rangeMax"
+            [value]="maxSalary"
+            (change)="onMaxInputChange($event)"
+            step="100000"
+          />
+        </div>
+      </div>
+      <div class="flex-box">
+        <span class="salary-range-filter">
+          {{ minSalary }}₹ - {{ maxSalary }}₹
+        </span>
+        <green-button [data]="apply" (click)="HandleSalaryApply()" />
+      </div>
+    </div>
   </div>
 
-  <div class="job-lists">
-    @for (job of jobs(); track $index) {
-    <job-loop-list-component class="available-jobs" [data]="job" />
+  <div class="Jobs">
+    <div class="sorting-pagging-div">
+      <span> Showing 6 out of 10 results </span>
+      <select class="search">
+        <option value="1" class="light-option">Sort by latest</option>
+        <option value="2" class="light-option">Sort by oldest</option>
+      </select>
+    </div>
+
+    @if( jobs().length > 0 ) {
+    <div class="job-lists">
+      <div class="job-list-child">
+        @for (job of jobs(); track $index) {
+        <job-loop-list-component [data]="job" />
+        }
+      </div>
+    </div>
+    }@else {
+    <div class="no-job-found">
+      <img src="/assets/images/no-job-found.webp" class="" alt="" />
+    </div>
     }
   </div>
 </div>

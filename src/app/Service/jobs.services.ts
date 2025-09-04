@@ -20,10 +20,12 @@ export class JobsServices {
     let httpParams = new HttpParams()
       .set('categoryId', params.categoryId?.toString() ?? '0')
       .set('searchInput', params.searchInput?.toString() ?? '')
-      .set('Location', params.Location ?? 0)
+      .set('location', params.location ?? 0)
       .set('jobType', params.jobType ?? 0)
       .set('experience', params.experience ?? 0)
-      .set('datePost', params.datePost ?? 0);
+      .set('datePost', params.datePost ?? 0)
+      .set('minSalary', params.minSalary ?? 0)
+      .set('maxSalary', params.maxSalary ?? 0);
 
     return this.http
       .get<any>(`${this.API_URL}/Job/get-job-list-with-params`, {
@@ -31,7 +33,7 @@ export class JobsServices {
       })
       .pipe(
         tap((res) => {
-          console.log(res);
+          // console.log(res);
         })
       );
   }
@@ -39,7 +41,7 @@ export class JobsServices {
   getCityList() {
     return this.http.get<any>(`${this.API_URL}/Job/get-cities`).pipe(
       tap((res) => {
-        console.log(res);
+        // console.log(res);
       })
     );
   }
@@ -47,7 +49,7 @@ export class JobsServices {
   getJobTypeFilter() {
     return this.http.get<any>(`${this.API_URL}/Job/get-job-type`).pipe(
       tap((res) => {
-        console.log(res);
+        // console.log(res);
       })
     );
   }
@@ -55,7 +57,7 @@ export class JobsServices {
   getCategoryFilter() {
     return this.http.get<any>(`${this.API_URL}/Job/get-categories-filter`).pipe(
       tap((res) => {
-        console.log(res);
+        // console.log(res);
       })
     );
   }

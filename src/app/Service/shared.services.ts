@@ -1,11 +1,27 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
-import { tap } from 'rxjs';
+import { BehaviorSubject, tap } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class SharedServices {
   private http = inject(HttpClient);
+  private loadingSubject = new BehaviorSubject<boolean>(false);
   private API_URL = `http://localhost:5146/api`;
+
+  loading = signal(false);
+  private requestCount = 0;
+
+  showLoader() {
+    this.requestCount++;
+    this.loading.set(true);
+  }
+
+  hideLoader() {
+    this.requestCount--;
+    if (this.requestCount <= 0) {
+      this.loading.set(false);
+    }
+  }
 
   getCountryList() {
     return this.http.get<any>(`${this.API_URL}/Shared/get-countries`).pipe(

@@ -10,9 +10,10 @@ import { JobListComponent } from '../../../_Shared/components/job-list/job-list-
 import { JobsServices } from '../../../Service/jobs.services';
 import { SnackBarSuccessComponent } from '../../../_Shared/components/snackbarSuccess/snackbar.success';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { SharedServices } from '../../../Service/shared.services';
 import { MatListModule } from '@angular/material/list';
 import { GreenButtonComponent } from '../../../_Shared/ui/buttons/green-button/green.button';
+import { ɵInternalFormsSharedModule } from '@angular/forms';
+import { SharedServices } from '../../../Service/shared.services';
 
 @Component({
   standalone: true,
@@ -21,6 +22,7 @@ import { GreenButtonComponent } from '../../../_Shared/ui/buttons/green-button/g
     JobListComponent,
     MatListModule,
     GreenButtonComponent,
+    ɵInternalFormsSharedModule,
   ],
   selector: 'jobs',
   styleUrl: './jobs.component.scss',
@@ -29,6 +31,19 @@ import { GreenButtonComponent } from '../../../_Shared/ui/buttons/green-button/g
 export class JobsComponent implements OnInit {
   private jobService = inject(JobsServices);
   private snackBar = inject(MatSnackBar);
+  private sharedService = inject(SharedServices);
+
+  selectedCategoryId: number = 0;
+  selectedSearchInput: string = '';
+  selectedLocation: number = 0;
+  selectedJobType: number = 0;
+  selectedExperience: number = 0;
+  selectedDatePost: number = 0;
+
+  minSalary: number = 0;
+  maxSalary: number = 10000000;
+  rangeMin: number = 0;
+  rangeMax: number = 10000000;
 
   ngOnInit(): void {
     this.handleJobLists();
@@ -38,28 +53,47 @@ export class JobsComponent implements OnInit {
   }
 
   CategoryToggle = false;
+  showMore = signal('Show More');
+  apply = signal('Apply');
 
   ToggleCategoryIndex() {
     this.CategoryToggle = !this.CategoryToggle;
+    if (this.CategoryToggle) {
+      this.showMore.set('Show Less');
+    } else {
+      this.showMore.set('Show More');
+    }
   }
 
-  showMore = signal('Show More');
   jobs = signal<JobListsInterface[]>([]);
   cities = signal<CityInterface[]>([]);
   categoryFilters = signal<categoriesFilterInterface[]>([]);
   jobTypeFilters = signal<jobTypeInterface[]>([]);
 
   handleJobLists() {
-    this.jobService.getJobLists({ categoryId: 0 }).subscribe({
-      next: (res) => {
-        this.openSnackBarSuccess(res.message);
-        this.jobs.set(res.data.jobList);
-      },
-      error: (res) => {
-        this.openSnackBarError(res.error.message);
-      },
-    });
+    this.sharedService.showLoader();
+    this.jobService
+      .getJobLists({
+        categoryId: this.selectedCategoryId,
+        searchInput: this.selectedSearchInput,
+        location: this.selectedLocation,
+        jobType: this.selectedJobType,
+        experience: this.selectedExperience,
+        datePost: this.selectedDatePost,
+        minSalary: this.minSalary,
+        maxSalary: this.maxSalary
+      })
+      .subscribe({
+        next: (res) => {
+          this.jobs.set(res.data.jobList);
+          this.sharedService.hideLoader();
+        },
+        error: (res) => {
+          this.openSnackBarError(res.error.message);
+        },
+      });
   }
+
   handleCities() {
     this.jobService.getCityList().subscribe({
       next: (res) => {
@@ -84,18 +118,35 @@ export class JobsComponent implements OnInit {
     });
   }
 
-  // pending work //
-  handleCategoryFilterValue(value: number) {
-    console.log(value);
+  handleCategoryFilterValue(categoryId: number) {
+    this.selectedCategoryId =
+      this.selectedCategoryId === categoryId ? 0 : categoryId;
+    this.handleJobLists();
   }
-  handleJobTypeFilterValue(value: number) {
-    console.log(value);
+
+  handleJobTypeFilterValue(jobTypeId: number) {
+    this.selectedJobType = this.selectedJobType === jobTypeId ? 0 : jobTypeId;
+    this.handleJobLists();
   }
-  handleExperienceFilterValue(value: number) {
-    console.log(value);
+
+  handleExperienceFilterValue(exp: number) {
+    this.selectedExperience = this.selectedExperience === exp ? 0 : exp;
+    this.handleJobLists();
   }
-  handleDateFilterValue(value: number) {
-    console.log(value);
+
+  handleDateFilterValue(datePost: number) {
+    this.selectedDatePost = this.selectedDatePost === datePost ? 0 : datePost;
+    this.handleJobLists();
+  }
+
+  onSearchInput(event: any) {
+    this.selectedSearchInput = event.target.value;
+    this.handleJobLists();
+  }
+
+  onLocationChange(event: any) {
+    this.selectedLocation = Number(event.target.value);
+    this.handleJobLists();
   }
 
   handleJobTypeFilter() {
@@ -103,7 +154,7 @@ export class JobsComponent implements OnInit {
       next: (res) => {
         this.openSnackBarSuccess(res.message);
         this.jobTypeFilters.set(res.data);
-        console.log('++++++++', this.jobTypeFilters());
+        // console.log('++++++++', this.jobTypeFilters());
       },
       error: (res) => {
         this.openSnackBarError(res.error.message);
@@ -131,4 +182,23 @@ export class JobsComponent implements OnInit {
       verticalPosition: 'bottom',
     });
   }
+
+  onMinInputChange(event: any) {
+    const value = event.target.value;
+    if (this.maxSalary - value >= this.rangeMin && value <= this.maxSalary) {
+      this.minSalary = value;
+    }
+  }
+
+  onMaxInputChange(event: any) {
+    const value = event.target.value;
+    if (value - this.minSalary >= this.rangeMin && value <= this.rangeMax) {
+      this.maxSalary = value;
+    }
+  }
+  HandleSalaryApply() {
+    this.handleJobLists();
+  }
+
+
 }

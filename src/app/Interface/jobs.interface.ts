@@ -32,9 +32,11 @@ export interface jobTypeInterface {
 export interface SearchParamsInterface {
   categoryId?: number,
   searchInput?: string,
-  Location?: number,
+  location?: number,
   jobType?: number,
   experience?: number,
-  datePost?: number
+  datePost?: number,
+  minSalary?: number,
+  maxSalary?: number
 }
 

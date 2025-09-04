@@ -8,9 +8,11 @@
         <input
           class="search-input"
           type="text"
+          [value]="searchInput"
+          (input)="handleSearch($event)"
           placeholder="Search for jobs, companies, or locations"
         />
-        <button class="search-button">
+        <button class="search-button" (click)="searchJobs()">
           <mat-icon>search</mat-icon>
           <span class="search-icon-term"> Search Job </span>
         </button>
@@ -28,6 +30,9 @@
     <a>View All</a>
   </div>
 </div>
-@for (job of jobs(); track $index) {
-  <job-loop-list-component class="available-jobs" [data]="job" />
-}
+
+<div class="job-list-child">
+  @for (job of jobs(); track $index) {
+    <job-loop-list-component class="available-jobs" [data]="job" />
+  }
+</div>

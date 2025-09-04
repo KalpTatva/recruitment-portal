@@ -17,20 +17,39 @@ export class HomePageComponent implements OnInit {
   private snackBar = inject(MatSnackBar);
 
   jobs = signal<JobListsInterface[]>([]);
+  searchInput: string = '';
 
   ngOnInit(): void {
-    this.jobService.getJobLists({categoryId : 0}).subscribe({
-      next: (res) => {
-        this.openSnackBarSuccess(res.message);
-        this.jobs.set(res.data.jobList);
-        console.log("signal jobs : " , this.jobs());
-      },
-      error: (res) => {
-        this.openSnackBarError(res.error.message);
-      },
-    });
+    this.getJobs();
   }
 
+  handleSearch(event: any) {
+    this.searchInput = event.target.value;
+    console.log(this.searchInput);
+  }
+
+  getJobs() {
+    this.jobService
+      .getJobLists({
+        searchInput: this.searchInput!,
+      })
+      .subscribe({
+        next: (res) => {
+          // this.openSnackBarSuccess(res.message);
+          this.jobs.set(res.data.jobList);
+          // console.log("signal jobs : " , this.jobs());
+        },
+        error: (res) => {
+          this.openSnackBarError(res.error.message);
+        },
+      });
+  }
+
+  searchJobs() {
+    console.log('hello', this.searchInput);
+    this.getJobs();
+
+  }
   // snackbars
   openSnackBarSuccess(message: string) {
     this.snackBar.openFromComponent(SnackBarSuccessComponent, {
