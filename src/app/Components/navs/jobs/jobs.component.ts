@@ -12,8 +12,8 @@ import { SnackBarSuccessComponent } from '../../../_Shared/components/snackbarSu
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatListModule } from '@angular/material/list';
 import { GreenButtonComponent } from '../../../_Shared/ui/buttons/green-button/green.button';
-import { ɵInternalFormsSharedModule } from '@angular/forms';
 import { SharedServices } from '../../../Service/shared.services';
+import { PaginationComponent } from "../../../_Shared/components/pagination/pagination.component";
 
 @Component({
   standalone: true,
@@ -22,8 +22,8 @@ import { SharedServices } from '../../../Service/shared.services';
     JobListComponent,
     MatListModule,
     GreenButtonComponent,
-    ɵInternalFormsSharedModule,
-  ],
+    PaginationComponent
+],
   selector: 'jobs',
   styleUrl: './jobs.component.scss',
   templateUrl: './jobs.component.html',
@@ -39,6 +39,8 @@ export class JobsComponent implements OnInit {
   selectedJobType: number = 0;
   selectedExperience: number = 0;
   selectedDatePost: number = 0;
+
+  sorting: number = 1;
 
   minSalary: number = 0;
   maxSalary: number = 10000000;
@@ -81,11 +83,17 @@ export class JobsComponent implements OnInit {
         experience: this.selectedExperience,
         datePost: this.selectedDatePost,
         minSalary: this.minSalary,
-        maxSalary: this.maxSalary
+        maxSalary: this.maxSalary,
+        sorting: this.sorting,
+        pageNumber: this.currentPage,
+        pageSize:  this.pageSize,
       })
       .subscribe({
         next: (res) => {
           this.jobs.set(res.data.jobList);
+          this.totalJobs = res.data.totalJobs;
+          console.log("total jobs : ", this.jobs());
+          this.totalPages = Math.ceil( this.totalJobs / this.pageSize);
           this.sharedService.hideLoader();
         },
         error: (res) => {
@@ -162,6 +170,12 @@ export class JobsComponent implements OnInit {
     });
   }
 
+  handleSortings(event: any) {
+    this.sorting = event.target.value;
+    // console.log(this.sorting);
+    this.handleJobLists();
+  }
+
   // snackbars
   openSnackBarSuccess(message: string) {
     this.snackBar.openFromComponent(SnackBarSuccessComponent, {
@@ -201,4 +215,23 @@ export class JobsComponent implements OnInit {
   }
 
 
+
+  currentPage = 1;
+  totalJobs = 0;
+  totalPages = 1;
+  pageSize = 6;
+
+  loadData(event : any){
+    this.currentPage = event;
+    // console.log(this.currentPage);
+    this.handleJobLists();
+  }
+
+  // pages = [1, 2, 3, 4, 5];
+  // currentPage = 1;
+
+  // setPage(page: number) {
+  //   this.currentPage = page;
+  //   // you can also emit event or call API here
+  // }
 }

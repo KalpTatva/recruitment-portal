@@ -1,4 +1,5 @@
 export interface JobListsInterface {
+  jobId: number;
   imageUrl: string;
   companyName: string;
   jobTitle: string;
@@ -30,13 +31,36 @@ export interface jobTypeInterface {
 }
 
 export interface SearchParamsInterface {
-  categoryId?: number,
-  searchInput?: string,
-  location?: number,
-  jobType?: number,
-  experience?: number,
-  datePost?: number,
-  minSalary?: number,
-  maxSalary?: number
+  categoryId?: number;
+  searchInput?: string;
+  location?: number;
+  jobType?: number;
+  experience?: number;
+  datePost?: number;
+  minSalary?: number;
+  maxSalary?: number;
+  sorting?: number;
+  pageNumber? : number;
+  pageSize? : number;
 }
 
+export interface JobDetailInterface {
+  jobId: number;
+  imageUrl: string;
+  companyName: string;
+  jobTitle: string;
+  jobRole: string;
+  jobType: string;
+  jobCategory: string;
+  jobDescription : string;
+  shortAddress : string;
+  longAddress : string;
+  minSalary: number;
+  maxSalary: number;
+  applicationStartDate: Date;
+  applicationEndDate: Date;
+  experience: number;
+  degree : string;
+  createdAt: string;
+  tags : string;
+}

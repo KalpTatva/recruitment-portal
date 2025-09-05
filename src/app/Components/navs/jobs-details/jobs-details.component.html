@@ -1,0 +1,51 @@
+<div class="time-bookmark">
+  <success-tags [message]="temptime" />
+  <span class="material-icons-outlined bookmark"> bookmark_add </span>
+</div>
+<div class="container">
+  <div class="Jobs">
+    <div class="">
+      <div>
+        <div class="job">
+          <img [src]="data()?.imageUrl" height="100" width="100" />
+          <div class="job-title">
+            <h1>{{ data()?.jobTitle }}</h1>
+            <span> {{ data()?.companyName }} </span>
+          </div>
+        </div>
+        <div class="job-description">
+          <div class="job-description-content">
+            <div class="flex-box">
+              <span class="material-icons-outlined"> business_center </span>
+              <span> {{ data()?.jobCategory }} </span>
+            </div>
+            <div class="flex-box">
+              <span class="material-icons-outlined"> access_time </span>
+              <span> {{ data()?.jobType }} </span>
+            </div>
+            <div class="flex-box">
+              <span class="material-icons-outlined">
+                account_balance_wallet</span
+              >
+              <span> {{ data()?.minSalary }}₹ to {{ data()?.maxSalary }}₹</span>
+            </div>
+            <div class="flex-box">
+              <span class="material-icons-outlined"> location_on </span>
+              <span> {{ data()?.shortAddress }} </span>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="wrapper">
+          <div [innerHTML]="data()?.jobDescription" ></div>
+
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <div class="filters"></div>
+</div>
+
+
+<!-- <div>
+  {{ jobDetail() | json }}
+</div> -->

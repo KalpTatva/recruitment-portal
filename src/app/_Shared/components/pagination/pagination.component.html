@@ -1,0 +1,33 @@
+<!-- pagination.component.html -->
+<div class="paging-class">
+  <button
+    class="navigation-button"
+    (click)="setPage(currentPage - 1)"
+    [disabled]="currentPage === 1"
+  >
+    <i class="material-icons-outlined">chevron_left</i>
+    <p>Previous</p>
+  </button>
+
+  <span class="paging-btn">
+    @for(page of [].constructor(totalPages); track $index) {
+
+    <button
+      class="page"
+      [ngClass]="{ active: currentPage === $index + 1 }"
+      (click)="setPage($index + 1)"
+    >
+      {{ $index + 1 }}
+    </button>
+    }
+  </span>
+
+  <button
+    class="navigation-button"
+    (click)="setPage(currentPage + 1)"
+    [disabled]="currentPage === totalPages"
+  >
+    <p>Next</p>
+    <i class="material-icons-outlined">navigate_next</i>
+  </button>
+</div>

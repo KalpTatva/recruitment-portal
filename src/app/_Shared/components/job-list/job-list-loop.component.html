@@ -32,7 +32,7 @@
           </div>
         </div>
         <div class="gree-button">
-          <green-button [data]="jobDetails" />
+          <green-button [data]="jobDetails" (click)="handleDetailsClick(data?.jobId ?? 0)" />
         </div>
       </div>
     </div>

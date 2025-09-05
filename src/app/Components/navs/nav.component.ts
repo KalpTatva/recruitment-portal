@@ -25,12 +25,15 @@ export class NavsComponent implements OnInit {
   }
 
   handleBannerName(currentPath: any) {
+    console.log(currentPath);
     if (currentPath.includes('jobs')) {
       this.currentBanner.set('Jobs');
     } else if (currentPath.includes('AboutUs')) {
       this.currentBanner.set('About Us');
     } else if (currentPath.includes('contact-us')) {
       this.currentBanner.set('Contact Us');
+    } else if (currentPath.includes('job-details')) {
+      this.currentBanner.set("Job Details");
     }
   }
 }

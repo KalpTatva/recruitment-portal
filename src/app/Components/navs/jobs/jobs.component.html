@@ -8,17 +8,17 @@
       (input)="onSearchInput($event)"
     />
 
-    <div style="width: 100%;">
-    <h4>Location</h4>
-    <select class="search" (change)="onLocationChange($event)">
-      <option value="" class="light-option">Choose City</option>
-      @for (job of cities(); track $index) {
-      <option [value]="job.cityId">{{ job.cityName }}</option>
-      }
-    </select>
+    <div style="width: 100%">
+      <h4>Location</h4>
+      <select class="search" (change)="onLocationChange($event)">
+        <option value="" class="light-option">Choose City</option>
+        @for (job of cities(); track $index) {
+        <option [value]="job.cityId">{{ job.cityName }}</option>
+        }
+      </select>
     </div>
 
-    <div style="width: 100%;">
+    <div style="width: 100%">
       <h4>Category</h4>
       <ul class="lists-with-checkbox">
         @for (category of categoryFilters(); track $index) { @if($index <= 4) {
@@ -175,7 +175,7 @@
         </ul>
       </div>
     </div>
-    <div style="width: 100%;">
+    <div style="width: 100%">
       <h4>Salary</h4>
       <div class="range">
         <div class="range-slider">
@@ -218,8 +218,8 @@
 
   <div class="Jobs">
     <div class="sorting-pagging-div">
-      <span> Showing 6 out of 10 results </span>
-      <select class="search">
+      <span> Showing {{ jobs().length }} out of {{ totalJobs }} results </span>
+      <select class="search" (change)="handleSortings($event)">
         <option value="1" class="light-option">Sort by latest</option>
         <option value="2" class="light-option">Sort by oldest</option>
       </select>
@@ -227,12 +227,42 @@
 
     @if( jobs().length > 0 ) {
     <div class="job-lists">
-      <div class="job-list-child">
-        @for (job of jobs(); track $index) {
-        <job-loop-list-component [data]="job" />
-        }
-      </div>
+      @for (job of jobs(); track $index) {
+      <job-loop-list-component [data]="job" />
+      }
     </div>
+
+    <!-- paginations -->
+    <div class="margin-top">
+      <app-pagination
+        [totalPages]="totalPages"
+        [currentPage]="currentPage"
+        (pageChange)="loadData($event)"
+      >
+      </app-pagination>
+    </div>
+    <!-- <div class="paging-class">
+      <button class="navigation-button">
+        <i class="material-icons-outlined">chevron_left</i>
+        <p>Previous</p>
+      </button>
+      <span class="paging-btn">
+        @for(page of pages; track $index) {
+        <button
+          class="page"
+          [ngClass]="{ active: page === currentPage }"
+          (click)="setPage(page)"
+        >
+          {{ page }}
+        </button>
+        }
+      </span>
+      <button class="navigation-button">
+        <p>Next</p>
+        <i class="material-icons-outlined">navigate_next</i>
+      </button>
+    </div> -->
+
     }@else {
     <div class="no-job-found">
       <img src="/assets/images/no-job-found.webp" class="" alt="" />

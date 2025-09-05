@@ -21,7 +21,8 @@ export const routes: Routes = [
         loadComponent: () => import('./Components/navs/nav.component').then((m) => m.NavsComponent),
         children : [
           {path:'jobs', loadComponent: () => import('./Components/navs/jobs/jobs.component').then((m) => m.JobsComponent)},
-          {path:'contact-us', loadComponent: () =>  import('./Components/navs/contactUs/contactUs.component').then((m) => m.ContactUsComponent)}
+          {path:'contact-us', loadComponent: () =>  import('./Components/navs/contactUs/contactUs.component').then((m) => m.ContactUsComponent)},
+          {path:'job-details/:id', loadComponent: () => import("./Components/navs/jobs-details/jobs-details.component").then((m) => m.JobDetailsComponent)},
         ]
       },
       {

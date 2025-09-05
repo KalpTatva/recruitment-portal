@@ -1,0 +1,115 @@
+@use "mixins";
+
+.container {
+  padding: 20px 20px 0px 20px;
+  display: flex;
+
+  @include mixins.respond-to(desktop) {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  background: #ebf5f4;
+  border-radius: 10px;
+  width: 300px;
+  padding: 1.5rem;
+  h4 {
+    text-wrap: nowrap;
+    margin-bottom: 10px;
+  }
+  .show-more {
+    margin-bottom: 10px;
+  }
+
+  @include mixins.respond-to(desktop) {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
+
+
+
+
+.Jobs {
+  width: 100%;
+}
+
+
+.time-bookmark {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 20px 0px 20px;
+}
+
+
+
+
+.material-icons-outlined {
+  font-size: 30px;
+  color: #6C757D;
+}
+
+.job {
+  display: flex;
+  align-items: center;
+
+  & img {
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+  }
+}
+
+.job-description {
+  display: flex;
+  justify-content: space-between;
+
+  @include mixins.respond-to(tablet) {
+    flex-direction: column;
+  }
+}
+.job-description-content {
+  display: flex;
+  gap: 20px;
+
+  @include mixins.respond-to(tablet) {
+    flex-direction: column;
+  }
+}
+.job-description-content .material-icons-outlined {
+  color: #309689;
+}
+
+.flex-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  @include mixins.respond-to(tablet) {
+    align-items: start;
+    justify-content: start;
+  }
+
+}
+
+.job-title h1 {
+  margin-bottom: 10px;
+  @include mixins.respond-to(tablet) {
+    line-height: 30px;
+  }
+}
+
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}

@@ -25,7 +25,10 @@ export class JobsServices {
       .set('experience', params.experience ?? 0)
       .set('datePost', params.datePost ?? 0)
       .set('minSalary', params.minSalary ?? 0)
-      .set('maxSalary', params.maxSalary ?? 0);
+      .set('maxSalary', params.maxSalary ?? 0)
+      .set('sorting', params.sorting ?? 1)
+      .set('pageNumber', params.pageNumber ?? 1)
+      .set('pageSize', params.pageSize ?? 6);
 
     return this.http
       .get<any>(`${this.API_URL}/Job/get-job-list-with-params`, {
@@ -36,6 +39,15 @@ export class JobsServices {
           // console.log(res);
         })
       );
+  }
+
+  getJobDetails(params: number) {
+    return this.http.get<any>(`${this.API_URL}/Job/get-job-detail/${params}`)
+    .pipe(
+      tap((res) => {
+        console.log(res);
+      })
+    )
   }
 
   getCityList() {

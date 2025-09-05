@@ -25,7 +25,7 @@ export class HomePageComponent implements OnInit {
 
   handleSearch(event: any) {
     this.searchInput = event.target.value;
-    console.log(this.searchInput);
+    // console.log(this.searchInput);
   }
 
   getJobs() {
@@ -46,7 +46,7 @@ export class HomePageComponent implements OnInit {
   }
 
   searchJobs() {
-    console.log('hello', this.searchInput);
+    // console.log('hello', this.searchInput);
     this.getJobs();
 
   }
